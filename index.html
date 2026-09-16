@@ -28,8 +28,27 @@
             padding: 1.5rem; 
             border-radius: 8px; 
             margin-bottom: 1.5rem; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid #2e7d32;
         }
+        .review-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.2rem;
+            font-size: 1.4rem;
+        }
+        .location {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .ratings-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        .ratings-box p { margin: 5px 0; }
         a { color: #2e7d32; text-decoration: none; font-weight: bold; }
     </style>
 </head>
@@ -42,12 +61,20 @@
     <div class="container">
         <h2>Latest Reviews</h2>
         
+        <!-- ⬇️ COPY FROM HERE TO ADD A NEW REVIEW ⬇️ -->
         <div class="review-card">
-            <h3>[Restaurant Name] - [City]</h3>
-            <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
-            <p>Write a little bit about your experience here! Was the vegan burger amazing? How was the service?</p>
-            <a href="https://instagram.com/plantbasedandpicky">Read more on our Instagram</a>
+            <h3>[Restaurant Name]</h3>
+            <span class="location">📍 [Location, e.g., Manchester]</span>
+            
+            <div class="ratings-box">
+                <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
+                <p><strong>Food Rating:</strong> ⭐⭐⭐⭐⭐</p>
+            </div>
+            
+            <p>Write your review here! What did you and your wife order? Was it worth the visit?</p>
         </div>
+        <!-- ⬆️ STOP COPYING HERE ⬆️ -->
+
     </div>
 </body>
 </html>
