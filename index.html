@@ -12,11 +12,15 @@
             margin: 0; 
             padding: 0; 
         }
-        header { 
-            background-color: #2e7d32; 
-            color: white; 
-            padding: 2rem; 
-            text-align: center; 
+        .banner-container { 
+            width: 100%; 
+            background-color: #ffffff; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .banner-image { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
         }
         .container { 
             max-width: 800px; 
@@ -60,10 +64,11 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Plant-Based & Picky</h1>
-        <p>Because Veggies Deserve the Spotlight 🌿</p>
-    </header>
+    
+    <!-- New Image Banner -->
+    <div class="banner-container">
+        <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
+    </div>
 
     <div class="container">
         <h2>Latest Reviews</h2>
