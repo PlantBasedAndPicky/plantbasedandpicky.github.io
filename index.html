@@ -28,7 +28,6 @@
             margin: 3rem auto; 
             padding: 0 1.5rem; 
         }
-        /* New styling for your About section */
         .about-section {
             background: white;
             padding: 2.5rem;
@@ -75,7 +74,19 @@
             box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
         .review-card h3 { margin: 0 0 0.5rem 0; font-size: 1.5rem; }
-        .location { color: #7f8c8d; font-size: 0.95rem; margin-bottom: 1.5rem; display: block; }
+        
+        /* Updated Location Styling for Homepage */
+        .location { font-size: 0.95rem; margin-bottom: 1.5rem; display: block; }
+        .location a {
+            color: #7f8c8d;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .location a:hover {
+            color: #2e7d32;
+            text-decoration: underline;
+        }
+
         .ratings-box {
             background-color: #f8fcf8;
             padding: 15px;
@@ -107,7 +118,6 @@
 
     <div class="container">
         
-        <!-- NEW ABOUT SECTION -->
         <div class="about-section">
             <h2>Welcome to Plant-Based & Picky</h2>
             <p>People always say that if you can’t find what you’re looking for, become the thing you want to see and that’s exactly what this is.</p>
@@ -126,7 +136,7 @@
             <!-- Review: Down the Hatch -->
             <div class="review-card">
                 <h3>Down the Hatch</h3>
-                <span class="location">📍 Liverpool</span>
+                <span class="location"><a href="https://maps.app.goo.gl/d3gfv7wLwg8AfwRm7" target="_blank">📍 Liverpool</a></span>
                 <div class="ratings-box">
                     <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
                     <p><strong>Food Rating:</strong> ⭐⭐⭐⭐½</p>
@@ -137,7 +147,7 @@
             <!-- Review: Chatterley Whitfield -->
             <div class="review-card">
                 <h3>Chatterley Whitfield</h3>
-                <span class="location">📍 Stoke-on-Trent</span>
+                <span class="location"><a href="https://www.google.com/maps/search/?api=1&query=Chatterley+Whitfield+Hungry+Horse+Stoke-on-Trent" target="_blank">📍 Stoke-on-Trent</a></span>
                 <div class="ratings-box">
                     <p><strong>Veg Options:</strong> 🟠 Orange (OK Options)</p>
                     <p><strong>Food Rating:</strong> ⭐⭐⭐⭐</p>
@@ -148,7 +158,7 @@
             <!-- Review: Church - Temple of Fun -->
             <div class="review-card">
                 <h3>Church - Temple of Fun</h3>
-                <span class="location">📍 Sheffield</span>
+                <span class="location"><a href="https://www.google.com/maps/search/?api=1&query=Church+Temple+of+Fun+Sheffield" target="_blank">📍 Sheffield</a></span>
                 <div class="ratings-box">
                     <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
                     <p><strong>Food Rating:</strong> ⭐⭐⭐⭐⭐</p>
