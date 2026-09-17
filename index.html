@@ -59,12 +59,13 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+        
+        /* Base Card Styling */
         .review-card { 
             background: white; 
             padding: 2rem; 
             border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid #2e7d32;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -75,7 +76,11 @@
         }
         .review-card h3 { margin: 0 0 0.5rem 0; font-size: 1.5rem; }
         
-        /* Updated Location Styling for Homepage */
+        /* Colour-Coded Top Borders */
+        .review-card.rating-green { border-top: 5px solid #2e7d32; }
+        .review-card.rating-orange { border-top: 5px solid #f57c00; }
+        .review-card.rating-red { border-top: 5px solid #d32f2f; }
+
         .location { font-size: 0.95rem; margin-bottom: 1.5rem; display: block; }
         .location a {
             color: #7f8c8d;
@@ -87,14 +92,20 @@
             text-decoration: underline;
         }
 
+        /* Base Ratings Box Styling */
         .ratings-box {
-            background-color: #f8fcf8;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            border: 1px solid #eef5ee;
+            border: 1px solid transparent;
         }
         .ratings-box p { margin: 8px 0; font-size: 0.95rem; }
+        
+        /* Colour-Coded Ratings Boxes */
+        .rating-green .ratings-box { background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+        .rating-orange .ratings-box { background-color: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+        .rating-red .ratings-box { background-color: #fef2f2; border-color: #fecaca; color: #991b1b; }
+
         .read-more-btn { 
             margin-top: auto;
             display: block; 
@@ -133,34 +144,34 @@
         
         <div class="reviews-grid">
             
-            <!-- Review: Down the Hatch -->
-            <div class="review-card">
+            <!-- Review: Down the Hatch (Green Theme) -->
+            <div class="review-card rating-green">
                 <h3>Down the Hatch</h3>
                 <span class="location"><a href="https://maps.app.goo.gl/d3gfv7wLwg8AfwRm7" target="_blank">📍 Liverpool</a></span>
                 <div class="ratings-box">
-                    <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
+                    <p><strong>Veg Options:</strong> Fully Vegan</p>
                     <p><strong>Food Rating:</strong> ⭐⭐⭐⭐½</p>
                 </div>
                 <a href="down-the-hatch.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
-            <!-- Review: Chatterley Whitfield -->
-            <div class="review-card">
+            <!-- Review: Chatterley Whitfield (Orange Theme) -->
+            <div class="review-card rating-orange">
                 <h3>Chatterley Whitfield</h3>
                 <span class="location"><a href="https://www.google.com/maps/search/?api=1&query=Chatterley+Whitfield+Hungry+Horse+Stoke-on-Trent" target="_blank">📍 Stoke-on-Trent</a></span>
                 <div class="ratings-box">
-                    <p><strong>Veg Options:</strong> 🟠 Orange (OK Options)</p>
+                    <p><strong>Veg Options:</strong> OK Options</p>
                     <p><strong>Food Rating:</strong> ⭐⭐⭐⭐</p>
                 </div>
                 <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
-            <!-- Review: Church - Temple of Fun -->
-            <div class="review-card">
+            <!-- Review: Church - Temple of Fun (Green Theme) -->
+            <div class="review-card rating-green">
                 <h3>Church - Temple of Fun</h3>
                 <span class="location"><a href="https://www.google.com/maps/search/?api=1&query=Church+Temple+of+Fun+Sheffield" target="_blank">📍 Sheffield</a></span>
                 <div class="ratings-box">
-                    <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
+                    <p><strong>Veg Options:</strong> Fully Vegan</p>
                     <p><strong>Food Rating:</strong> ⭐⭐⭐⭐⭐</p>
                 </div>
                 <a href="church.html" class="read-more-btn">Read Review & Gallery ➔</a>
