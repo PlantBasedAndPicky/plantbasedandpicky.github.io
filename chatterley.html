@@ -39,7 +39,19 @@
             margin-bottom: 2rem;
         }
         h1 { margin-top: 0; color: #2e7d32; font-size: 2.2rem; }
-        .location { color: #7f8c8d; font-size: 1.1rem; margin-bottom: 1.5rem; display: block; }
+        
+        /* Professional Map Link Styling */
+        .location { font-size: 1.1rem; margin-bottom: 1.5rem; display: block; }
+        .location a {
+            color: #7f8c8d;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .location a:hover {
+            color: #2e7d32;
+            text-decoration: underline;
+        }
+
         .ratings-box {
             background-color: #f8fcf8;
             padding: 15px;
@@ -80,12 +92,11 @@
     </div>
 
     <div class="container">
-        <!-- This links back to your homepage -->
         <a href="index.html" class="back-link">← Back to Homepage</a>
         
         <div class="header-section">
             <h1>Chatterley Whitfield (Hungry Horse)</h1>
-            <span class="location">📍 Stoke-on-Trent</span>
+            <span class="location"><a href="https://www.google.com/maps/search/?api=1&query=Chatterley+Whitfield+Hungry+Horse+Stoke-on-Trent" target="_blank">📍 Stoke-on-Trent</a></span>
             
             <div class="ratings-box">
                 <p><strong>Veg Options:</strong> 🟠 Orange (OK Options)</p>
