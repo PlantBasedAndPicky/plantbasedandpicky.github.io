@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant-Based & Picky</title>
+    <!-- This line imports the professional font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { 
-            font-family: Arial, sans-serif; 
-            background-color: #f4f9f4; 
-            color: #333; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fafafa; 
+            color: #2c3e50; 
             margin: 0; 
             padding: 0; 
         }
         .banner-container { 
             width: 100%; 
             background-color: #ffffff; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .banner-image { 
             width: 100%; 
@@ -23,49 +25,64 @@
             display: block; 
         }
         .container { 
-            max-width: 800px; 
-            margin: 2rem auto; 
-            padding: 0 1rem; 
+            max-width: 1000px; 
+            margin: 3rem auto; 
+            padding: 0 1.5rem; 
+        }
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2e7d32;
+        }
+        /* This creates the modern side-by-side grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         .review-card { 
             background: white; 
-            padding: 1.5rem; 
-            border-radius: 8px; 
-            margin-bottom: 1.5rem; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid #2e7d32;
+            padding: 2rem; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #2e7d32;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
-        .review-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.2rem;
-            font-size: 1.4rem;
+        /* This makes the card float up when touched/hovered */
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
-        .location {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
+        .review-card h3 { margin: 0 0 0.5rem 0; font-size: 1.5rem; }
+        .location { color: #7f8c8d; font-size: 0.95rem; margin-bottom: 1.5rem; display: block; }
         .ratings-box {
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 1rem;
+            background-color: #f8fcf8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #eef5ee;
         }
-        .ratings-box p { margin: 5px 0; }
-        a { color: #2e7d32; text-decoration: none; font-weight: bold; }
-        .menu-link { 
-            display: inline-block; 
-            margin-top: 10px; 
-            padding: 8px 12px; 
-            background-color: #e8f5e9; 
-            border-radius: 4px; 
+        .ratings-box p { margin: 8px 0; font-size: 0.95rem; }
+        .read-more-btn { 
+            margin-top: auto;
+            display: block; 
+            text-align: center;
+            padding: 12px; 
+            background-color: #2e7d32; 
+            color: white;
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: background-color 0.3s;
         }
+        .read-more-btn:hover { background-color: #1b5e20; }
     </style>
 </head>
 <body>
     
-    <!-- Image Banner -->
     <div class="banner-container">
         <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
     </div>
@@ -73,32 +90,31 @@
     <div class="container">
         <h2>Latest Reviews</h2>
         
-        <!-- Review 2: Chatterley Whitfield -->
-        <div class="review-card">
-            <h3>Chatterley Whitfield (Hungry Horse)</h3>
-            <span class="location">📍 Stoke-on-Trent</span>
+        <div class="reviews-grid">
             
-            <div class="ratings-box">
-                <p><strong>Veg Options:</strong> 🟠 Orange (OK Options)</p>
-                <p><strong>Food Rating:</strong> ⭐⭐⭐⭐</p>
+            <!-- Review: Chatterley Whitfield -->
+            <div class="review-card">
+                <h3>Chatterley Whitfield</h3>
+                <span class="location">📍 Stoke-on-Trent</span>
+                <div class="ratings-box">
+                    <p><strong>Veg Options:</strong> 🟠 Orange (OK Options)</p>
+                    <p><strong>Food Rating:</strong> ⭐⭐⭐⭐</p>
+                </div>
+                <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
-            
-            <a href="https://www.hungryhorse.co.uk/pubs/staffordshire/chatterley-whitfield/menu?utm_source=g_places&utm_medium=locations&utm_campaign=HH_menu" class="menu-link" target="_blank">View their menu ➔</a>
-        </div>
 
-        <!-- Review 1: Church - Temple of Fun -->
-        <div class="review-card">
-            <h3>Church - Temple of Fun</h3>
-            <span class="location">📍 Sheffield</span>
-            
-            <div class="ratings-box">
-                <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
-                <p><strong>Food Rating:</strong> ⭐⭐⭐⭐⭐</p>
+            <!-- Review: Church - Temple of Fun -->
+            <div class="review-card">
+                <h3>Church - Temple of Fun</h3>
+                <span class="location">📍 Sheffield</span>
+                <div class="ratings-box">
+                    <p><strong>Veg Options:</strong> 🟢 Green (Fully Vegan)</p>
+                    <p><strong>Food Rating:</strong> ⭐⭐⭐⭐⭐</p>
+                </div>
+                <a href="church.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
-            
-            <a href="https://templeof.fun/pages/menus" class="menu-link" target="_blank">View their menu ➔</a>
-        </div>
 
+        </div>
     </div>
 </body>
 </html>
