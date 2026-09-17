@@ -14,7 +14,6 @@
             padding: 0; 
         }
         
-        /* 1. Sticky Navigation Bar */
         .navbar {
             position: sticky;
             top: 0;
@@ -66,7 +65,6 @@
             margin-bottom: 4rem;
             border-top: 5px solid #2e7d32;
             line-height: 1.8;
-            /* Added smooth scroll padding */
             scroll-margin-top: 80px; 
         }
         .about-section h2 {
@@ -83,6 +81,7 @@
             font-size: 2rem;
             margin-bottom: 2rem;
             color: #2e7d32;
+            scroll-margin-top: 80px; /* Prevents the sticky header from hiding the title when jumped to */
         }
         .reviews-grid {
             display: grid;
@@ -109,7 +108,6 @@
         .review-card.rating-orange { border-top: 5px solid #f57c00; }
         .review-card.rating-red { border-top: 5px solid #d32f2f; }
 
-        /* 2. Modern Pill Tags */
         .pills-container {
             display: flex;
             flex-wrap: wrap;
@@ -158,7 +156,6 @@
         }
         .read-more-btn:hover { background-color: #1b5e20; }
 
-        /* 3. Professional Site Footer */
         .site-footer {
             background-color: #2c3e50;
             color: #ffffff;
@@ -183,10 +180,10 @@
 </head>
 <body id="top">
     
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-content">
-            <a href="index.html" class="nav-brand">Plant-Based & Picky</a>
+            <!-- This now links exactly to the Latest Reviews section below -->
+            <a href="index.html#latest-reviews" class="nav-brand">Latest Reviews</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="#about">About</a>
@@ -211,11 +208,11 @@
             <p><em>And where does the Picky part of our name come from I hear you ask? That’s thanks to my lifelong mushroom boycott. 🍄</em></p>
         </div>
 
-        <h2 class="section-title">Latest Reviews</h2>
+        <!-- Added the ID 'latest-reviews' right here to act as an anchor link -->
+        <h2 id="latest-reviews" class="section-title">Latest Reviews</h2>
         
         <div class="reviews-grid">
             
-            <!-- Review: Down the Hatch -->
             <div class="review-card rating-green">
                 <h3>Down the Hatch</h3>
                 
@@ -230,7 +227,6 @@
                 <a href="down-the-hatch.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
-            <!-- Review: Chatterley Whitfield -->
             <div class="review-card rating-orange">
                 <h3>Chatterley Whitfield</h3>
                 
@@ -245,7 +241,6 @@
                 <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
-            <!-- Review: Church - Temple of Fun -->
             <div class="review-card rating-green">
                 <h3>Church - Temple of Fun</h3>
                 
@@ -263,7 +258,6 @@
         </div>
     </div>
 
-    <!-- Site Footer -->
     <footer class="site-footer">
         <p>&copy; 2026 Plant-Based & Picky.</p>
         <p><a href="https://www.instagram.com/plantbasedandpicky" target="_blank">Follow us on Instagram</a></p>
