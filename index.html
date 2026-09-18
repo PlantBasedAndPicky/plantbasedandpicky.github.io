@@ -81,7 +81,7 @@
             font-size: 2rem;
             margin-bottom: 2rem;
             color: #2e7d32;
-            scroll-margin-top: 80px; /* Prevents the sticky header from hiding the title when jumped to */
+            scroll-margin-top: 80px; 
         }
         .reviews-grid {
             display: grid;
@@ -89,24 +89,58 @@
             gap: 2rem;
         }
         
+        /* UPDATED: Card Styling for Images */
         .review-card { 
             background: white; 
-            padding: 2rem; 
+            padding: 0; /* Removed padding to let image stretch to edges */
             border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Keeps the top corners of the image rounded */
         }
         .review-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
-        .review-card h3 { margin: 0 0 1rem 0; font-size: 1.5rem; }
         
         .review-card.rating-green { border-top: 5px solid #2e7d32; }
         .review-card.rating-orange { border-top: 5px solid #f57c00; }
         .review-card.rating-red { border-top: 5px solid #d32f2f; }
+
+        /* NEW: Image Wrapper & Effects */
+        .card-image-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #f1f5f9; /* Soft grey for placeholders */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .review-card:hover .card-image {
+            transform: scale(1.05); /* Professional zoom effect on hover */
+        }
+
+        /* NEW: Content Wrapper inside the card */
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 { margin: 0 0 1rem 0; font-size: 1.5rem; }
 
         .pills-container {
             display: flex;
@@ -182,7 +216,6 @@
     
     <nav class="navbar">
         <div class="nav-content">
-            <!-- This now links exactly to the Latest Reviews section below -->
             <a href="index.html#latest-reviews" class="nav-brand">Latest Reviews</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -208,51 +241,75 @@
             <p><em>And where does the Picky part of our name come from I hear you ask? That’s thanks to my lifelong mushroom boycott. 🍄</em></p>
         </div>
 
-        <!-- Added the ID 'latest-reviews' right here to act as an anchor link -->
         <h2 id="latest-reviews" class="section-title">Latest Reviews</h2>
         
         <div class="reviews-grid">
             
+            <!-- Review: Down the Hatch -->
             <div class="review-card rating-green">
-                <h3>Down the Hatch</h3>
+                <!-- Image Wrapper -->
+                <div class="card-image-wrapper">
+                    <img src="down-the-hatch-front.png" alt="Front of Down the Hatch Restaurant" class="card-image">
+                </div>
                 
-                <div class="pills-container">
-                    <a href="https://maps.app.goo.gl/d3gfv7wLwg8AfwRm7" target="_blank" class="tag-pill">📍 Liverpool</a>
-                    <span class="tag-pill">⭐⭐⭐⭐½</span>
-                </div>
+                <!-- Content Wrapper -->
+                <div class="card-content">
+                    <h3>Down the Hatch</h3>
+                    
+                    <div class="pills-container">
+                        <a href="https://maps.app.goo.gl/d3gfv7wLwg8AfwRm7" target="_blank" class="tag-pill">📍 Liverpool</a>
+                        <span class="tag-pill">⭐⭐⭐⭐½</span>
+                    </div>
 
-                <div class="ratings-box">
-                    <p><strong>Veg Options:</strong> Fully Vegan</p>
+                    <div class="ratings-box">
+                        <p><strong>Veg Options:</strong> Fully Vegan</p>
+                    </div>
+                    <a href="down-the-hatch.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
-                <a href="down-the-hatch.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
+            <!-- Review: Chatterley Whitfield -->
             <div class="review-card rating-orange">
-                <h3>Chatterley Whitfield</h3>
+                <!-- Placeholder Image Wrapper -->
+                <div class="card-image-wrapper">
+                    <span>📷 More photos soon</span>
+                </div>
                 
-                <div class="pills-container">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Chatterley+Whitfield+Hungry+Horse+Stoke-on-Trent" target="_blank" class="tag-pill">📍 Stoke-on-Trent</a>
-                    <span class="tag-pill">⭐⭐⭐⭐</span>
-                </div>
+                <div class="card-content">
+                    <h3>Chatterley Whitfield</h3>
+                    
+                    <div class="pills-container">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chatterley+Whitfield+Hungry+Horse+Stoke-on-Trent" target="_blank" class="tag-pill">📍 Stoke-on-Trent</a>
+                        <span class="tag-pill">⭐⭐⭐⭐</span>
+                    </div>
 
-                <div class="ratings-box">
-                    <p><strong>Veg Options:</strong> OK Options</p>
+                    <div class="ratings-box">
+                        <p><strong>Veg Options:</strong> OK Options</p>
+                    </div>
+                    <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
-                <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
+            <!-- Review: Church - Temple of Fun -->
             <div class="review-card rating-green">
-                <h3>Church - Temple of Fun</h3>
-                
-                <div class="pills-container">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Church+Temple+of+Fun+Sheffield" target="_blank" class="tag-pill">📍 Sheffield</a>
-                    <span class="tag-pill">⭐⭐⭐⭐⭐</span>
+                <!-- Placeholder Image Wrapper -->
+                <div class="card-image-wrapper">
+                    <span>📷 More photos soon</span>
                 </div>
 
-                <div class="ratings-box">
-                    <p><strong>Veg Options:</strong> Fully Vegan</p>
+                <div class="card-content">
+                    <h3>Church - Temple of Fun</h3>
+                    
+                    <div class="pills-container">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Church+Temple+of+Fun+Sheffield" target="_blank" class="tag-pill">📍 Sheffield</a>
+                        <span class="tag-pill">⭐⭐⭐⭐⭐</span>
+                    </div>
+
+                    <div class="ratings-box">
+                        <p><strong>Veg Options:</strong> Fully Vegan</p>
+                    </div>
+                    <a href="church.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
-                <a href="church.html" class="read-more-btn">Read Review & Gallery ➔</a>
             </div>
 
         </div>
