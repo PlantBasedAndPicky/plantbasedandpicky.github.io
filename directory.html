@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK & Ireland Vegan Directory | Plant-Based & Picky</title>
+    
+    <meta property="og:title" content="UK & Ireland Vegan Directory | Plant-Based & Picky">
+    <meta property="og:description" content="Discover fully vegan restaurants and takeaways across the UK and the Republic of Ireland.">
+    <meta property="og:image" content="file_00000000ec7c81f4b150ae6bb6b3f761.png">
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #fafafa; color: #2c3e50; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
+        
+        .navbar { position: sticky; top: 0; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 1000; padding: 1rem 0; transition: background-color 0.3s; }
+        .nav-content { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-weight: 600; font-size: 1.2rem; color: #2e7d32; text-decoration: none; white-space: nowrap; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #2c3e50; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: #2e7d32; }
+        .dark-mode-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0; margin-left: 1.5rem; transition: transform 0.3s; }
+        .dark-mode-toggle:hover { transform: scale(1.1); }
+        
+        @media (max-width: 600px) {
+            .nav-content { flex-direction: column; gap: 12px; padding: 0.5rem 1rem; }
+            .nav-links { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; width: 100%; align-items: center; }
+            .nav-links a { margin-left: 0; font-size: 0.9rem; }
+            .dark-mode-toggle { margin-left: 0; }
+        }
+
+        .banner-container { width: 100%; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .banner-image { width: 100%; height: auto; display: block; }
+        .container { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; min-height: 50vh; }
+        
+        .directory-header { text-align: center; margin-bottom: 2.5rem; }
+        .directory-header h1 { font-size: 2.2rem; color: #2e7d32; margin-bottom: 0.5rem; }
+        .directory-header p { color: #64748b; font-size: 1.05rem; margin-top: 0; }
+
+        /* Controls Section */
+        .controls-panel {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-top: 4px solid #2e7d32;
+            transition: background-color 0.3s;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .search-bar:focus { border-color: #2e7d32; }
+
+        .filters-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-select {
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #334155;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Results Grid */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .venue-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid #2e7d32;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+        }
+        .venue-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .venue-card.takeaway { border-top-color: #0284c7; }
+
+        .venue-type-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+        .venue-card.takeaway .venue-type-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
+        .venue-location { color: #64748b; font-size: 0.9rem; margin-bottom: 1rem; }
+
+        .ratings-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 600;
+        }
+
+        .venue-links {
+            margin-top: auto;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .venue-btn {
+            flex: 1;
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: opacity 0.2s;
+        }
+        .btn-google { background-color: #ea4335; color: #ffffff !important; }
+        .btn-tripadvisor { background-color: #00aa6c; color: #ffffff !important; }
+        .venue-btn:hover { opacity: 0.9; }
+
+        #noResults {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 3rem 0;
+            color: #64748b;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        .site-footer { background-color: #2c3e50; color: #ffffff; padding: 3rem 1.5rem; margin-top: 4rem; text-align: center; }
+        .site-footer p { margin: 0.5rem 0; color: #cbd5e1; }
+        .site-footer a { color: #bbf7d0; text-decoration: none; font-weight: 600; }
+        .back-to-top { display: inline-block; margin-top: 1.5rem; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 20px; color: white !important; text-decoration: none; }
+
+        /* Dark Mode */
+        body.dark-mode { background-color: #121212; color: #e2e8f0; }
+        body.dark-mode .navbar, body.dark-mode .banner-container, body.dark-mode .controls-panel, body.dark-mode .venue-card { background-color: #1e293b; color: #f8fafc; border-color: #334155; }
+        body.dark-mode .directory-header h1, body.dark-mode .nav-brand, body.dark-mode .venue-name { color: #4ade80; }
+        body.dark-mode .directory-header p, body.dark-mode .venue-location { color: #94a3b8; }
+        body.dark-mode .nav-links a { color: #cbd5e1; }
+        body.dark-mode .nav-links a:hover { color: #4ade80; }
+        body.dark-mode .search-bar { background-color: #0f172a; border-color: #334155; color: #f8fafc; }
+        body.dark-mode .filter-select { background-color: #0f172a; border-color: #334155; color: #cbd5e1; }
+        body.dark-mode .ratings-row { background-color: #0f172a; }
+        body.dark-mode .site-footer { background-color: #0f172a; }
+    </style>
+</head>
+<body id="top">
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html#latest-reviews" class="nav-brand">Latest Reviews</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="restaurants.html">Restaurants</a>
+                <a href="takeaways.html">Takeaways</a>
+                <a href="directory.html" style="color: #2e7d32;">Discover</a>
+                <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner-container">
+        <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
+    </div>
+
+    <div class="container">
+        <div class="directory-header">
+            <h1>UK & Ireland Vegan Directory</h1>
+            <p>100% plant-based spots waiting to be explored.</p>
+        </div>
+
+        <div class="controls-panel">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search by venue name, city, or region (e.g. Dublin, Manchester)...">
+            <div class="filters-row">
+                <select id="regionFilter" class="filter-select">
+                    <option value="all">All Regions</option>
+                    <option value="England">England</option>
+                    <option value="Scotland">Scotland</option>
+                    <option value="Wales">Wales</option>
+                    <option value="Northern Ireland">Northern Ireland</option>
+                    <option value="Republic of Ireland">Republic of Ireland</option>
+                </select>
+                <select id="typeFilter" class="filter-select">
+                    <option value="all">All Types</option>
+                    <option value="Restaurant">Restaurants</option>
+                    <option value="Takeaway">Takeaways</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="directoryGrid" class="directory-grid"></div>
+        <div id="noResults">No vegan spots found matching your search.</div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Plant-Based & Picky.</p>
+        <p><a href="https://www.instagram.com/plantbasedandpicky" target="_blank">Follow us on Instagram</a></p>
+        <a href="#top" class="back-to-top">↑ Back to Top</a>
+    </footer>
+
+    <script>
+        // Dark Mode Logic with Memory
+        const toggleBtn = document.getElementById('darkModeToggle');
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️';
+        }
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                toggleBtn.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                toggleBtn.textContent = '🌙';
+            }
+        });
+
+        // Curated Dataset of 100% Vegan Venues
+        const venues = [
+            // Republic of Ireland
+            { name: "Cornucopia Wholefoods", type: "Restaurant", city: "Dublin", region: "Republic of Ireland", google: "4.5", tripadvisor: "4.5", searchLink: "Cornucopia+Wholefoods+Dublin" },
+            { name: "The Saucy Cow", type: "Takeaway", city: "Dublin", region: "Republic of Ireland", google: "4.7", tripadvisor: "4.5", searchLink: "The+Saucy+Cow+Dublin" },
+            { name: "Glas Restaurant", type: "Restaurant", city: "Dublin", region: "Republic of Ireland", google: "4.8", tripadvisor: "4.5", searchLink: "Glas+Restaurant+Dublin" },
+            
+            // Northern Ireland
+            { name: "Jumamonkey", type: "Takeaway", city: "Belfast", region: "Northern Ireland", google: "4.6", tripadvisor: "4.5", searchLink: "Jumamonkey+Belfast" },
+
+            // England
+            { name: "Purezza Camden", type: "Restaurant", city: "London", region: "England", google: "4.6", tripadvisor: "4.5", searchLink: "Purezza+Camden+London" },
+            { name: "Unity Diner", type: "Restaurant", city: "London", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Unity+Diner+London" },
+            { name: "Wholesome Junkies", type: "Takeaway", city: "Manchester", region: "England", google: "4.8", tripadvisor: "4.5", searchLink: "Wholesome+Junkies+Manchester" },
+            { name: "Bundobust", type: "Restaurant", city: "Leeds", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Bundobust+Leeds" },
+            { name: "Kushboo Plant-Based", type: "Takeaway", city: "Liverpool", region: "England", google: "4.9", tripadvisor: "5.0", searchLink: "Kushboo+Liverpool" },
+
+            // Scotland
+            { name: "Suissi Vegan Kitchen", type: "Restaurant", city: "Glasgow", region: "Scotland", google: "4.8", tripadvisor: "4.5", searchLink: "Suissi+Vegan+Kitchen+Glasgow" },
+            { name: "Sora Lella", type: "Restaurant", city: "Edinburgh", region: "Scotland", google: "4.8", tripadvisor: "4.5", searchLink: "Sora+Lella+Edinburgh" },
+
+            // Wales
+            { name: "Herbivore", type: "Restaurant", city: "Cardiff", region: "Wales", google: "4.9", tripadvisor: "5.0", searchLink: "Herbivore+Cardiff" }
+        ];
+
+        const grid = document.getElementById('directoryGrid');
+        const searchInput = document.getElementById('searchInput');
+        const regionFilter = document.getElementById('regionFilter');
+        const typeFilter = document.getElementById('typeFilter');
+        const noResults = document.getElementById('noResults');
+
+        function renderVenues(data) {
+            grid.innerHTML = '';
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            }
+            noResults.style.display = 'none';
+
+            data.forEach(v => {
+                const card = document.createElement('div');
+                card.className = `venue-card ${v.type.toLowerCase()}`;
+                card.innerHTML = `
+                    <span class="venue-type-badge">${v.type}</span>
+                    <h3 class="venue-name">${v.name}</h3>
+                    <div class="venue-location">📍 ${v.city}, ${v.region}</div>
+                    <div class="ratings-row">
+                        <div class="rating-badge" title="Google Rating">⭐ Google: ${v.google}</div>
+                        <div class="rating-badge" title="TripAdvisor Rating">🟢 TripAdvisor: ${v.tripadvisor}</div>
+                    </div>
+                    <div class="venue-links">
+                        <a href="https://www.google.com/maps/search/?api=1&query=${v.searchLink}" target="_blank" class="venue-btn btn-google">Google Maps</a>
+                        <a href="https://www.tripadvisor.com/Search?q=${v.searchLink}" target="_blank" class="venue-btn btn-tripadvisor">TripAdvisor</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterVenues() {
+            const query = searchInput.value.toLowerCase();
+            const selectedRegion = regionFilter.value;
+            const selectedType = typeFilter.value;
+
+            const filtered = venues.filter(v => {
+                const matchesQuery = v.name.toLowerCase().includes(query) || 
+                                     v.city.toLowerCase().includes(query) || 
+                                     v.region.toLowerCase().includes(query);
+                const matchesRegion = selectedRegion === 'all' || v.region === selectedRegion;
+                const matchesType = selectedType === 'all' || v.type === selectedType;
+                return matchesQuery && matchesRegion && matchesType;
+            });
+
+            renderVenues(filtered);
+        }
+
+        searchInput.addEventListener('input', filterVenues);
+        regionFilter.addEventListener('change', filterVenues);
+        typeFilter.addEventListener('change', filterVenues);
+
+        renderVenues(venues);
+    </script>
+</body>
+</html>
