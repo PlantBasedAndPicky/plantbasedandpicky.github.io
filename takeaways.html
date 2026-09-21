@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takeaways | Plant-Based & Picky</title>
-    
     <meta property="og:title" content="Takeaways | Plant-Based & Picky">
     <meta property="og:description" content="We are currently taste-testing the best plant-based takeaways.">
     <meta property="og:image" content="file_00000000ec7c81f4b150ae6bb6b3f761.png">
     <link rel="icon" href="favicon.png" type="image/png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #fafafa; color: #2c3e50; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
@@ -20,37 +18,29 @@
         .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #2c3e50; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: #2e7d32; }
         .dark-mode-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0; margin-left: 1.5rem; transition: transform 0.3s; }
-        
         @media (max-width: 600px) {
             .nav-content { flex-direction: column; gap: 12px; padding: 0.5rem 1rem; }
-            .nav-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; align-items: center; }
-            .nav-links a { margin-left: 0; font-size: 0.95rem; }
+            .nav-links { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; width: 100%; align-items: center; }
+            .nav-links a { margin-left: 0; font-size: 0.9rem; }
             .dark-mode-toggle { margin-left: 0; }
         }
-
         .banner-container { width: 100%; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .banner-image { width: 100%; height: auto; display: block; }
         .container { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; min-height: 40vh; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #2e7d32; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        
         .review-card { background: white; padding: 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; overflow: hidden; border-top: 5px solid #94a3b8; transition: background-color 0.3s, border-color 0.3s; }
-        
         .card-image-wrapper { width: 100%; height: 220px; overflow: hidden; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #64748b; font-weight: 600; font-size: 1.2rem; transition: background-color 0.3s; }
-        
         .card-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; text-align: center; }
         .card-content h3 { margin: 0 0 1rem 0; font-size: 1.5rem; }
-        
         .read-more-btn { margin-top: auto; display: block; text-align: center; padding: 12px; background-color: #94a3b8; color: white; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background-color 0.3s; }
         .read-more-btn:hover { background-color: #64748b; }
-        
         .site-footer { background-color: #2c3e50; color: #ffffff; padding: 3rem 1.5rem; margin-top: 4rem; text-align: center; }
         .site-footer p { margin: 0.5rem 0; color: #cbd5e1; }
         .site-footer a { color: #bbf7d0; text-decoration: none; font-weight: 600; }
         .site-footer a:hover { text-decoration: underline; }
         .back-to-top { display: inline-block; margin-top: 1.5rem; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 20px; transition: background-color 0.3s; color: white !important; }
         .back-to-top:hover { background-color: rgba(255,255,255,0.2); text-decoration: none !important; }
-
         /* Dark Mode */
         body.dark-mode { background-color: #121212; color: #e2e8f0; }
         body.dark-mode .navbar, body.dark-mode .banner-container, body.dark-mode .review-card { background-color: #1e293b; color: #f8fafc; border-color: #334155; }
@@ -72,6 +62,7 @@
                 <a href="index.html">Home</a>
                 <a href="restaurants.html">Restaurants</a>
                 <a href="takeaways.html" style="color: #2e7d32;">Takeaways</a>
+                <a href="directory.html">Discover</a>
                 <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
             </div>
         </div>
@@ -83,9 +74,7 @@
 
     <div class="container">
         <h2 class="section-title">Takeaway Reviews</h2>
-        
         <div class="reviews-grid">
-            
             <div class="review-card">
                 <div class="card-image-wrapper">
                     <span>🛵 Coming Soon!</span>
@@ -96,7 +85,6 @@
                     <a href="index.html" class="read-more-btn">Back to Homepage</a>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -107,22 +95,18 @@
     </footer>
 
     <script>
-        // Dark Mode Logic with Memory
         const toggleBtn = document.getElementById('darkModeToggle');
-        
-        // Check local storage to see if the user left Dark Mode on
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             toggleBtn.textContent = '☀️';
         }
-
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled'); // Save preference
+                localStorage.setItem('darkMode', 'enabled');
                 toggleBtn.textContent = '☀️';
             } else {
-                localStorage.setItem('darkMode', 'disabled'); // Save preference
+                localStorage.setItem('darkMode', 'disabled');
                 toggleBtn.textContent = '🌙';
             }
         });
