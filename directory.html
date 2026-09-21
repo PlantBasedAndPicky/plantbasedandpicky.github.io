@@ -38,7 +38,6 @@
         .directory-header h1 { font-size: 2.2rem; color: #2e7d32; margin-bottom: 0.5rem; }
         .directory-header p { color: #64748b; font-size: 1.05rem; margin-top: 0; }
 
-        /* Controls Section */
         .controls-panel {
             background: #ffffff;
             padding: 1.5rem;
@@ -82,7 +81,6 @@
             outline: none;
         }
 
-        /* Results Grid */
         .directory-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -211,7 +209,7 @@
         </div>
 
         <div class="controls-panel">
-            <input type="text" id="searchInput" class="search-bar" placeholder="Search by venue name, city, or region (e.g. Dublin, Manchester)...">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search by venue name, city, or region (e.g. Dublin, Manchester, pizza)...">
             <div class="filters-row">
                 <select id="regionFilter" class="filter-select">
                     <option value="all">All Regions</option>
@@ -240,7 +238,6 @@
     </footer>
 
     <script>
-        // Dark Mode Logic with Memory
         const toggleBtn = document.getElementById('darkModeToggle');
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
@@ -257,29 +254,54 @@
             }
         });
 
-        // Curated Dataset of 100% Vegan Venues
+        // Curated Multi-Region Vegan Directory Dataset
         const venues = [
-            // Republic of Ireland
+            // REPUBLIC OF IRELAND
             { name: "Cornucopia Wholefoods", type: "Restaurant", city: "Dublin", region: "Republic of Ireland", google: "4.5", tripadvisor: "4.5", searchLink: "Cornucopia+Wholefoods+Dublin" },
             { name: "The Saucy Cow", type: "Takeaway", city: "Dublin", region: "Republic of Ireland", google: "4.7", tripadvisor: "4.5", searchLink: "The+Saucy+Cow+Dublin" },
             { name: "Glas Restaurant", type: "Restaurant", city: "Dublin", region: "Republic of Ireland", google: "4.8", tripadvisor: "4.5", searchLink: "Glas+Restaurant+Dublin" },
-            
-            // Northern Ireland
-            { name: "Jumamonkey", type: "Takeaway", city: "Belfast", region: "Northern Ireland", google: "4.6", tripadvisor: "4.5", searchLink: "Jumamonkey+Belfast" },
+            { name: "VeganKO", type: "Takeaway", city: "Cork", region: "Republic of Ireland", google: "4.8", tripadvisor: "4.5", searchLink: "VeganKO+Cork" },
+            { name: "The Gourmet Vegan", type: "Takeaway", city: "Galway", region: "Republic of Ireland", google: "4.9", tripadvisor: "5.0", searchLink: "The+Gourmet+Vegan+Galway" },
 
-            // England
+            // NORTHERN IRELAND
+            { name: "Jumamonkey", type: "Takeaway", city: "Belfast", region: "Northern Ireland", google: "4.6", tripadvisor: "4.5", searchLink: "Jumamonkey+Belfast" },
+            { name: "387 Ormeau Road", type: "Restaurant", city: "Belfast", region: "Northern Ireland", google: "4.8", tripadvisor: "4.5", searchLink: "387+Ormeau+Road+Belfast" },
+
+            // ENGLAND - LONDON
             { name: "Purezza Camden", type: "Restaurant", city: "London", region: "England", google: "4.6", tripadvisor: "4.5", searchLink: "Purezza+Camden+London" },
             { name: "Unity Diner", type: "Restaurant", city: "London", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Unity+Diner+London" },
+            { name: "Temple of Seitan", type: "Takeaway", city: "London", region: "England", google: "4.5", tripadvisor: "4.0", searchLink: "Temple+of+Seitan+London" },
+            { name: "Mildreds Soho", type: "Restaurant", city: "London", region: "England", google: "4.5", tripadvisor: "4.5", searchLink: "Mildreds+Soho+London" },
+            { name: "Gauthier Soho", type: "Restaurant", city: "London", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Gauthier+Soho+London" },
+            { name: "WAVE (We Are Vegan Everything)", type: "Restaurant", city: "London", region: "England", google: "4.6", tripadvisor: "4.5", searchLink: "WAVE+Hackney+London" },
+
+            // ENGLAND - NORTH & MIDLANDS
+            { name: "Down the Hatch", type: "Restaurant", city: "Liverpool", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Down+the+Hatch+Liverpool" },
             { name: "Wholesome Junkies", type: "Takeaway", city: "Manchester", region: "England", google: "4.8", tripadvisor: "4.5", searchLink: "Wholesome+Junkies+Manchester" },
-            { name: "Bundobust", type: "Restaurant", city: "Leeds", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Bundobust+Leeds" },
-            { name: "Kushboo Plant-Based", type: "Takeaway", city: "Liverpool", region: "England", google: "4.9", tripadvisor: "5.0", searchLink: "Kushboo+Liverpool" },
+            { name: "Vegan Shack", type: "Takeaway", city: "Manchester", region: "England", google: "4.6", tripadvisor: "4.5", searchLink: "Vegan+Shack+Manchester" },
+            { name: "Church - Temple of Fun", type: "Restaurant", city: "Sheffield", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Church+Temple+of+Fun+Sheffield" },
+            { name: "Make No Bones", type: "Restaurant", city: "Sheffield", region: "England", google: "4.8", tripadvisor: "4.5", searchLink: "Make+No+Bones+Sheffield" },
+            { name: "Bundobust Leeds", type: "Restaurant", city: "Leeds", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "Bundobust+Leeds" },
+            { name: "Döner Summer", type: "Takeaway", city: "Leeds", region: "England", google: "4.6", tripadvisor: "4.5", searchLink: "Doner+Summer+Leeds" },
+            { name: "Land Restaurant", type: "Restaurant", city: "Birmingham", region: "England", google: "4.9", tripadvisor: "5.0", searchLink: "Land+Restaurant+Birmingham" },
+            { name: "BA-HA Vegan", type: "Restaurant", city: "Birmingham", region: "England", google: "4.8", tripadvisor: "4.5", searchLink: "BA-HA+Vegan+Birmingham" },
 
-            // Scotland
+            // ENGLAND - SOUTH & WEST
+            { name: "Oowee Vegan", type: "Takeaway", city: "Bristol", region: "England", google: "4.6", tripadvisor: "4.5", searchLink: "Oowee+Vegan+Bristol" },
+            { name: "Koocha Mezze Bar", type: "Restaurant", city: "Bristol", region: "England", google: "4.8", tripadvisor: "4.5", searchLink: "Koocha+Mezze+Bar+Bristol" },
+            { name: "The Roundhill", type: "Restaurant", city: "Brighton", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "The+Roundhill+Brighton" },
+            { name: "What The Pitta", type: "Takeaway", city: "Brighton", region: "England", google: "4.7", tripadvisor: "4.5", searchLink: "What+The+Pitta+Brighton" },
+
+            // SCOTLAND
             { name: "Suissi Vegan Kitchen", type: "Restaurant", city: "Glasgow", region: "Scotland", google: "4.8", tripadvisor: "4.5", searchLink: "Suissi+Vegan+Kitchen+Glasgow" },
+            { name: "Mono", type: "Restaurant", city: "Glasgow", region: "Scotland", google: "4.5", tripadvisor: "4.5", searchLink: "Mono+Glasgow" },
+            { name: "The 78", type: "Restaurant", city: "Glasgow", region: "Scotland", google: "4.5", tripadvisor: "4.0", searchLink: "The+78+Glasgow" },
             { name: "Sora Lella", type: "Restaurant", city: "Edinburgh", region: "Scotland", google: "4.8", tripadvisor: "4.5", searchLink: "Sora+Lella+Edinburgh" },
+            { name: "Holy Cow", type: "Restaurant", city: "Edinburgh", region: "Scotland", google: "4.6", tripadvisor: "4.5", searchLink: "Holy+Cow+Edinburgh" },
 
-            // Wales
-            { name: "Herbivore", type: "Restaurant", city: "Cardiff", region: "Wales", google: "4.9", tripadvisor: "5.0", searchLink: "Herbivore+Cardiff" }
+            // WALES
+            { name: "Herbivore", type: "Restaurant", city: "Cardiff", region: "Wales", google: "4.9", tripadvisor: "5.0", searchLink: "Herbivore+Cardiff" },
+            { name: "Anna Loka", type: "Restaurant", city: "Cardiff", region: "Wales", google: "4.6", tripadvisor: "4.5", searchLink: "Anna+Loka+Cardiff" }
         ];
 
         const grid = document.getElementById('directoryGrid');
