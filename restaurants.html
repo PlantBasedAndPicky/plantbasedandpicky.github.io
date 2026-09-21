@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Restaurants | Plant-Based & Picky</title>
+    
+    <!-- Link Previews & SEO -->
+    <meta property="og:title" content="Restaurants | Plant-Based & Picky">
+    <meta property="og:description" content="Explore our interactive map of the best vegetarian and vegan food spots.">
+    <meta property="og:image" content="file_00000000ec7c81f4b150ae6bb6b3f761.png">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- Leaflet Map CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #fafafa; color: #2c3e50; margin: 0; padding: 0; }
-        .navbar { position: sticky; top: 0; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 1000; padding: 1rem 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fafafa; color: #2c3e50; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
+        .navbar { position: sticky; top: 0; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 1000; padding: 1rem 0; transition: background-color 0.3s; }
         .nav-content { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         .nav-brand { font-weight: 600; font-size: 1.2rem; color: #2e7d32; text-decoration: none; white-space: nowrap; }
+        .nav-links { display: flex; align-items: center; }
         .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #2c3e50; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: #2e7d32; }
         
-        /* Mobile-Responsive Navbar Styling */
+        .dark-mode-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0; margin-left: 1.5rem; transition: transform 0.3s; }
+        .dark-mode-toggle:hover { transform: scale(1.1); }
+
         @media (max-width: 600px) {
             .nav-content { flex-direction: column; gap: 12px; padding: 0.5rem 1rem; }
-            .nav-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
+            .nav-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; align-items: center; }
             .nav-links a { margin-left: 0; font-size: 0.95rem; }
+            .dark-mode-toggle { margin-left: 0; }
         }
-        
+
         .banner-container { width: 100%; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .banner-image { width: 100%; height: auto; display: block; }
         .container { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #2e7d32; }
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         
+        /* Interactive Map Styling */
+        #map { height: 400px; width: 100%; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1; transition: filter 0.3s; }
+
+        /* Filter Buttons */
+        .filter-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filter-btn { padding: 8px 16px; border: 2px solid #2e7d32; background: transparent; color: #2e7d32; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: 'Poppins', sans-serif; transition: all 0.3s; }
+        .filter-btn.active, .filter-btn:hover { background: #2e7d32; color: white; }
+
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .review-card { background: white; padding: 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; overflow: hidden; }
         .review-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
         .review-card.rating-green { border-top: 5px solid #2e7d32; }
         .review-card.rating-orange { border-top: 5px solid #f57c00; }
-        .review-card.rating-red { border-top: 5px solid #d32f2f; }
         
-        .card-image-wrapper { width: 100%; height: 220px; overflow: hidden; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 600; font-size: 0.95rem; }
+        .card-image-wrapper { width: 100%; height: 220px; overflow: hidden; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 600; }
         .card-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .review-card:hover .card-image { transform: scale(1.05); }
         
@@ -48,7 +70,6 @@
         .ratings-box p:last-child { margin-bottom: 0; }
         .rating-green .ratings-box { background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; }
         .rating-orange .ratings-box { background-color: #fff7ed; border-color: #fed7aa; color: #9a3412; }
-        .rating-red .ratings-box { background-color: #fef2f2; border-color: #fecaca; color: #991b1b; }
         
         .read-more-btn { margin-top: auto; display: block; text-align: center; padding: 12px; background-color: #2e7d32; color: white; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background-color 0.3s; }
         .read-more-btn:hover { background-color: #1b5e20; }
@@ -56,9 +77,25 @@
         .site-footer { background-color: #2c3e50; color: #ffffff; padding: 3rem 1.5rem; margin-top: 4rem; text-align: center; }
         .site-footer p { margin: 0.5rem 0; color: #cbd5e1; }
         .site-footer a { color: #bbf7d0; text-decoration: none; font-weight: 600; }
-        .site-footer a:hover { text-decoration: underline; }
-        .back-to-top { display: inline-block; margin-top: 1.5rem; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 20px; transition: background-color 0.3s; color: white !important; }
-        .back-to-top:hover { background-color: rgba(255,255,255,0.2); text-decoration: none !important; }
+        .back-to-top { display: inline-block; margin-top: 1.5rem; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 20px; color: white !important; text-decoration: none; }
+        
+        /* Dark Mode Styles */
+        body.dark-mode { background-color: #121212; color: #e2e8f0; }
+        body.dark-mode .navbar, body.dark-mode .banner-container, body.dark-mode .review-card { background-color: #1e293b; color: #f8fafc; }
+        body.dark-mode h3, body.dark-mode .nav-brand, body.dark-mode .section-title { color: #4ade80; }
+        body.dark-mode .nav-links a { color: #cbd5e1; }
+        body.dark-mode .nav-links a:hover { color: #4ade80; }
+        body.dark-mode .tag-pill { background-color: #334155; color: #cbd5e1; }
+        body.dark-mode .filter-btn { border-color: #4ade80; color: #4ade80; }
+        body.dark-mode .filter-btn.active { background: #4ade80; color: #0f172a; }
+        body.dark-mode .review-card.rating-green { border-top-color: #4ade80; }
+        body.dark-mode .read-more-btn { background-color: #4ade80; color: #0f172a; }
+        body.dark-mode .rating-green .ratings-box { background-color: #064e3b; border-color: #065f46; color: #a7f3d0; }
+        body.dark-mode .rating-orange .ratings-box { background-color: #7c2d12; border-color: #9a3412; color: #fed7aa; }
+        body.dark-mode .site-footer { background-color: #0f172a; }
+        
+        /* Cool trick to make the map look dark-themed! */
+        body.dark-mode #map { filter: invert(90%) hue-rotate(180deg) brightness(85%); }
     </style>
 </head>
 <body id="top">
@@ -70,6 +107,7 @@
                 <a href="index.html">Home</a>
                 <a href="restaurants.html" style="color: #2e7d32;">Restaurants</a>
                 <a href="takeaways.html">Takeaways</a>
+                <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
             </div>
         </div>
     </nav>
@@ -79,61 +117,55 @@
     </div>
 
     <div class="container">
+        <h2 class="section-title">Explore on the Map</h2>
+        
+        <!-- The Interactive Map -->
+        <div id="map"></div>
+
         <h2 class="section-title">All Restaurant Reviews</h2>
         
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Reviews</button>
+            <button class="filter-btn" data-filter="fully-vegan">Fully Vegan</button>
+            <button class="filter-btn" data-filter="ok-options">OK Options</button>
+        </div>
+        
         <div class="reviews-grid">
-            
-            <div class="review-card rating-green">
+            <div class="review-card rating-green" data-filter="fully-vegan">
                 <div class="card-image-wrapper">
-                    <img src="down-the-hatch-front.png" alt="Front of Down the Hatch Restaurant" class="card-image">
+                    <img src="down-the-hatch-front.png" alt="Down the Hatch" class="card-image">
                 </div>
                 <div class="card-content">
                     <h3>Down the Hatch</h3>
-                    <div class="pills-container">
-                        <a href="https://maps.app.goo.gl/d3gfv7wLwg8AfwRm7" target="_blank" class="tag-pill">📍 Liverpool</a>
-                    </div>
-                    <div class="ratings-box">
-                        <p><strong>Veggie Options:</strong> ⭐⭐⭐⭐⭐</p>
-                        <p><strong>Overall Rating:</strong> ⭐⭐⭐⭐½</p>
-                    </div>
+                    <div class="pills-container"><span class="tag-pill">📍 Liverpool</span></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐⭐⭐⭐</p></div>
                     <a href="down-the-hatch.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
             </div>
 
-            <div class="review-card rating-orange">
+            <div class="review-card rating-orange" data-filter="ok-options">
                 <div class="card-image-wrapper">
-                    <img src="chatterley-front.jpg" alt="Front of Chatterley Whitfield" class="card-image">
+                    <img src="chatterley-front.jpg" alt="Chatterley Whitfield" class="card-image">
                 </div>
                 <div class="card-content">
                     <h3>Chatterley Whitfield</h3>
-                    <div class="pills-container">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Chatterley+Whitfield+Hungry+Horse+Stoke-on-Trent" target="_blank" class="tag-pill">📍 Stoke-on-Trent</a>
-                    </div>
-                    <div class="ratings-box">
-                        <p><strong>Veggie Options:</strong> ⭐⭐⭐⭐</p>
-                        <p><strong>Overall Rating:</strong> ⭐⭐⭐</p>
-                    </div>
+                    <div class="pills-container"><span class="tag-pill">📍 Stoke-on-Trent</span></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐⭐⭐</p></div>
                     <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
             </div>
 
-            <div class="review-card rating-green">
+            <div class="review-card rating-green" data-filter="fully-vegan">
                 <div class="card-image-wrapper">
-                    <img src="church-front.png" alt="Front of Church - Temple of Fun" class="card-image">
+                    <img src="church-front.png" alt="Church Temple of Fun" class="card-image">
                 </div>
                 <div class="card-content">
                     <h3>Church - Temple of Fun</h3>
-                    <div class="pills-container">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Church+Temple+of+Fun+Sheffield" target="_blank" class="tag-pill">📍 Sheffield</a>
-                    </div>
-                    <div class="ratings-box">
-                        <p><strong>Veggie Options:</strong> ⭐⭐⭐⭐⭐</p>
-                        <p><strong>Overall Rating:</strong> ⭐⭐⭐⭐⭐</p>
-                    </div>
+                    <div class="pills-container"><span class="tag-pill">📍 Sheffield</span></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐⭐⭐⭐</p></div>
                     <a href="church.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -143,5 +175,45 @@
         <a href="#top" class="back-to-top">↑ Back to Top</a>
     </footer>
 
+    <script>
+        // Dark Mode Logic
+        const toggleBtn = document.getElementById('darkModeToggle');
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        // Filter Button Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const reviewCards = document.querySelectorAll('.review-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filterValue = btn.getAttribute('data-filter');
+                reviewCards.forEach(card => {
+                    card.style.display = (filterValue === 'all' || card.getAttribute('data-filter') === filterValue) ? 'flex' : 'none';
+                });
+            });
+        });
+
+        // Initialize Map
+        const map = L.map('map').setView([53.2, -1.8], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        const locations = [
+            { name: "Down the Hatch", lat: 53.4015, lng: -2.9772, url: "down-the-hatch.html", desc: "Fully Vegan • ⭐⭐⭐⭐½" },
+            { name: "Chatterley Whitfield", lat: 53.0722, lng: -2.1812, url: "chatterley.html", desc: "OK Options • ⭐⭐⭐" },
+            { name: "Church - Temple of Fun", lat: 53.3912, lng: -1.4820, url: "church.html", desc: "Fully Vegan • ⭐⭐⭐⭐⭐" }
+        ];
+
+        locations.forEach(loc => {
+            const marker = L.marker([loc.lat, loc.lng]).addTo(map);
+            marker.bindPopup(`<b>${loc.name}</b><br>${loc.desc}<br><a href="${loc.url}" style="color:#2e7d32; font-weight:bold;">Read Review ➔</a>`);
+        });
+    </script>
 </body>
 </html>
