@@ -41,7 +41,7 @@
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #2e7d32; }
         
         /* Interactive Map Styling */
-        #map { height: 400px; width: 100%; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1; transition: filter 0.3s; }
+        #map { height: 400px; width: 100%; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1; }
 
         /* Filter Buttons */
         .filter-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
@@ -94,8 +94,8 @@
         body.dark-mode .rating-orange .ratings-box { background-color: #7c2d12; border-color: #9a3412; color: #fed7aa; }
         body.dark-mode .site-footer { background-color: #0f172a; }
         
-        /* Cool trick to make the map look dark-themed! */
-        body.dark-mode #map { filter: invert(90%) hue-rotate(180deg) brightness(85%); }
+        /* Cool trick to make the map background dark, without affecting the new custom pins! */
+        body.dark-mode .leaflet-tile-pane { filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%); }
     </style>
 </head>
 <body id="top">
@@ -204,14 +204,34 @@
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
+        // Define Custom Color Pins
+        const greenIcon = new L.Icon({
+          iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+        });
+
+        const orangeIcon = new L.Icon({
+          iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+        });
+
+        // Add pins to the map with their specific colors
         const locations = [
-            { name: "Down the Hatch", lat: 53.4015, lng: -2.9772, url: "down-the-hatch.html", desc: "Fully Vegan • ⭐⭐⭐⭐½" },
-            { name: "Chatterley Whitfield", lat: 53.0722, lng: -2.1812, url: "chatterley.html", desc: "OK Options • ⭐⭐⭐" },
-            { name: "Church - Temple of Fun", lat: 53.3912, lng: -1.4820, url: "church.html", desc: "Fully Vegan • ⭐⭐⭐⭐⭐" }
+            { name: "Down the Hatch", lat: 53.4015, lng: -2.9772, url: "down-the-hatch.html", desc: "Fully Vegan • ⭐⭐⭐⭐½", icon: greenIcon },
+            { name: "Chatterley Whitfield", lat: 53.0722, lng: -2.1812, url: "chatterley.html", desc: "OK Options • ⭐⭐⭐", icon: orangeIcon },
+            { name: "Church - Temple of Fun", lat: 53.3912, lng: -1.4820, url: "church.html", desc: "Fully Vegan • ⭐⭐⭐⭐⭐", icon: greenIcon }
         ];
 
         locations.forEach(loc => {
-            const marker = L.marker([loc.lat, loc.lng]).addTo(map);
+            const marker = L.marker([loc.lat, loc.lng], {icon: loc.icon}).addTo(map);
             marker.bindPopup(`<b>${loc.name}</b><br>${loc.desc}<br><a href="${loc.url}" style="color:#2e7d32; font-weight:bold;">Read Review ➔</a>`);
         });
     </script>
