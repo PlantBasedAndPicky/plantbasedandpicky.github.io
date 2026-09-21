@@ -134,7 +134,7 @@
         .badge-orange { background: #fff7ed; color: #9a3412; }
 
         .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
-        .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1rem; }
+        .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
         /* Professional Disclaimer Box */
         .disclaimer-text {
@@ -154,19 +154,21 @@
         .venue-links {
             margin-top: auto;
             display: flex;
+            gap: 0.5rem;
         }
         .venue-btn {
             flex: 1;
             text-align: center;
-            padding: 12px 10px;
-            font-size: 0.95rem;
+            padding: 10px 8px;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 6px;
             transition: opacity 0.2s;
-            background-color: #ea4335; 
             color: #ffffff !important;
         }
+        .btn-google { background-color: #ea4335; }
+        .btn-tripadvisor { background-color: #00aa6c; }
         .venue-btn:hover { opacity: 0.9; }
 
         .site-footer { background-color: #2c3e50; color: #ffffff; padding: 3rem 1.5rem; margin-top: 4rem; text-align: center; }
@@ -309,13 +311,19 @@
         function createCard(venueName, venueType, locationName) {
             const card = document.createElement('div');
             card.className = 'venue-card';
-            const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venueName + ' ' + locationName)}`;
+            
+            // Smart Search URLs for both platforms
+            const query = encodeURIComponent(venueName + ' ' + locationName);
+            const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+            const tripAdvisorUrl = `https://www.tripadvisor.com/Search?q=${query}`;
+            
             card.innerHTML = `
                 <span class="venue-type-badge badge-green">100% Vegan</span>
                 <h3 class="venue-name">${venueName}</h3>
                 <div class="venue-location">📍 ${venueType} near ${locationName}</div>
                 <div class="venue-links">
-                    <a href="${googleSearchUrl}" target="_blank" class="venue-btn btn-google">View on Google Maps ➔</a>
+                    <a href="${googleSearchUrl}" target="_blank" class="venue-btn btn-google">Google Reviews</a>
+                    <a href="${tripAdvisorUrl}" target="_blank" class="venue-btn btn-tripadvisor">TripAdvisor</a>
                 </div>
             `;
             return card;
@@ -395,13 +403,11 @@
                 }
             } catch (err) {
                 console.error("Live fetch timed out or failed:", err);
-                // Fail silently so it doesn't interrupt the user, moving directly to the fallback step below.
             }
 
             loading.style.display = 'none';
 
             // PHASE 3: THE GOOGLE MAPS FALLBACK (WITH DISCLAIMER)
-            // If the local database AND the live map both found absolutely nothing, generate the fallback card.
             if (grid.children.length === 0) {
                 const fallbackCard = document.createElement('div');
                 fallbackCard.className = 'venue-card options-card';
