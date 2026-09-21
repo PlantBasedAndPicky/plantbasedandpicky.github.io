@@ -203,7 +203,7 @@
             </div>
         </div>
 
-        <div id="loading" class="status-text">🌍 Scanning the live map for 100% vegan spots...</div>
+        <div id="loading" class="status-text">🌍 Finding coordinates...</div>
         <div id="noResults" class="status-text">No fully vegan venues found in that area. Try a different location!</div>
         
         <div id="directoryGrid" class="directory-grid"></div>
@@ -233,7 +233,7 @@
             }
         });
 
-        // The Live Internet Fetch Script
+        // The Upgraded Live Internet Fetch Script
         async function fetchLiveVeganPlaces() {
             let input = document.getElementById('searchInput').value.trim();
             const grid = document.getElementById('directoryGrid');
@@ -253,10 +253,14 @@
             grid.innerHTML = '';
             noResults.style.display = 'none';
             loading.style.display = 'block';
+            loading.textContent = `🌍 Finding coordinates for ${input}...`;
 
             try {
                 // Step 1: Convert the city/postcode into map coordinates (UK and Ireland only)
                 const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&limit=1&countrycodes=gb,ie`);
+                
+                if (!geoRes.ok) throw new Error("Location server error");
+                
                 const geoData = await geoRes.json();
 
                 if (geoData.length === 0) {
@@ -272,19 +276,15 @@
                 let locationName = geoData[0].display_name.split(',')[0]; 
                 if (locationName.length > 20) locationName = "this area";
 
-                // Step 2: Scan an 8km radius for ONLY fully vegan locations (diet:vegan=only)
-                const overpassQuery = `
-                    [out:json][timeout:25];
-                    (
-                      nwr["amenity"~"restaurant|cafe|fast_food|pub|bar|food_court"]["diet:vegan"="only"](around:8000,${lat},${lon});
-                    );
-                    out center;
-                `;
+                loading.textContent = `🌍 Scanning the live map for 100% vegan spots near ${locationName}...`;
 
-                const overpassRes = await fetch(`https://overpass-api.de/api/interpreter`, {
-                    method: 'POST',
-                    body: "data=" + encodeURIComponent(overpassQuery)
-                });
+                // Step 2: Scan an 8km radius for ONLY fully vegan locations
+                const overpassQuery = `[out:json][timeout:15];(nwr["amenity"~"restaurant|cafe|fast_food|pub|bar|food_court"]["diet:vegan"="only"](around:8000,${lat},${lon}););out center;`;
+
+                // Upgraded to a GET request to bypass CORS preflight errors
+                const overpassRes = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(overpassQuery)}`);
+                
+                if (!overpassRes.ok) throw new Error("Map server error");
                 
                 const overpassData = await overpassRes.json();
                 loading.style.display = 'none';
