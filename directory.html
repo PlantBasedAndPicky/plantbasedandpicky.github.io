@@ -134,7 +134,22 @@
         .badge-orange { background: #fff7ed; color: #9a3412; }
 
         .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
-        .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1rem; }
+
+        /* Professional Disclaimer Box */
+        .disclaimer-text {
+            background-color: #f8fafc;
+            border-left: 3px solid #f57c00;
+            padding: 10px 12px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
 
         .venue-links {
             margin-top: auto;
@@ -173,6 +188,7 @@
         body.dark-mode .options-card { border-top-color: #f97316; }
         body.dark-mode .badge-green { background-color: #064e3b; color: #a7f3d0; }
         body.dark-mode .badge-orange { background-color: #7c2d12; color: #fed7aa; }
+        body.dark-mode .disclaimer-text { background-color: #0f172a; color: #cbd5e1; border-left-color: #f97316; }
         body.dark-mode .site-footer { background-color: #0f172a; }
     </style>
 </head>
@@ -384,7 +400,7 @@
 
             loading.style.display = 'none';
 
-            // PHASE 3: THE GOOGLE MAPS FALLBACK
+            // PHASE 3: THE GOOGLE MAPS FALLBACK (WITH DISCLAIMER)
             // If the local database AND the live map both found absolutely nothing, generate the fallback card.
             if (grid.children.length === 0) {
                 const fallbackCard = document.createElement('div');
@@ -396,6 +412,12 @@
                     <span class="venue-type-badge badge-orange">Explore Area</span>
                     <h3 class="venue-name">Vegan Places in ${locationName}</h3>
                     <div class="venue-location">📍 Search the wider area for options</div>
+                    
+                    <div class="disclaimer-text">
+                        <span style="font-size: 1.1rem;">ℹ️</span>
+                        <span><strong>Disclaimer:</strong> Google Maps searches may include venues that serve meat but offer vegan options. Please double-check menus to ensure they are 100% plant-based.</span>
+                    </div>
+
                     <div class="venue-links">
                         <a href="${fallbackSearchUrl}" target="_blank" class="venue-btn btn-google" style="background-color: #f57c00;">Search Google Maps ➔</a>
                     </div>
