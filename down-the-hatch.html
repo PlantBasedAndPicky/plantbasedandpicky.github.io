@@ -20,8 +20,8 @@
         .dark-mode-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0; margin-left: 1.5rem; transition: transform 0.3s; }
         @media (max-width: 600px) {
             .nav-content { flex-direction: column; gap: 12px; padding: 0.5rem 1rem; }
-            .nav-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; align-items: center; }
-            .nav-links a { margin-left: 0; font-size: 0.95rem; }
+            .nav-links { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; width: 100%; align-items: center; }
+            .nav-links a { margin-left: 0; font-size: 0.9rem; }
             .dark-mode-toggle { margin-left: 0; }
         }
         .banner-container { width: 100%; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
@@ -86,6 +86,7 @@
                 <a href="index.html">Home</a>
                 <a href="restaurants.html">Restaurants</a>
                 <a href="takeaways.html">Takeaways</a>
+                <a href="directory.html">Discover</a>
                 <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
             </div>
         </div>
@@ -122,16 +123,13 @@
         <div class="review-content">
             <h2>Our Thoughts</h2>
             <p>Down the Hatch is a brilliant fully vegan restaurant located just minutes from Liverpool’s city centre. The entrance is a bit of a hidden gem, tucked down a small flight of steps, but what waits inside is well worth finding. The cosy basement interior instantly makes you feel welcome, and our initial service was remarkably quick.</p>
-            
             <p>For first-time diners, navigating the menu can be slightly confusing due to the mix of small-plate deals and "build-your-own" options—don’t hesitate to ask the staff for guidance. Soft drinks are on a refill system; however, refills need to be requested via the floor staff. Because the venue gets packed, our second round was forgotten. Since it was a complimentary refill we didn't chase it up, but the staff are very approachable if you need to give them a gentle reminder.</p>
-            
             <h3>What we ordered:</h3>
             <ul>
                 <li><strong>Meatballs (Starter):</strong> Packed with flavour—you can really taste the fresh herbs. A definite re-order for next time.</li>
                 <li><strong>Sweetcorn Ribs (Starter):</strong> Delicious seasoning, though be prepared to get your hands sticky!</li>
                 <li><strong>Shepherd's Pie (Main):</strong> Fantastic depth of flavour, incredibly creamy mash, and the garlic tenderstem broccoli was cooked to perfection. The portion size was spot on.</li>
             </ul>
-            
             <p><strong>Tip:</strong> Booking ahead is an absolute must. It gets extremely busy, and we saw several walk-ins turned away at the door.</p>
 
             <div class="share-section">
@@ -151,7 +149,6 @@
                     <img src="Messenger_creation_FA0A41C0-E3DA-4D1E-B1D5-43F6F828D69F.jpeg" alt="Meatballs and Sweetcorn Ribs at Down the Hatch" class="gallery-img">
                     <figcaption class="gallery-caption">Our starters: Flavour-packed meatballs and sticky sweetcorn ribs.</figcaption>
                 </figure>
-
                 <figure class="gallery-item">
                     <img src="Messenger_creation_584E2994-ED4E-4323-A7B7-468FCD712A15.jpeg" alt="Shepherd's Pie at Down the Hatch" class="gallery-img">
                     <figcaption class="gallery-caption">The main event: Deeply comforting Shepherd's Pie with tenderstem broccoli.</figcaption>
@@ -167,7 +164,6 @@
     </footer>
 
     <script>
-        // Dark Mode Logic with Memory
         const toggleBtn = document.getElementById('darkModeToggle');
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
@@ -184,7 +180,6 @@
             }
         });
 
-        // Sharing Logic
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent("Check out this review on Plant-Based & Picky! ");
