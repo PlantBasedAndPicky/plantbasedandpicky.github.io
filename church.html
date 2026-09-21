@@ -20,8 +20,8 @@
         .dark-mode-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0; margin-left: 1.5rem; transition: transform 0.3s; }
         @media (max-width: 600px) {
             .nav-content { flex-direction: column; gap: 12px; padding: 0.5rem 1rem; }
-            .nav-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; align-items: center; }
-            .nav-links a { margin-left: 0; font-size: 0.95rem; }
+            .nav-links { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; width: 100%; align-items: center; }
+            .nav-links a { margin-left: 0; font-size: 0.9rem; }
             .dark-mode-toggle { margin-left: 0; }
         }
         .banner-container { width: 100%; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
@@ -86,6 +86,7 @@
                 <a href="index.html">Home</a>
                 <a href="restaurants.html">Restaurants</a>
                 <a href="takeaways.html">Takeaways</a>
+                <a href="directory.html">Discover</a>
                 <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
             </div>
         </div>
@@ -122,18 +123,14 @@
         <div class="review-content">
             <h2>Our Thoughts</h2>
             <p>Temple of Fun in Sheffield delivers an unforgettable vegan dining experience with a truly unique atmosphere. The moody, low-lit aesthetic sets the perfect tone, complete with free-to-use gaming booths that add a great interactive element to the night. It sits a bit outside the city centre, so factor in travel time—we opted for a taxi to avoid any parking guesswork.</p>
-            
             <p>The menu playfully uses traditional meat terms like "chicken," which prompted my usual double-check, but the exceptionally friendly staff quickly reassured us that everything is 100% vegan. They were happy to answer all our questions, and our food arrived fast and piping hot.</p>
-
             <p>Fair warning: the portions are huge! We let our excitement get the better of us and ordered far too much, but the staff happily provided boxes so we could finish the feast at home. If you love proper vegan comfort food, this is the place.</p>
-            
             <h3>What we ordered:</h3>
             <ul>
                 <li><strong>Frazzled Frango With Satay Away Fries (Main):</strong> Top-tier comfort food that represents the best of vegan dining. Upgrading from house fries to loaded waffle fries was a brilliant move, but only attempt this if you have a serious appetite.</li>
                 <li><strong>Satay Chicken Salad Bowl (Main):</strong> Don't let the word "salad" fool you, this is no light meal. Every element adds vibrant flavor, and trying the Oumph "chicken" was a first for both of us that left us pleasantly surprised.</li>
                 <li><strong>Chicken Tenders (Side):</strong> MASSIVE! Do not underestimate the size of these sides. The spiced crumb coating delivers a fantastic crunch and texture that completely hits the spot if you're craving KFC!</li>
             </ul>
-
             <p><strong>Tip:</strong> Because it is so popular, booking in advance is absolutely essential to avoid missing out.</p>
 
             <div class="share-section">
@@ -172,7 +169,6 @@
     </footer>
 
     <script>
-        // Dark Mode Logic with Memory
         const toggleBtn = document.getElementById('darkModeToggle');
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
@@ -189,7 +185,6 @@
             }
         });
 
-        // Sharing Logic
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent("Check out this review on Plant-Based & Picky! ");
