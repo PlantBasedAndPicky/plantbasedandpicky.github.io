@@ -6,7 +6,7 @@
     <title>Live Vegan Discover | Plant-Based & Picky</title>
     
     <meta property="og:title" content="Live Vegan Discover | Plant-Based & Picky">
-    <meta property="og:description" content="Search the live map for vegan restaurants and takeaways anywhere in the UK and Ireland.">
+    <meta property="og:description" content="Search the live map for 100% vegan restaurants and takeaways anywhere in the UK and Ireland.">
     <meta property="og:image" content="file_00000000ec7c81f4b150ae6bb6b3f761.png">
     <link rel="icon" href="favicon.png" type="image/png">
     
@@ -110,10 +110,9 @@
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            border-top: 4px solid #2e7d32; /* Default Green for Fully Vegan */
+            border-top: 4px solid #2e7d32; 
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
         }
-        .venue-card.options-card { border-top-color: #f57c00; } /* Orange for Options */
         
         .venue-card:hover {
             transform: translateY(-4px);
@@ -130,7 +129,6 @@
             margin-bottom: 1rem;
         }
         .badge-green { background: #e8f5e9; color: #1b5e20; }
-        .badge-orange { background: #fff7ed; color: #9a3412; }
 
         .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
         .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
@@ -169,9 +167,7 @@
         body.dark-mode .search-btn { background-color: #4ade80; color: #0f172a; }
         body.dark-mode .search-btn:hover { background-color: #22c55e; }
         body.dark-mode .venue-card { border-top-color: #4ade80; }
-        body.dark-mode .options-card { border-top-color: #f97316; }
         body.dark-mode .badge-green { background-color: #064e3b; color: #a7f3d0; }
-        body.dark-mode .badge-orange { background-color: #7c2d12; color: #fed7aa; }
         body.dark-mode .site-footer { background-color: #0f172a; }
     </style>
 </head>
@@ -197,18 +193,18 @@
     <div class="container">
         <div class="directory-header">
             <h1>Live Vegan Discover Map</h1>
-            <p>Enter a city, town, or postcode to scan the internet for vegan spots.</p>
+            <p>Enter a city, town, or postcode to scan the internet for 100% fully vegan spots.</p>
         </div>
 
         <div class="controls-panel">
             <div class="search-layout">
-                <input type="text" id="searchInput" class="search-bar" placeholder="e.g. York, Manchester, ST7 1BL..." onkeypress="if(event.key === 'Enter') fetchLiveVeganPlaces()">
+                <input type="text" id="searchInput" class="search-bar" placeholder="e.g. York, Manchester, SW1A 1AA..." onkeypress="if(event.key === 'Enter') fetchLiveVeganPlaces()">
                 <button onclick="fetchLiveVeganPlaces()" class="search-btn">Search Live</button>
             </div>
         </div>
 
-        <div id="loading" class="status-text">🌍 Scanning the live map for vegan spots...</div>
-        <div id="noResults" class="status-text">No vegan-tagged venues found in that area. Try a different location!</div>
+        <div id="loading" class="status-text">🌍 Scanning the live map for 100% vegan spots...</div>
+        <div id="noResults" class="status-text">No fully vegan venues found in that area. Try a different location!</div>
         
         <div id="directoryGrid" class="directory-grid"></div>
     </div>
@@ -247,11 +243,10 @@
             if (!input) return;
 
             // --- THE POSTCODE FIXER ---
-            // If the user typed a squashed UK postcode (e.g. ST71BL), this instantly reformats it to ST7 1BL
             const cleanInput = input.replace(/\s+/g, ''); 
             if (/^[a-zA-Z]{1,2}\d[a-zA-Z\d]?\d[a-zA-Z]{2}$/.test(cleanInput)) {
                 input = cleanInput.slice(0, -3) + ' ' + cleanInput.slice(-3);
-                document.getElementById('searchInput').value = input; // Update the bar so they see the fix
+                document.getElementById('searchInput').value = input; 
             }
 
             // Reset the screen
@@ -260,8 +255,7 @@
             loading.style.display = 'block';
 
             try {
-                // Step 1: Convert the city/postcode into map coordinates. 
-                // We added "&countrycodes=gb,ie" so it only searches the UK and Ireland!
+                // Step 1: Convert the city/postcode into map coordinates (UK and Ireland only)
                 const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&limit=1&countrycodes=gb,ie`);
                 const geoData = await geoRes.json();
 
@@ -275,16 +269,14 @@
                 const lat = geoData[0].lat;
                 const lon = geoData[0].lon;
                 
-                // Grab the clean town name for the UI
                 let locationName = geoData[0].display_name.split(',')[0]; 
                 if (locationName.length > 20) locationName = "this area";
 
-                // Step 2: Scan an 8km radius for officially tagged Vegan locations
+                // Step 2: Scan an 8km radius for ONLY fully vegan locations (diet:vegan=only)
                 const overpassQuery = `
                     [out:json][timeout:25];
                     (
                       nwr["amenity"~"restaurant|cafe|fast_food|pub|bar|food_court"]["diet:vegan"="only"](around:8000,${lat},${lon});
-                      nwr["amenity"~"restaurant|cafe|fast_food|pub|bar|food_court"]["diet:vegan"="yes"](around:8000,${lat},${lon});
                     );
                     out center;
                 `;
@@ -298,7 +290,7 @@
                 loading.style.display = 'none';
 
                 if (!overpassData.elements || overpassData.elements.length === 0) {
-                    noResults.textContent = `No vegan-tagged venues found near ${locationName} on the live map.`;
+                    noResults.textContent = `No 100% vegan venues found near ${locationName} on the live map.`;
                     noResults.style.display = 'block';
                     return;
                 }
@@ -321,32 +313,26 @@
 
                         uniqueVenues.push({
                             name: tags.name,
-                            type: type,
-                            isFullyVegan: tags['diet:vegan'] === 'only'
+                            type: type
                         });
                     }
                 });
 
                 if (uniqueVenues.length === 0) {
-                    noResults.textContent = `No vegan-tagged venues found near ${locationName} on the live map.`;
+                    noResults.textContent = `No 100% vegan venues found near ${locationName} on the live map.`;
                     noResults.style.display = 'block';
                     return;
                 }
 
-                // Step 3: Draw the UI Cards
+                // Step 3: Draw the strictly 100% Vegan UI Cards
                 uniqueVenues.forEach(v => {
                     const card = document.createElement('div');
                     card.className = 'venue-card';
-                    if (!v.isFullyVegan) card.classList.add('options-card');
 
-                    const badgeText = v.isFullyVegan ? "100% Vegan" : "Vegan Options";
-                    const badgeClass = v.isFullyVegan ? "badge-green" : "badge-orange";
-
-                    // The dynamic Google Maps search link!
                     const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.name + ' ' + locationName)}`;
 
                     card.innerHTML = `
-                        <span class="venue-type-badge ${badgeClass}">${badgeText}</span>
+                        <span class="venue-type-badge badge-green">100% Vegan</span>
                         <h3 class="venue-name">${v.name}</h3>
                         <div class="venue-location">📍 ${v.type} near ${locationName}</div>
                         <div class="venue-links">
