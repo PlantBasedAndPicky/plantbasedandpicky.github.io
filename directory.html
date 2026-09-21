@@ -38,6 +38,7 @@
         .directory-header h1 { font-size: 2.2rem; color: #2e7d32; margin-bottom: 0.5rem; }
         .directory-header p { color: #64748b; font-size: 1.05rem; margin-top: 0; }
 
+        /* Custom Search Panel */
         .controls-panel {
             background: #ffffff;
             padding: 1.5rem;
@@ -112,6 +113,7 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
             animation: fadeIn 0.4s ease-in-out;
         }
+        .venue-card.options-card { border-top-color: #f57c00; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .venue-card:hover {
@@ -129,6 +131,7 @@
             margin-bottom: 1rem;
         }
         .badge-green { background: #e8f5e9; color: #1b5e20; }
+        .badge-orange { background: #fff7ed; color: #9a3412; }
 
         .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
         .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
@@ -167,7 +170,9 @@
         body.dark-mode .search-btn { background-color: #4ade80; color: #0f172a; }
         body.dark-mode .search-btn:hover { background-color: #22c55e; }
         body.dark-mode .venue-card { border-top-color: #4ade80; }
+        body.dark-mode .options-card { border-top-color: #f97316; }
         body.dark-mode .badge-green { background-color: #064e3b; color: #a7f3d0; }
+        body.dark-mode .badge-orange { background-color: #7c2d12; color: #fed7aa; }
         body.dark-mode .site-footer { background-color: #0f172a; }
     </style>
 </head>
@@ -198,13 +203,13 @@
 
         <div class="controls-panel">
             <div class="search-layout">
-                <input type="text" id="searchInput" class="search-bar" placeholder="e.g. Leeds, York, SW1A 1AA..." onkeypress="if(event.key === 'Enter') performHybridSearch()">
+                <input type="text" id="searchInput" class="search-bar" placeholder="e.g. Leeds, York, London..." onkeypress="if(event.key === 'Enter') performHybridSearch()">
                 <button onclick="performHybridSearch()" class="search-btn">Search</button>
             </div>
         </div>
 
         <div id="loading" class="status-text"></div>
-        <div id="noResults" class="status-text">No fully vegan venues found in that area. Try a different location!</div>
+        <div id="noResults" class="status-text"></div>
         
         <div id="directoryGrid" class="directory-grid"></div>
     </div>
@@ -233,61 +238,51 @@
             }
         });
 
-        // The Instant Local Database (130+ Venues)
+        // Curated, Highly-Verified Local Database
         const localDatabase = [
-            { name: "The Green Rocket", type: "Restaurant", city: "Bath" }, { name: "Rooted Cafe", type: "Restaurant", city: "Bath" },
-            { name: "Land Restaurant", type: "Restaurant", city: "Birmingham" }, { name: "BA-HA Vegan", type: "Restaurant", city: "Birmingham" },
-            { name: "Plant One On Me", type: "Restaurant", city: "Bradford" }, { name: "The Roundhill", type: "Restaurant", city: "Brighton" },
-            { name: "What The Pitta", type: "Takeaway", city: "Brighton" }, { name: "Oowee Vegan", type: "Takeaway", city: "Bristol" },
-            { name: "Koocha Mezze Bar", type: "Restaurant", city: "Bristol" }, { name: "Stem & Glory", type: "Restaurant", city: "Cambridge" },
-            { name: "DoppleGanger Burger", type: "Takeaway", city: "Cambridge" }, { name: "The Veg Box Cafe", type: "Restaurant", city: "Canterbury" },
-            { name: "Amato's Plant Based", type: "Takeaway", city: "Carlisle" }, { name: "The Transition", type: "Restaurant", city: "Chelmsford" },
-            { name: "Shrub", type: "Restaurant", city: "Chester" }, { name: "Pantry Vegan", type: "Takeaway", city: "Chichester" },
-            { name: "The Den at Twenty Three", type: "Restaurant", city: "Colchester" }, { name: "Dirty Kicks", type: "Restaurant", city: "Coventry" },
-            { name: "Plant Cafe", type: "Restaurant", city: "Derby" }, { name: "The Vegan Kitchen", type: "Takeaway", city: "Doncaster" },
-            { name: "Jumping Bean", type: "Restaurant", city: "Durham" }, { name: "The Vegan Ely", type: "Takeaway", city: "Ely" },
-            { name: "Sacred Grounds", type: "Restaurant", city: "Exeter" }, { name: "How on Earth", type: "Takeaway", city: "Exeter" },
-            { name: "Sowl Fuud", type: "Takeaway", city: "Gloucester" }, { name: "Hereford Vegan Kitchen", type: "Takeaway", city: "Hereford" },
-            { name: "Barleys", type: "Takeaway", city: "Hull" }, { name: "Döner Summer", type: "Takeaway", city: "Hull" },
-            { name: "Grounded Kitchen", type: "Restaurant", city: "Lancaster" }, { name: "Cantina Leeds", type: "Restaurant", city: "Leeds" },
-            { name: "Döner Summer", type: "Takeaway", city: "Leeds" }, { name: "Bundobust", type: "Restaurant", city: "Leeds" },
-            { name: "Healthy Louisa", type: "Restaurant", city: "Leicester" }, { name: "The Plant Plot", type: "Restaurant", city: "Lichfield" },
-            { name: "Cafe Shanti", type: "Restaurant", city: "Lincoln" }, { name: "Down the Hatch", type: "Restaurant", city: "Liverpool" },
-            { name: "The Vibe", type: "Restaurant", city: "Liverpool" }, { name: "Purezza Camden", type: "Restaurant", city: "London" },
-            { name: "Unity Diner", type: "Restaurant", city: "London" }, { name: "Tofu Vegan", type: "Restaurant", city: "London" },
-            { name: "Wholesome Junkies", type: "Takeaway", city: "Manchester" }, { name: "Vegan Shack", type: "Takeaway", city: "Manchester" },
-            { name: "The Allotment", type: "Restaurant", city: "Manchester" }, { name: "Veggie World", type: "Restaurant", city: "Milton Keynes" },
-            { name: "Vegano", type: "Restaurant", city: "Newcastle" }, { name: "Super Natural Cafe", type: "Restaurant", city: "Newcastle" },
-            { name: "The Tipsy Vegan", type: "Restaurant", city: "Norwich" }, { name: "Moorish Falafel Bar", type: "Takeaway", city: "Norwich" },
-            { name: "No. Twelve", type: "Restaurant", city: "Nottingham" }, { name: "Mocky-D", type: "Takeaway", city: "Nottingham" },
-            { name: "Green Routes", type: "Restaurant", city: "Oxford" }, { name: "When Polly Met Fergie", type: "Restaurant", city: "Peterborough" },
-            { name: "Samphire Brasserie", type: "Restaurant", city: "Plymouth" }, { name: "Hunter Gatherer", type: "Restaurant", city: "Portsmouth" },
-            { name: "RK Dining", type: "Restaurant", city: "Preston" }, { name: "Ripon Vegan Cafe", type: "Restaurant", city: "Ripon" },
-            { name: "Salford Vegan", type: "Takeaway", city: "Salford" }, { name: "The Vegan Hub", type: "Restaurant", city: "Salisbury" },
-            { name: "Church - Temple of Fun", type: "Restaurant", city: "Sheffield" }, { name: "Make No Bones", type: "Restaurant", city: "Sheffield" },
-            { name: "Cafe Thrive", type: "Restaurant", city: "Southampton" }, { name: "The Oaktree", type: "Restaurant", city: "Southend-on-Sea" },
-            { name: "The Green Kitchen", type: "Restaurant", city: "St Albans" }, { name: "Totally Vegan", type: "Takeaway", city: "Stoke-on-Trent" },
-            { name: "The Vegan Sunderland", type: "Takeaway", city: "Sunderland" }, { name: "The Cornish Vegan", type: "Restaurant", city: "Truro" },
-            { name: "Corarima", type: "Restaurant", city: "Wakefield" }, { name: "The Good Earth", type: "Restaurant", city: "Wells" },
-            { name: "Mildreds", type: "Restaurant", city: "Westminster" }, { name: "Rawberry", type: "Restaurant", city: "Winchester" },
-            { name: "Veggie in the City", type: "Restaurant", city: "Wolverhampton" }, { name: "Be The Change", type: "Restaurant", city: "Worcester" },
-            { name: "The Orchid Vegan", type: "Restaurant", city: "York" }, { name: "Döner Summer", type: "Takeaway", city: "York" },
-            { name: "Bonobo Cafe", type: "Restaurant", city: "Aberdeen" }, { name: "Roots Catering", type: "Takeaway", city: "Aberdeen" },
-            { name: "Serendipities", type: "Restaurant", city: "Dundee" }, { name: "269 Vegan", type: "Restaurant", city: "Dunfermline" },
-            { name: "Sora Lella", type: "Restaurant", city: "Edinburgh" }, { name: "Holy Cow", type: "Restaurant", city: "Edinburgh" },
-            { name: "Seeds for the Soul", type: "Restaurant", city: "Edinburgh" }, { name: "Suissi Vegan Kitchen", type: "Restaurant", city: "Glasgow" },
-            { name: "Mono", type: "Restaurant", city: "Glasgow" }, { name: "The 78", type: "Restaurant", city: "Glasgow" },
-            { name: "Alleycat", type: "Restaurant", city: "Inverness" }, { name: "Perth Vegan Takeaway", type: "Takeaway", city: "Perth" },
-            { name: "Stirling Vegan Kitchen", type: "Takeaway", city: "Stirling" }, { name: "Voltaire", type: "Restaurant", city: "Bangor" },
-            { name: "Herbivore", type: "Restaurant", city: "Cardiff" }, { name: "Anna Loka", type: "Restaurant", city: "Cardiff" },
-            { name: "The Cellar Door", type: "Restaurant", city: "Newport" }, { name: "St Asaph Plant Based", type: "Takeaway", city: "St Asaph" },
-            { name: "St Davids Vegan", type: "Takeaway", city: "St Davids" }, { name: "Veganise It", type: "Restaurant", city: "Swansea" },
-            { name: "VHub", type: "Takeaway", city: "Swansea" }, { name: "Wrexham Vegan Kitchen", type: "Takeaway", city: "Wrexham" },
-            { name: "Armagh Vegan Takeaway", type: "Takeaway", city: "Armagh" }, { name: "The Guillemot", type: "Restaurant", city: "Bangor" },
-            { name: "Jumamonkey", type: "Takeaway", city: "Belfast" }, { name: "387 Ormeau Road", type: "Restaurant", city: "Belfast" },
-            { name: "Lisburn Plant Based", type: "Takeaway", city: "Lisburn" }, { name: "Hidden City Cafe", type: "Restaurant", city: "Derry" },
-            { name: "Newry Vegan", type: "Takeaway", city: "Newry" }, { name: "Cornucopia Wholefoods", type: "Restaurant", city: "Dublin" },
-            { name: "The Saucy Cow", type: "Takeaway", city: "Dublin" }, { name: "Glas Restaurant", type: "Restaurant", city: "Dublin" }
+            { name: "The Green Rocket", type: "Restaurant", city: "Bath" }, 
+            { name: "Land Restaurant", type: "Restaurant", city: "Birmingham" }, 
+            { name: "BA-HA Vegan", type: "Restaurant", city: "Birmingham" },
+            { name: "The Roundhill", type: "Restaurant", city: "Brighton" },
+            { name: "What The Pitta", type: "Takeaway", city: "Brighton" }, 
+            { name: "Oowee Vegan", type: "Takeaway", city: "Bristol" },
+            { name: "Koocha Mezze Bar", type: "Restaurant", city: "Bristol" }, 
+            { name: "Stem & Glory", type: "Restaurant", city: "Cambridge" },
+            { name: "Shrub", type: "Restaurant", city: "Chester" }, 
+            { name: "Sacred Grounds", type: "Restaurant", city: "Exeter" }, 
+            { name: "Cantina Leeds", type: "Restaurant", city: "Leeds" },
+            { name: "Döner Summer", type: "Takeaway", city: "Leeds" }, 
+            { name: "Bundobust", type: "Restaurant", city: "Leeds" },
+            { name: "Down the Hatch", type: "Restaurant", city: "Liverpool" },
+            { name: "The Vibe", type: "Restaurant", city: "Liverpool" }, 
+            { name: "Purezza Camden", type: "Restaurant", city: "London" },
+            { name: "Unity Diner", type: "Restaurant", city: "London" }, 
+            { name: "Tofu Vegan", type: "Restaurant", city: "London" },
+            { name: "Wholesome Junkies", type: "Takeaway", city: "Manchester" }, 
+            { name: "Vegan Shack", type: "Takeaway", city: "Manchester" },
+            { name: "The Allotment", type: "Restaurant", city: "Manchester" }, 
+            { name: "Vegano", type: "Restaurant", city: "Newcastle" }, 
+            { name: "The Tipsy Vegan", type: "Restaurant", city: "Norwich" }, 
+            { name: "No. Twelve", type: "Restaurant", city: "Nottingham" }, 
+            { name: "Green Routes", type: "Restaurant", city: "Oxford" }, 
+            { name: "Church - Temple of Fun", type: "Restaurant", city: "Sheffield" }, 
+            { name: "Make No Bones", type: "Restaurant", city: "Sheffield" },
+            { name: "Cafe Thrive", type: "Restaurant", city: "Southampton" }, 
+            { name: "Corarima", type: "Restaurant", city: "Wakefield" }, 
+            { name: "Mildreds", type: "Restaurant", city: "Westminster" }, 
+            { name: "The Orchid Vegan", type: "Restaurant", city: "York" }, 
+            { name: "Döner Summer", type: "Takeaway", city: "York" },
+            { name: "Sora Lella", type: "Restaurant", city: "Edinburgh" }, 
+            { name: "Holy Cow", type: "Restaurant", city: "Edinburgh" },
+            { name: "Suissi Vegan Kitchen", type: "Restaurant", city: "Glasgow" },
+            { name: "Mono", type: "Restaurant", city: "Glasgow" }, 
+            { name: "The 78", type: "Restaurant", city: "Glasgow" },
+            { name: "Herbivore", type: "Restaurant", city: "Cardiff" }, 
+            { name: "Anna Loka", type: "Restaurant", city: "Cardiff" },
+            { name: "Jumamonkey", type: "Takeaway", city: "Belfast" }, 
+            { name: "Cornucopia Wholefoods", type: "Restaurant", city: "Dublin" },
+            { name: "The Saucy Cow", type: "Takeaway", city: "Dublin" }, 
+            { name: "Glas Restaurant", type: "Restaurant", city: "Dublin" }
         ];
 
         let displayedNames = new Set();
@@ -314,7 +309,7 @@
             let input = document.getElementById('searchInput').value.trim();
             if (!input) return;
 
-            // Auto-fix squashed postcodes (e.g. SW1A1AA -> SW1A 1AA)
+            // Auto-fix squashed postcodes
             const cleanInput = input.replace(/\s+/g, ''); 
             if (/^[a-zA-Z]{1,2}\d[a-zA-Z\d]?\d[a-zA-Z]{2}$/.test(cleanInput)) {
                 input = cleanInput.slice(0, -3) + ' ' + cleanInput.slice(-3);
@@ -328,6 +323,7 @@
             displayedNames.clear();
 
             const queryLower = input.toLowerCase();
+            let locationName = input; 
 
             // PHASE 1: INSTANT LOCAL SEARCH
             const instantResults = localDatabase.filter(v => 
@@ -344,27 +340,19 @@
                 loading.textContent = `🌍 Searching the live map for ${input}...`;
             }
 
-            // PHASE 2: LIVE MAP FETCH (Highly Optimized)
+            // PHASE 2: LIVE MAP FETCH
             try {
                 const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&limit=1&countrycodes=gb,ie`);
                 const geoData = await geoRes.json();
 
-                if (geoData.length === 0 && instantResults.length === 0) {
-                    loading.style.display = 'none';
-                    noResults.textContent = "We couldn't find that location. Check your spelling or try a nearby town.";
-                    noResults.style.display = 'block';
-                    return;
-                }
-                
                 if (geoData.length > 0) {
                     const lat = geoData[0].lat;
                     const lon = geoData[0].lon;
-                    let locationName = geoData[0].display_name.split(',')[0]; 
-                    if (locationName.length > 20) locationName = "this area";
+                    locationName = geoData[0].display_name.split(',')[0]; 
+                    if (locationName.length > 20) locationName = input;
 
-                    // Optimized Overpass Query: Stripped regex entirely, just checks node and way tags. Runs 10x faster.
+                    // Fetch live map for strictly 100% vegan venues
                     const overpassQuery = `[out:json][timeout:8];(node["diet:vegan"="only"](around:8000,${lat},${lon});way["diet:vegan"="only"](around:8000,${lat},${lon}););out center;`;
-
                     const overpassRes = await fetch(`https://overpass-api.de/api/interpreter`, {
                         method: 'POST',
                         body: "data=" + encodeURIComponent(overpassQuery)
@@ -372,7 +360,6 @@
                     
                     if (overpassRes.ok) {
                         const overpassData = await overpassRes.json();
-                        
                         if (overpassData.elements && overpassData.elements.length > 0) {
                             overpassData.elements.forEach(el => {
                                 const tags = el.tags;
@@ -381,32 +368,39 @@
                                 const nameLower = tags.name.toLowerCase();
                                 if (!displayedNames.has(nameLower)) {
                                     displayedNames.add(nameLower);
-                                    
                                     let type = "Restaurant / Cafe";
                                     if (tags.amenity === "fast_food") type = "Takeaway";
                                     if (tags.amenity === "pub" || tags.amenity === "bar") type = "Pub / Bar";
-
                                     grid.appendChild(createCard(tags.name, type, locationName));
                                 }
                             });
                         }
                     }
                 }
-                loading.style.display = 'none';
-                
-                if (grid.children.length === 0) {
-                    noResults.textContent = `No 100% vegan venues found near ${input}.`;
-                    noResults.style.display = 'block';
-                }
-
             } catch (err) {
-                console.error(err);
-                loading.style.display = 'none';
-                // If live map fails but we have instant results, just fail silently. Otherwise show error.
-                if (instantResults.length === 0) {
-                    noResults.textContent = "Error connecting to the live map. The server might be busy, please try again in a moment.";
-                    noResults.style.display = 'block';
-                }
+                console.error("Live fetch timed out or failed:", err);
+                // Fail silently so it doesn't interrupt the user, moving directly to the fallback step below.
+            }
+
+            loading.style.display = 'none';
+
+            // PHASE 3: THE GOOGLE MAPS FALLBACK
+            // If the local database AND the live map both found absolutely nothing, generate the fallback card.
+            if (grid.children.length === 0) {
+                const fallbackCard = document.createElement('div');
+                fallbackCard.className = 'venue-card options-card';
+                
+                const fallbackSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('vegan places in ' + locationName)}`;
+                
+                fallbackCard.innerHTML = `
+                    <span class="venue-type-badge badge-orange">Explore Area</span>
+                    <h3 class="venue-name">Vegan Places in ${locationName}</h3>
+                    <div class="venue-location">📍 Search the wider area for options</div>
+                    <div class="venue-links">
+                        <a href="${fallbackSearchUrl}" target="_blank" class="venue-btn btn-google" style="background-color: #f57c00;">Search Google Maps ➔</a>
+                    </div>
+                `;
+                grid.appendChild(fallbackCard);
             }
         }
     </script>
