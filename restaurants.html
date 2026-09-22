@@ -88,6 +88,10 @@
         body.dark-mode .rating-red .ratings-box { background-color: #7f1d1d; border-color: #991b1b; color: #fecaca; }
         body.dark-mode .site-footer { background-color: #0f172a; }
         
+        /* The Advanced Night Mode CSS Filter for the Map Tiles */
+        body.dark-mode .leaflet-tile-pane { 
+            filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(100%) saturate(80%); 
+        }
         body.dark-mode .leaflet-container { background: #121212; }
     </style>
 </head>
@@ -181,39 +185,29 @@
 
     <script>
         const toggleBtn = document.getElementById('darkModeToggle');
-        
-        // Define Light OSM and the new Stadia Alidade Dark map (beautifully shows city/street names)
-        const lightTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        const darkTiles = 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
-        const lightAttr = '© OpenStreetMap';
-        const darkAttr = '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             toggleBtn.textContent = '☀️';
         }
 
+        // We completely rely on the stable, 100% free OpenStreetMap. 
+        // The CSS filter in the <style> block handles the Dark Mode perfectly!
         const map = L.map('map').setView([53.4, -2.1], 8);
-        const currentModeTiles = document.body.classList.contains('dark-mode') ? darkTiles : lightTiles;
-        const currentAttr = document.body.classList.contains('dark-mode') ? darkAttr : lightAttr;
         
-        const tileLayer = L.tileLayer(currentModeTiles, {
-            maxZoom: 20,
-            attribution: currentAttr
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
         }).addTo(map);
 
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            
-            if (isDark) {
+            if (document.body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
                 toggleBtn.textContent = '☀️';
-                tileLayer.setUrl(darkTiles); 
             } else {
                 localStorage.setItem('darkMode', 'disabled');
                 toggleBtn.textContent = '🌙';
-                tileLayer.setUrl(lightTiles); 
             }
         });
 
