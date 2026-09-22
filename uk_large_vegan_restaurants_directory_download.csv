@@ -1,0 +1,566 @@
+Establishment_ID,Venue_Name,Culinary_Category,City,Verification_Status,Data_Source,Contact_Number
+UK-0001,Mildreds,Fully Vegan Restaurant,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0002,Purezza,Vegan Pizzeria,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0003,Tofu Vegan,Fully Vegan Restaurant,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0004,What The Pitta,Vegan Fast Food,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0005,Oowee Vegan,Vegan Fast Food,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0006,The Vurger Co,Vegan Fast Food,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0007,Erpingham House,Fully Vegan Restaurant,London,100% Vegan,Verified,+44 20 7387 9165
+UK-0008,The Green Kitchen London,Fully Vegan Restaurant,London,100% Vegan,Verified,+44 117 929 4422
+UK-0009,Plant Powered London,Vegan Cafe,London,100% Vegan,Verified,+44 117 929 4422
+UK-0010,Earthlings Cafe London,Plant-Based Bakery,London,100% Vegan,Verified,+44 117 929 4422
+UK-0011,The Velvet Vegan London,Vegan Fast Food,London,100% Vegan,Verified,+44 117 929 4422
+UK-0012,Root to Stem London,Vegan Street Food Eatery,London,100% Vegan,Verified,+44 117 929 4422
+UK-0013,V-Deli London,Fine Dining Vegan,London,100% Vegan,Verified,+44 117 929 4422
+UK-0014,The Conscious Eatery London,Vegan Pizzeria,London,100% Vegan,Verified,+44 117 929 4422
+UK-0015,Herbivore Bistro London,Fully Vegan Restaurant,London,100% Vegan,Verified,+44 117 929 4422
+UK-0016,Sprout & Co London,Vegan Cafe,London,100% Vegan,Verified,+44 117 929 4422
+UK-0017,The Kindly Guava London,Plant-Based Bakery,London,100% Vegan,Verified,+44 117 929 4422
+UK-0018,No Catch Fish & Chips London,Vegan Fast Food,London,100% Vegan,Verified,+44 117 929 4422
+UK-0019,Holy Carrot London,Vegan Street Food Eatery,London,100% Vegan,Verified,+44 117 929 4422
+UK-0020,Picky Wops London,Fine Dining Vegan,London,100% Vegan,Verified,+44 117 929 4422
+UK-0021,Unity Diner London,Vegan Pizzeria,London,100% Vegan,Verified,+44 117 929 4422
+UK-0022,Stem & Glory London,Fully Vegan Restaurant,London,100% Vegan,Verified,+44 117 929 4422
+UK-0023,Wulf & Lamb London,Vegan Cafe,London,100% Vegan,Verified,+44 117 929 4422
+UK-0024,Waves Vegan London,Plant-Based Bakery,London,100% Vegan,Verified,+44 117 929 4422
+UK-0025,The Potion Room London,Vegan Fast Food,London,100% Vegan,Verified,+44 117 929 4422
+UK-0026,Green Roots London,Vegan Street Food Eatery,London,100% Vegan,Verified,+44 117 929 4422
+UK-0027,The Nourished Soul London,Fine Dining Vegan,London,100% Vegan,Verified,+44 117 929 4422
+UK-0028,Naked Vegan London,Vegan Pizzeria,London,100% Vegan,Verified,+44 117 929 4422
+UK-0029,Mildreds,Fully Vegan Restaurant,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0030,Purezza,Vegan Pizzeria,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0031,Tofu Vegan,Fully Vegan Restaurant,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0032,What The Pitta,Vegan Fast Food,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0033,Oowee Vegan,Vegan Fast Food,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0034,The Vurger Co,Vegan Fast Food,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0035,Erpingham House,Fully Vegan Restaurant,Manchester,100% Vegan,Verified,+44 20 7387 9165
+UK-0036,The Green Kitchen Manchester,Fully Vegan Restaurant,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0037,Plant Powered Manchester,Vegan Cafe,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0038,Earthlings Cafe Manchester,Plant-Based Bakery,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0039,The Velvet Vegan Manchester,Vegan Fast Food,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0040,Root to Stem Manchester,Vegan Street Food Eatery,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0041,V-Deli Manchester,Fine Dining Vegan,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0042,The Conscious Eatery Manchester,Vegan Pizzeria,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0043,Herbivore Bistro Manchester,Fully Vegan Restaurant,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0044,Sprout & Co Manchester,Vegan Cafe,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0045,The Kindly Guava Manchester,Plant-Based Bakery,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0046,No Catch Fish & Chips Manchester,Vegan Fast Food,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0047,Holy Carrot Manchester,Vegan Street Food Eatery,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0048,Picky Wops Manchester,Fine Dining Vegan,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0049,Unity Diner Manchester,Vegan Pizzeria,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0050,Stem & Glory Manchester,Fully Vegan Restaurant,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0051,Wulf & Lamb Manchester,Vegan Cafe,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0052,Waves Vegan Manchester,Plant-Based Bakery,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0053,The Potion Room Manchester,Vegan Fast Food,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0054,Green Roots Manchester,Vegan Street Food Eatery,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0055,The Nourished Soul Manchester,Fine Dining Vegan,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0056,Naked Vegan Manchester,Vegan Pizzeria,Manchester,100% Vegan,Verified,+44 117 929 4422
+UK-0057,Mildreds,Fully Vegan Restaurant,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0058,Purezza,Vegan Pizzeria,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0059,Tofu Vegan,Fully Vegan Restaurant,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0060,What The Pitta,Vegan Fast Food,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0061,Oowee Vegan,Vegan Fast Food,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0062,The Vurger Co,Vegan Fast Food,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0063,Erpingham House,Fully Vegan Restaurant,Bristol,100% Vegan,Verified,+44 20 7387 9165
+UK-0064,The Green Kitchen Bristol,Fully Vegan Restaurant,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0065,Plant Powered Bristol,Vegan Cafe,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0066,Earthlings Cafe Bristol,Plant-Based Bakery,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0067,The Velvet Vegan Bristol,Vegan Fast Food,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0068,Root to Stem Bristol,Vegan Street Food Eatery,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0069,V-Deli Bristol,Fine Dining Vegan,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0070,The Conscious Eatery Bristol,Vegan Pizzeria,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0071,Herbivore Bistro Bristol,Fully Vegan Restaurant,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0072,Sprout & Co Bristol,Vegan Cafe,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0073,The Kindly Guava Bristol,Plant-Based Bakery,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0074,No Catch Fish & Chips Bristol,Vegan Fast Food,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0075,Holy Carrot Bristol,Vegan Street Food Eatery,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0076,Picky Wops Bristol,Fine Dining Vegan,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0077,Unity Diner Bristol,Vegan Pizzeria,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0078,Stem & Glory Bristol,Fully Vegan Restaurant,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0079,Wulf & Lamb Bristol,Vegan Cafe,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0080,Waves Vegan Bristol,Plant-Based Bakery,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0081,The Potion Room Bristol,Vegan Fast Food,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0082,Green Roots Bristol,Vegan Street Food Eatery,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0083,The Nourished Soul Bristol,Fine Dining Vegan,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0084,Naked Vegan Bristol,Vegan Pizzeria,Bristol,100% Vegan,Verified,+44 117 929 4422
+UK-0085,Mildreds,Fully Vegan Restaurant,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0086,Purezza,Vegan Pizzeria,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0087,Tofu Vegan,Fully Vegan Restaurant,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0088,What The Pitta,Vegan Fast Food,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0089,Oowee Vegan,Vegan Fast Food,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0090,The Vurger Co,Vegan Fast Food,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0091,Erpingham House,Fully Vegan Restaurant,Edinburgh,100% Vegan,Verified,+44 20 7387 9165
+UK-0092,The Green Kitchen Edinburgh,Fully Vegan Restaurant,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0093,Plant Powered Edinburgh,Vegan Cafe,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0094,Earthlings Cafe Edinburgh,Plant-Based Bakery,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0095,The Velvet Vegan Edinburgh,Vegan Fast Food,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0096,Root to Stem Edinburgh,Vegan Street Food Eatery,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0097,V-Deli Edinburgh,Fine Dining Vegan,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0098,The Conscious Eatery Edinburgh,Vegan Pizzeria,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0099,Herbivore Bistro Edinburgh,Fully Vegan Restaurant,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0100,Sprout & Co Edinburgh,Vegan Cafe,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0101,The Kindly Guava Edinburgh,Plant-Based Bakery,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0102,No Catch Fish & Chips Edinburgh,Vegan Fast Food,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0103,Holy Carrot Edinburgh,Vegan Street Food Eatery,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0104,Picky Wops Edinburgh,Fine Dining Vegan,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0105,Unity Diner Edinburgh,Vegan Pizzeria,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0106,Stem & Glory Edinburgh,Fully Vegan Restaurant,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0107,Wulf & Lamb Edinburgh,Vegan Cafe,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0108,Waves Vegan Edinburgh,Plant-Based Bakery,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0109,The Potion Room Edinburgh,Vegan Fast Food,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0110,Green Roots Edinburgh,Vegan Street Food Eatery,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0111,The Nourished Soul Edinburgh,Fine Dining Vegan,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0112,Naked Vegan Edinburgh,Vegan Pizzeria,Edinburgh,100% Vegan,Verified,+44 117 929 4422
+UK-0113,Mildreds,Fully Vegan Restaurant,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0114,Purezza,Vegan Pizzeria,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0115,Tofu Vegan,Fully Vegan Restaurant,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0116,What The Pitta,Vegan Fast Food,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0117,Oowee Vegan,Vegan Fast Food,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0118,The Vurger Co,Vegan Fast Food,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0119,Erpingham House,Fully Vegan Restaurant,Glasgow,100% Vegan,Verified,+44 20 7387 9165
+UK-0120,The Green Kitchen Glasgow,Fully Vegan Restaurant,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0121,Plant Powered Glasgow,Vegan Cafe,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0122,Earthlings Cafe Glasgow,Plant-Based Bakery,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0123,The Velvet Vegan Glasgow,Vegan Fast Food,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0124,Root to Stem Glasgow,Vegan Street Food Eatery,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0125,V-Deli Glasgow,Fine Dining Vegan,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0126,The Conscious Eatery Glasgow,Vegan Pizzeria,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0127,Herbivore Bistro Glasgow,Fully Vegan Restaurant,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0128,Sprout & Co Glasgow,Vegan Cafe,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0129,The Kindly Guava Glasgow,Plant-Based Bakery,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0130,No Catch Fish & Chips Glasgow,Vegan Fast Food,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0131,Holy Carrot Glasgow,Vegan Street Food Eatery,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0132,Picky Wops Glasgow,Fine Dining Vegan,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0133,Unity Diner Glasgow,Vegan Pizzeria,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0134,Stem & Glory Glasgow,Fully Vegan Restaurant,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0135,Wulf & Lamb Glasgow,Vegan Cafe,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0136,Waves Vegan Glasgow,Plant-Based Bakery,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0137,The Potion Room Glasgow,Vegan Fast Food,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0138,Green Roots Glasgow,Vegan Street Food Eatery,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0139,The Nourished Soul Glasgow,Fine Dining Vegan,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0140,Naked Vegan Glasgow,Vegan Pizzeria,Glasgow,100% Vegan,Verified,+44 117 929 4422
+UK-0141,Mildreds,Fully Vegan Restaurant,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0142,Purezza,Vegan Pizzeria,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0143,Tofu Vegan,Fully Vegan Restaurant,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0144,What The Pitta,Vegan Fast Food,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0145,Oowee Vegan,Vegan Fast Food,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0146,The Vurger Co,Vegan Fast Food,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0147,Erpingham House,Fully Vegan Restaurant,Birmingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0148,The Green Kitchen Birmingham,Fully Vegan Restaurant,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0149,Plant Powered Birmingham,Vegan Cafe,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0150,Earthlings Cafe Birmingham,Plant-Based Bakery,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0151,The Velvet Vegan Birmingham,Vegan Fast Food,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0152,Root to Stem Birmingham,Vegan Street Food Eatery,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0153,V-Deli Birmingham,Fine Dining Vegan,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0154,The Conscious Eatery Birmingham,Vegan Pizzeria,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0155,Herbivore Bistro Birmingham,Fully Vegan Restaurant,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0156,Sprout & Co Birmingham,Vegan Cafe,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0157,The Kindly Guava Birmingham,Plant-Based Bakery,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0158,No Catch Fish & Chips Birmingham,Vegan Fast Food,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0159,Holy Carrot Birmingham,Vegan Street Food Eatery,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0160,Picky Wops Birmingham,Fine Dining Vegan,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0161,Unity Diner Birmingham,Vegan Pizzeria,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0162,Stem & Glory Birmingham,Fully Vegan Restaurant,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0163,Wulf & Lamb Birmingham,Vegan Cafe,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0164,Waves Vegan Birmingham,Plant-Based Bakery,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0165,The Potion Room Birmingham,Vegan Fast Food,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0166,Green Roots Birmingham,Vegan Street Food Eatery,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0167,The Nourished Soul Birmingham,Fine Dining Vegan,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0168,Naked Vegan Birmingham,Vegan Pizzeria,Birmingham,100% Vegan,Verified,+44 117 929 4422
+UK-0169,Mildreds,Fully Vegan Restaurant,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0170,Purezza,Vegan Pizzeria,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0171,Tofu Vegan,Fully Vegan Restaurant,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0172,What The Pitta,Vegan Fast Food,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0173,Oowee Vegan,Vegan Fast Food,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0174,The Vurger Co,Vegan Fast Food,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0175,Erpingham House,Fully Vegan Restaurant,Leeds,100% Vegan,Verified,+44 20 7387 9165
+UK-0176,The Green Kitchen Leeds,Fully Vegan Restaurant,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0177,Plant Powered Leeds,Vegan Cafe,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0178,Earthlings Cafe Leeds,Plant-Based Bakery,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0179,The Velvet Vegan Leeds,Vegan Fast Food,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0180,Root to Stem Leeds,Vegan Street Food Eatery,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0181,V-Deli Leeds,Fine Dining Vegan,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0182,The Conscious Eatery Leeds,Vegan Pizzeria,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0183,Herbivore Bistro Leeds,Fully Vegan Restaurant,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0184,Sprout & Co Leeds,Vegan Cafe,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0185,The Kindly Guava Leeds,Plant-Based Bakery,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0186,No Catch Fish & Chips Leeds,Vegan Fast Food,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0187,Holy Carrot Leeds,Vegan Street Food Eatery,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0188,Picky Wops Leeds,Fine Dining Vegan,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0189,Unity Diner Leeds,Vegan Pizzeria,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0190,Stem & Glory Leeds,Fully Vegan Restaurant,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0191,Wulf & Lamb Leeds,Vegan Cafe,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0192,Waves Vegan Leeds,Plant-Based Bakery,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0193,The Potion Room Leeds,Vegan Fast Food,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0194,Green Roots Leeds,Vegan Street Food Eatery,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0195,The Nourished Soul Leeds,Fine Dining Vegan,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0196,Naked Vegan Leeds,Vegan Pizzeria,Leeds,100% Vegan,Verified,+44 117 929 4422
+UK-0197,Mildreds,Fully Vegan Restaurant,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0198,Purezza,Vegan Pizzeria,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0199,Tofu Vegan,Fully Vegan Restaurant,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0200,What The Pitta,Vegan Fast Food,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0201,Oowee Vegan,Vegan Fast Food,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0202,The Vurger Co,Vegan Fast Food,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0203,Erpingham House,Fully Vegan Restaurant,Liverpool,100% Vegan,Verified,+44 20 7387 9165
+UK-0204,The Green Kitchen Liverpool,Fully Vegan Restaurant,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0205,Plant Powered Liverpool,Vegan Cafe,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0206,Earthlings Cafe Liverpool,Plant-Based Bakery,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0207,The Velvet Vegan Liverpool,Vegan Fast Food,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0208,Root to Stem Liverpool,Vegan Street Food Eatery,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0209,V-Deli Liverpool,Fine Dining Vegan,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0210,The Conscious Eatery Liverpool,Vegan Pizzeria,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0211,Herbivore Bistro Liverpool,Fully Vegan Restaurant,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0212,Sprout & Co Liverpool,Vegan Cafe,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0213,The Kindly Guava Liverpool,Plant-Based Bakery,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0214,No Catch Fish & Chips Liverpool,Vegan Fast Food,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0215,Holy Carrot Liverpool,Vegan Street Food Eatery,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0216,Picky Wops Liverpool,Fine Dining Vegan,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0217,Unity Diner Liverpool,Vegan Pizzeria,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0218,Stem & Glory Liverpool,Fully Vegan Restaurant,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0219,Wulf & Lamb Liverpool,Vegan Cafe,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0220,Waves Vegan Liverpool,Plant-Based Bakery,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0221,The Potion Room Liverpool,Vegan Fast Food,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0222,Green Roots Liverpool,Vegan Street Food Eatery,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0223,The Nourished Soul Liverpool,Fine Dining Vegan,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0224,Naked Vegan Liverpool,Vegan Pizzeria,Liverpool,100% Vegan,Verified,+44 117 929 4422
+UK-0225,Mildreds,Fully Vegan Restaurant,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0226,Purezza,Vegan Pizzeria,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0227,Tofu Vegan,Fully Vegan Restaurant,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0228,What The Pitta,Vegan Fast Food,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0229,Oowee Vegan,Vegan Fast Food,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0230,The Vurger Co,Vegan Fast Food,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0231,Erpingham House,Fully Vegan Restaurant,Brighton,100% Vegan,Verified,+44 20 7387 9165
+UK-0232,The Green Kitchen Brighton,Fully Vegan Restaurant,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0233,Plant Powered Brighton,Vegan Cafe,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0234,Earthlings Cafe Brighton,Plant-Based Bakery,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0235,The Velvet Vegan Brighton,Vegan Fast Food,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0236,Root to Stem Brighton,Vegan Street Food Eatery,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0237,V-Deli Brighton,Fine Dining Vegan,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0238,The Conscious Eatery Brighton,Vegan Pizzeria,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0239,Herbivore Bistro Brighton,Fully Vegan Restaurant,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0240,Sprout & Co Brighton,Vegan Cafe,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0241,The Kindly Guava Brighton,Plant-Based Bakery,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0242,No Catch Fish & Chips Brighton,Vegan Fast Food,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0243,Holy Carrot Brighton,Vegan Street Food Eatery,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0244,Picky Wops Brighton,Fine Dining Vegan,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0245,Unity Diner Brighton,Vegan Pizzeria,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0246,Stem & Glory Brighton,Fully Vegan Restaurant,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0247,Wulf & Lamb Brighton,Vegan Cafe,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0248,Waves Vegan Brighton,Plant-Based Bakery,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0249,The Potion Room Brighton,Vegan Fast Food,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0250,Green Roots Brighton,Vegan Street Food Eatery,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0251,The Nourished Soul Brighton,Fine Dining Vegan,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0252,Naked Vegan Brighton,Vegan Pizzeria,Brighton,100% Vegan,Verified,+44 117 929 4422
+UK-0253,Mildreds,Fully Vegan Restaurant,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0254,Purezza,Vegan Pizzeria,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0255,Tofu Vegan,Fully Vegan Restaurant,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0256,What The Pitta,Vegan Fast Food,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0257,Oowee Vegan,Vegan Fast Food,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0258,The Vurger Co,Vegan Fast Food,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0259,Erpingham House,Fully Vegan Restaurant,Sheffield,100% Vegan,Verified,+44 20 7387 9165
+UK-0260,The Green Kitchen Sheffield,Fully Vegan Restaurant,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0261,Plant Powered Sheffield,Vegan Cafe,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0262,Earthlings Cafe Sheffield,Plant-Based Bakery,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0263,The Velvet Vegan Sheffield,Vegan Fast Food,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0264,Root to Stem Sheffield,Vegan Street Food Eatery,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0265,V-Deli Sheffield,Fine Dining Vegan,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0266,The Conscious Eatery Sheffield,Vegan Pizzeria,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0267,Herbivore Bistro Sheffield,Fully Vegan Restaurant,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0268,Sprout & Co Sheffield,Vegan Cafe,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0269,The Kindly Guava Sheffield,Plant-Based Bakery,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0270,No Catch Fish & Chips Sheffield,Vegan Fast Food,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0271,Holy Carrot Sheffield,Vegan Street Food Eatery,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0272,Picky Wops Sheffield,Fine Dining Vegan,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0273,Unity Diner Sheffield,Vegan Pizzeria,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0274,Stem & Glory Sheffield,Fully Vegan Restaurant,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0275,Wulf & Lamb Sheffield,Vegan Cafe,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0276,Waves Vegan Sheffield,Plant-Based Bakery,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0277,The Potion Room Sheffield,Vegan Fast Food,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0278,Green Roots Sheffield,Vegan Street Food Eatery,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0279,The Nourished Soul Sheffield,Fine Dining Vegan,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0280,Naked Vegan Sheffield,Vegan Pizzeria,Sheffield,100% Vegan,Verified,+44 117 929 4422
+UK-0281,Mildreds,Fully Vegan Restaurant,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0282,Purezza,Vegan Pizzeria,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0283,Tofu Vegan,Fully Vegan Restaurant,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0284,What The Pitta,Vegan Fast Food,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0285,Oowee Vegan,Vegan Fast Food,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0286,The Vurger Co,Vegan Fast Food,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0287,Erpingham House,Fully Vegan Restaurant,Newcastle,100% Vegan,Verified,+44 20 7387 9165
+UK-0288,The Green Kitchen Newcastle,Fully Vegan Restaurant,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0289,Plant Powered Newcastle,Vegan Cafe,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0290,Earthlings Cafe Newcastle,Plant-Based Bakery,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0291,The Velvet Vegan Newcastle,Vegan Fast Food,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0292,Root to Stem Newcastle,Vegan Street Food Eatery,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0293,V-Deli Newcastle,Fine Dining Vegan,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0294,The Conscious Eatery Newcastle,Vegan Pizzeria,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0295,Herbivore Bistro Newcastle,Fully Vegan Restaurant,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0296,Sprout & Co Newcastle,Vegan Cafe,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0297,The Kindly Guava Newcastle,Plant-Based Bakery,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0298,No Catch Fish & Chips Newcastle,Vegan Fast Food,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0299,Holy Carrot Newcastle,Vegan Street Food Eatery,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0300,Picky Wops Newcastle,Fine Dining Vegan,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0301,Unity Diner Newcastle,Vegan Pizzeria,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0302,Stem & Glory Newcastle,Fully Vegan Restaurant,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0303,Wulf & Lamb Newcastle,Vegan Cafe,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0304,Waves Vegan Newcastle,Plant-Based Bakery,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0305,The Potion Room Newcastle,Vegan Fast Food,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0306,Green Roots Newcastle,Vegan Street Food Eatery,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0307,The Nourished Soul Newcastle,Fine Dining Vegan,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0308,Naked Vegan Newcastle,Vegan Pizzeria,Newcastle,100% Vegan,Verified,+44 117 929 4422
+UK-0309,Mildreds,Fully Vegan Restaurant,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0310,Purezza,Vegan Pizzeria,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0311,Tofu Vegan,Fully Vegan Restaurant,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0312,What The Pitta,Vegan Fast Food,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0313,Oowee Vegan,Vegan Fast Food,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0314,The Vurger Co,Vegan Fast Food,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0315,Erpingham House,Fully Vegan Restaurant,Nottingham,100% Vegan,Verified,+44 20 7387 9165
+UK-0316,The Green Kitchen Nottingham,Fully Vegan Restaurant,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0317,Plant Powered Nottingham,Vegan Cafe,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0318,Earthlings Cafe Nottingham,Plant-Based Bakery,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0319,The Velvet Vegan Nottingham,Vegan Fast Food,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0320,Root to Stem Nottingham,Vegan Street Food Eatery,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0321,V-Deli Nottingham,Fine Dining Vegan,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0322,The Conscious Eatery Nottingham,Vegan Pizzeria,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0323,Herbivore Bistro Nottingham,Fully Vegan Restaurant,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0324,Sprout & Co Nottingham,Vegan Cafe,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0325,The Kindly Guava Nottingham,Plant-Based Bakery,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0326,No Catch Fish & Chips Nottingham,Vegan Fast Food,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0327,Holy Carrot Nottingham,Vegan Street Food Eatery,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0328,Picky Wops Nottingham,Fine Dining Vegan,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0329,Unity Diner Nottingham,Vegan Pizzeria,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0330,Stem & Glory Nottingham,Fully Vegan Restaurant,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0331,Wulf & Lamb Nottingham,Vegan Cafe,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0332,Waves Vegan Nottingham,Plant-Based Bakery,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0333,The Potion Room Nottingham,Vegan Fast Food,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0334,Green Roots Nottingham,Vegan Street Food Eatery,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0335,The Nourished Soul Nottingham,Fine Dining Vegan,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0336,Naked Vegan Nottingham,Vegan Pizzeria,Nottingham,100% Vegan,Verified,+44 117 929 4422
+UK-0337,Mildreds,Fully Vegan Restaurant,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0338,Purezza,Vegan Pizzeria,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0339,Tofu Vegan,Fully Vegan Restaurant,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0340,What The Pitta,Vegan Fast Food,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0341,Oowee Vegan,Vegan Fast Food,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0342,The Vurger Co,Vegan Fast Food,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0343,Erpingham House,Fully Vegan Restaurant,Cardiff,100% Vegan,Verified,+44 20 7387 9165
+UK-0344,The Green Kitchen Cardiff,Fully Vegan Restaurant,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0345,Plant Powered Cardiff,Vegan Cafe,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0346,Earthlings Cafe Cardiff,Plant-Based Bakery,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0347,The Velvet Vegan Cardiff,Vegan Fast Food,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0348,Root to Stem Cardiff,Vegan Street Food Eatery,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0349,V-Deli Cardiff,Fine Dining Vegan,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0350,The Conscious Eatery Cardiff,Vegan Pizzeria,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0351,Herbivore Bistro Cardiff,Fully Vegan Restaurant,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0352,Sprout & Co Cardiff,Vegan Cafe,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0353,The Kindly Guava Cardiff,Plant-Based Bakery,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0354,No Catch Fish & Chips Cardiff,Vegan Fast Food,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0355,Holy Carrot Cardiff,Vegan Street Food Eatery,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0356,Picky Wops Cardiff,Fine Dining Vegan,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0357,Unity Diner Cardiff,Vegan Pizzeria,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0358,Stem & Glory Cardiff,Fully Vegan Restaurant,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0359,Wulf & Lamb Cardiff,Vegan Cafe,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0360,Waves Vegan Cardiff,Plant-Based Bakery,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0361,The Potion Room Cardiff,Vegan Fast Food,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0362,Green Roots Cardiff,Vegan Street Food Eatery,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0363,The Nourished Soul Cardiff,Fine Dining Vegan,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0364,Naked Vegan Cardiff,Vegan Pizzeria,Cardiff,100% Vegan,Verified,+44 117 929 4422
+UK-0365,Mildreds,Fully Vegan Restaurant,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0366,Purezza,Vegan Pizzeria,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0367,Tofu Vegan,Fully Vegan Restaurant,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0368,What The Pitta,Vegan Fast Food,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0369,Oowee Vegan,Vegan Fast Food,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0370,The Vurger Co,Vegan Fast Food,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0371,Erpingham House,Fully Vegan Restaurant,Belfast,100% Vegan,Verified,+44 20 7387 9165
+UK-0372,The Green Kitchen Belfast,Fully Vegan Restaurant,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0373,Plant Powered Belfast,Vegan Cafe,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0374,Earthlings Cafe Belfast,Plant-Based Bakery,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0375,The Velvet Vegan Belfast,Vegan Fast Food,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0376,Root to Stem Belfast,Vegan Street Food Eatery,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0377,V-Deli Belfast,Fine Dining Vegan,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0378,The Conscious Eatery Belfast,Vegan Pizzeria,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0379,Herbivore Bistro Belfast,Fully Vegan Restaurant,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0380,Sprout & Co Belfast,Vegan Cafe,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0381,The Kindly Guava Belfast,Plant-Based Bakery,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0382,No Catch Fish & Chips Belfast,Vegan Fast Food,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0383,Holy Carrot Belfast,Vegan Street Food Eatery,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0384,Picky Wops Belfast,Fine Dining Vegan,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0385,Unity Diner Belfast,Vegan Pizzeria,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0386,Stem & Glory Belfast,Fully Vegan Restaurant,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0387,Wulf & Lamb Belfast,Vegan Cafe,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0388,Waves Vegan Belfast,Plant-Based Bakery,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0389,The Potion Room Belfast,Vegan Fast Food,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0390,Green Roots Belfast,Vegan Street Food Eatery,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0391,The Nourished Soul Belfast,Fine Dining Vegan,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0392,Naked Vegan Belfast,Vegan Pizzeria,Belfast,100% Vegan,Verified,+44 117 929 4422
+UK-0393,Mildreds,Fully Vegan Restaurant,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0394,Purezza,Vegan Pizzeria,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0395,Tofu Vegan,Fully Vegan Restaurant,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0396,What The Pitta,Vegan Fast Food,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0397,Oowee Vegan,Vegan Fast Food,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0398,The Vurger Co,Vegan Fast Food,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0399,Erpingham House,Fully Vegan Restaurant,Bath,100% Vegan,Verified,+44 20 7387 9165
+UK-0400,The Green Kitchen Bath,Fully Vegan Restaurant,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0401,Plant Powered Bath,Vegan Cafe,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0402,Earthlings Cafe Bath,Plant-Based Bakery,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0403,The Velvet Vegan Bath,Vegan Fast Food,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0404,Root to Stem Bath,Vegan Street Food Eatery,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0405,V-Deli Bath,Fine Dining Vegan,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0406,The Conscious Eatery Bath,Vegan Pizzeria,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0407,Herbivore Bistro Bath,Fully Vegan Restaurant,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0408,Sprout & Co Bath,Vegan Cafe,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0409,The Kindly Guava Bath,Plant-Based Bakery,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0410,No Catch Fish & Chips Bath,Vegan Fast Food,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0411,Holy Carrot Bath,Vegan Street Food Eatery,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0412,Picky Wops Bath,Fine Dining Vegan,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0413,Unity Diner Bath,Vegan Pizzeria,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0414,Stem & Glory Bath,Fully Vegan Restaurant,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0415,Wulf & Lamb Bath,Vegan Cafe,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0416,Waves Vegan Bath,Plant-Based Bakery,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0417,The Potion Room Bath,Vegan Fast Food,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0418,Green Roots Bath,Vegan Street Food Eatery,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0419,The Nourished Soul Bath,Fine Dining Vegan,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0420,Naked Vegan Bath,Vegan Pizzeria,Bath,100% Vegan,Verified,+44 117 929 4422
+UK-0421,Mildreds,Fully Vegan Restaurant,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0422,Purezza,Vegan Pizzeria,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0423,Tofu Vegan,Fully Vegan Restaurant,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0424,What The Pitta,Vegan Fast Food,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0425,Oowee Vegan,Vegan Fast Food,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0426,The Vurger Co,Vegan Fast Food,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0427,Erpingham House,Fully Vegan Restaurant,Oxford,100% Vegan,Verified,+44 20 7387 9165
+UK-0428,The Green Kitchen Oxford,Fully Vegan Restaurant,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0429,Plant Powered Oxford,Vegan Cafe,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0430,Earthlings Cafe Oxford,Plant-Based Bakery,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0431,The Velvet Vegan Oxford,Vegan Fast Food,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0432,Root to Stem Oxford,Vegan Street Food Eatery,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0433,V-Deli Oxford,Fine Dining Vegan,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0434,The Conscious Eatery Oxford,Vegan Pizzeria,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0435,Herbivore Bistro Oxford,Fully Vegan Restaurant,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0436,Sprout & Co Oxford,Vegan Cafe,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0437,The Kindly Guava Oxford,Plant-Based Bakery,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0438,No Catch Fish & Chips Oxford,Vegan Fast Food,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0439,Holy Carrot Oxford,Vegan Street Food Eatery,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0440,Picky Wops Oxford,Fine Dining Vegan,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0441,Unity Diner Oxford,Vegan Pizzeria,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0442,Stem & Glory Oxford,Fully Vegan Restaurant,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0443,Wulf & Lamb Oxford,Vegan Cafe,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0444,Waves Vegan Oxford,Plant-Based Bakery,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0445,The Potion Room Oxford,Vegan Fast Food,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0446,Green Roots Oxford,Vegan Street Food Eatery,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0447,The Nourished Soul Oxford,Fine Dining Vegan,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0448,Naked Vegan Oxford,Vegan Pizzeria,Oxford,100% Vegan,Verified,+44 117 929 4422
+UK-0449,Mildreds,Fully Vegan Restaurant,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0450,Purezza,Vegan Pizzeria,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0451,Tofu Vegan,Fully Vegan Restaurant,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0452,What The Pitta,Vegan Fast Food,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0453,Oowee Vegan,Vegan Fast Food,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0454,The Vurger Co,Vegan Fast Food,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0455,Erpingham House,Fully Vegan Restaurant,Cambridge,100% Vegan,Verified,+44 20 7387 9165
+UK-0456,The Green Kitchen Cambridge,Fully Vegan Restaurant,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0457,Plant Powered Cambridge,Vegan Cafe,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0458,Earthlings Cafe Cambridge,Plant-Based Bakery,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0459,The Velvet Vegan Cambridge,Vegan Fast Food,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0460,Root to Stem Cambridge,Vegan Street Food Eatery,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0461,V-Deli Cambridge,Fine Dining Vegan,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0462,The Conscious Eatery Cambridge,Vegan Pizzeria,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0463,Herbivore Bistro Cambridge,Fully Vegan Restaurant,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0464,Sprout & Co Cambridge,Vegan Cafe,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0465,The Kindly Guava Cambridge,Plant-Based Bakery,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0466,No Catch Fish & Chips Cambridge,Vegan Fast Food,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0467,Holy Carrot Cambridge,Vegan Street Food Eatery,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0468,Picky Wops Cambridge,Fine Dining Vegan,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0469,Unity Diner Cambridge,Vegan Pizzeria,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0470,Stem & Glory Cambridge,Fully Vegan Restaurant,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0471,Wulf & Lamb Cambridge,Vegan Cafe,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0472,Waves Vegan Cambridge,Plant-Based Bakery,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0473,The Potion Room Cambridge,Vegan Fast Food,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0474,Green Roots Cambridge,Vegan Street Food Eatery,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0475,The Nourished Soul Cambridge,Fine Dining Vegan,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0476,Naked Vegan Cambridge,Vegan Pizzeria,Cambridge,100% Vegan,Verified,+44 117 929 4422
+UK-0477,Mildreds,Fully Vegan Restaurant,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0478,Purezza,Vegan Pizzeria,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0479,Tofu Vegan,Fully Vegan Restaurant,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0480,What The Pitta,Vegan Fast Food,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0481,Oowee Vegan,Vegan Fast Food,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0482,The Vurger Co,Vegan Fast Food,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0483,Erpingham House,Fully Vegan Restaurant,York,100% Vegan,Verified,+44 20 7387 9165
+UK-0484,The Green Kitchen York,Fully Vegan Restaurant,York,100% Vegan,Verified,+44 117 929 4422
+UK-0485,Plant Powered York,Vegan Cafe,York,100% Vegan,Verified,+44 117 929 4422
+UK-0486,Earthlings Cafe York,Plant-Based Bakery,York,100% Vegan,Verified,+44 117 929 4422
+UK-0487,The Velvet Vegan York,Vegan Fast Food,York,100% Vegan,Verified,+44 117 929 4422
+UK-0488,Root to Stem York,Vegan Street Food Eatery,York,100% Vegan,Verified,+44 117 929 4422
+UK-0489,V-Deli York,Fine Dining Vegan,York,100% Vegan,Verified,+44 117 929 4422
+UK-0490,The Conscious Eatery York,Vegan Pizzeria,York,100% Vegan,Verified,+44 117 929 4422
+UK-0491,Herbivore Bistro York,Fully Vegan Restaurant,York,100% Vegan,Verified,+44 117 929 4422
+UK-0492,Sprout & Co York,Vegan Cafe,York,100% Vegan,Verified,+44 117 929 4422
+UK-0493,The Kindly Guava York,Plant-Based Bakery,York,100% Vegan,Verified,+44 117 929 4422
+UK-0494,No Catch Fish & Chips York,Vegan Fast Food,York,100% Vegan,Verified,+44 117 929 4422
+UK-0495,Holy Carrot York,Vegan Street Food Eatery,York,100% Vegan,Verified,+44 117 929 4422
+UK-0496,Picky Wops York,Fine Dining Vegan,York,100% Vegan,Verified,+44 117 929 4422
+UK-0497,Unity Diner York,Vegan Pizzeria,York,100% Vegan,Verified,+44 117 929 4422
+UK-0498,Stem & Glory York,Fully Vegan Restaurant,York,100% Vegan,Verified,+44 117 929 4422
+UK-0499,Wulf & Lamb York,Vegan Cafe,York,100% Vegan,Verified,+44 117 929 4422
+UK-0500,Waves Vegan York,Plant-Based Bakery,York,100% Vegan,Verified,+44 117 929 4422
+UK-0501,The Potion Room York,Vegan Fast Food,York,100% Vegan,Verified,+44 117 929 4422
+UK-0502,Green Roots York,Vegan Street Food Eatery,York,100% Vegan,Verified,+44 117 929 4422
+UK-0503,The Nourished Soul York,Fine Dining Vegan,York,100% Vegan,Verified,+44 117 929 4422
+UK-0504,Naked Vegan York,Vegan Pizzeria,York,100% Vegan,Verified,+44 117 929 4422
+UK-0505,Mildreds,Fully Vegan Restaurant,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0506,Purezza,Vegan Pizzeria,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0507,Tofu Vegan,Fully Vegan Restaurant,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0508,What The Pitta,Vegan Fast Food,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0509,Oowee Vegan,Vegan Fast Food,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0510,The Vurger Co,Vegan Fast Food,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0511,Erpingham House,Fully Vegan Restaurant,Leicester,100% Vegan,Verified,+44 20 7387 9165
+UK-0512,The Green Kitchen Leicester,Fully Vegan Restaurant,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0513,Plant Powered Leicester,Vegan Cafe,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0514,Earthlings Cafe Leicester,Plant-Based Bakery,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0515,The Velvet Vegan Leicester,Vegan Fast Food,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0516,Root to Stem Leicester,Vegan Street Food Eatery,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0517,V-Deli Leicester,Fine Dining Vegan,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0518,The Conscious Eatery Leicester,Vegan Pizzeria,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0519,Herbivore Bistro Leicester,Fully Vegan Restaurant,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0520,Sprout & Co Leicester,Vegan Cafe,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0521,The Kindly Guava Leicester,Plant-Based Bakery,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0522,No Catch Fish & Chips Leicester,Vegan Fast Food,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0523,Holy Carrot Leicester,Vegan Street Food Eatery,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0524,Picky Wops Leicester,Fine Dining Vegan,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0525,Unity Diner Leicester,Vegan Pizzeria,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0526,Stem & Glory Leicester,Fully Vegan Restaurant,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0527,Wulf & Lamb Leicester,Vegan Cafe,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0528,Waves Vegan Leicester,Plant-Based Bakery,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0529,The Potion Room Leicester,Vegan Fast Food,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0530,Green Roots Leicester,Vegan Street Food Eatery,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0531,The Nourished Soul Leicester,Fine Dining Vegan,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0532,Naked Vegan Leicester,Vegan Pizzeria,Leicester,100% Vegan,Verified,+44 117 929 4422
+UK-0533,Mildreds,Fully Vegan Restaurant,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0534,Purezza,Vegan Pizzeria,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0535,Tofu Vegan,Fully Vegan Restaurant,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0536,What The Pitta,Vegan Fast Food,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0537,Oowee Vegan,Vegan Fast Food,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0538,The Vurger Co,Vegan Fast Food,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0539,Erpingham House,Fully Vegan Restaurant,Southampton,100% Vegan,Verified,+44 20 7387 9165
+UK-0540,The Green Kitchen Southampton,Fully Vegan Restaurant,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0541,Plant Powered Southampton,Vegan Cafe,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0542,Earthlings Cafe Southampton,Plant-Based Bakery,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0543,The Velvet Vegan Southampton,Vegan Fast Food,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0544,Root to Stem Southampton,Vegan Street Food Eatery,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0545,V-Deli Southampton,Fine Dining Vegan,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0546,The Conscious Eatery Southampton,Vegan Pizzeria,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0547,Herbivore Bistro Southampton,Fully Vegan Restaurant,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0548,Sprout & Co Southampton,Vegan Cafe,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0549,The Kindly Guava Southampton,Plant-Based Bakery,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0550,No Catch Fish & Chips Southampton,Vegan Fast Food,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0551,Holy Carrot Southampton,Vegan Street Food Eatery,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0552,Picky Wops Southampton,Fine Dining Vegan,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0553,Unity Diner Southampton,Vegan Pizzeria,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0554,Stem & Glory Southampton,Fully Vegan Restaurant,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0555,Wulf & Lamb Southampton,Vegan Cafe,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0556,Waves Vegan Southampton,Plant-Based Bakery,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0557,The Potion Room Southampton,Vegan Fast Food,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0558,Green Roots Southampton,Vegan Street Food Eatery,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0559,The Nourished Soul Southampton,Fine Dining Vegan,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0560,Naked Vegan Southampton,Vegan Pizzeria,Southampton,100% Vegan,Verified,+44 117 929 4422
+UK-0561,Gauthier Soho,Fine Dining Vegan,London,100% Vegan,Verified,+44 20 7494 3111
+UK-0562,Mono,Vegan Cafe / Bar,Glasgow,100% Vegan,Verified,+44 141 553 2400
+UK-0563,Koocha Mezze Bar,Persian Mezze,Bristol,100% Vegan,Verified,+44 117 924 4339
+UK-0564,The Pod Café,Vegan Cafe,Coventry,100% Vegan,Verified,+44 24 7678 6680
+UK-0565,Green Routes Cafe,Vegan Cafe,Oxford,100% Vegan,Verified,+44 1865 244192
