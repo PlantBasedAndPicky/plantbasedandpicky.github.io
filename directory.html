@@ -38,7 +38,6 @@
         .directory-header h1 { font-size: 2.2rem; color: #2e7d32; margin-bottom: 0.5rem; }
         .directory-header p { color: #64748b; font-size: 1.05rem; margin-top: 0; }
 
-        /* Custom Search Panel */
         .controls-panel {
             background: #ffffff;
             padding: 1.5rem;
@@ -136,7 +135,6 @@
         .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
         .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
-        /* Professional Disclaimer Box */
         .disclaimer-text {
             background-color: #f8fafc;
             border-left: 3px solid #f57c00;
@@ -151,7 +149,6 @@
             gap: 8px;
         }
 
-        /* Upgraded Button Grid */
         .venue-links {
             margin-top: auto;
             display: grid;
@@ -261,27 +258,30 @@
             }
         });
 
-        // The dynamic, empty array that fills up instantly when the page loads!
+        // The dynamic array that holds your 560+ uploaded CSV venues
         let localDatabase = [];
         let displayedNames = new Set();
         const grid = document.getElementById('directoryGrid');
         const noResults = document.getElementById('noResults');
         const loading = document.getElementById('loading');
 
-        // Fetch and parse the CSV file as soon as the user opens the page
+        // Instantly load the CSV file when the user visits the page
         document.addEventListener('DOMContentLoaded', async () => {
             try {
+                // Fetch the CSV file you uploaded to GitHub
                 const response = await fetch('uk_large_vegan_restaurants_directory.csv');
                 if (!response.ok) throw new Error("CSV File not found");
                 
                 const csvData = await response.text();
-                const rows = csvData.split('\\n');
+                // We use a robust regex here to split by line, which fixes the previous bug!
+                const rows = csvData.split(/\r?\n/);
                 
                 // Start at index 1 to skip the column headers row
                 for(let i = 1; i < rows.length; i++) {
                     if(!rows[i].trim()) continue;
                     
                     const cols = rows[i].split(',');
+                    // Make sure the row has enough columns (Venue is col 1, Category is col 2, City is col 3)
                     if(cols.length >= 4) {
                         const name = cols[1].trim();
                         const category = cols[2].trim();
@@ -305,7 +305,6 @@
             const card = document.createElement('div');
             card.className = 'venue-card';
             
-            // Smart Search URLs for all three platforms
             const query = encodeURIComponent(venueName + ' ' + locationName);
             const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
             const tripAdvisorUrl = `https://www.tripadvisor.com/Search?q=${query}`;
@@ -328,9 +327,9 @@
             let input = document.getElementById('searchInput').value.trim();
             if (!input) return;
 
-            // Auto-fix squashed postcodes
-            const cleanInput = input.replace(/\\s+/g, ''); 
-            if (/^[a-zA-Z]{1,2}\\d[a-zA-Z\\d]?\\d[a-zA-Z]{2}$/.test(cleanInput)) {
+            // FIX: Repaired the Regex so it safely spaces out squashed postcodes
+            const cleanInput = input.replace(/\s+/g, ''); 
+            if (/^[a-zA-Z]{1,2}\d[a-zA-Z\d]?\d[a-zA-Z]{2}$/.test(cleanInput)) {
                 input = cleanInput.slice(0, -3) + ' ' + cleanInput.slice(-3);
                 document.getElementById('searchInput').value = input; 
             }
@@ -344,7 +343,7 @@
             const queryLower = input.toLowerCase();
             let locationName = input; 
 
-            // PHASE 1: INSTANT LOCAL SEARCH (Using the newly loaded CSV data!)
+            // PHASE 1: INSTANT CSV DATABASE SEARCH
             const instantResults = localDatabase.filter(v => 
                 v.city.toLowerCase().includes(queryLower) || v.name.toLowerCase().includes(queryLower)
             );
@@ -403,7 +402,6 @@
             loading.style.display = 'none';
 
             // PHASE 3: THE TRUSTED FALLBACK
-            // If both local and live maps fail, direct them to My Vegan Town
             if (grid.children.length === 0) {
                 const fallbackCard = document.createElement('div');
                 fallbackCard.className = 'venue-card options-card';
