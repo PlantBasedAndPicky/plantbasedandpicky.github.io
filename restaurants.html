@@ -31,7 +31,9 @@
         .banner-image { width: 100%; height: auto; display: block; }
         .container { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #2e7d32; }
+        
         #map { height: 400px; width: 100%; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1; }
+        
         .filter-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
         .filter-btn { padding: 8px 16px; border: 2px solid #2e7d32; background: transparent; color: #2e7d32; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: 'Poppins', sans-serif; transition: all 0.3s; }
         .filter-btn.active, .filter-btn:hover { background: #2e7d32; color: white; }
@@ -86,8 +88,8 @@
         body.dark-mode .rating-red .ratings-box { background-color: #7f1d1d; border-color: #991b1b; color: #fecaca; }
         body.dark-mode .site-footer { background-color: #0f172a; }
         
-        /* Sets the dark map background when tiles are loading so there's no white flashes */
-        body.dark-mode .leaflet-container { background: #1e293b; }
+        /* Prevents white flashes while tiles are loading in dark mode */
+        body.dark-mode .leaflet-container { background: #121212; }
     </style>
 </head>
 <body id="top">
@@ -182,9 +184,9 @@
         // 1. Setup Variables & Initial States
         const toggleBtn = document.getElementById('darkModeToggle');
         
-        // Define the two different Map Styles
+        // Define the two different Map Styles (Light OSM and ESRI Dark Gray Canvas)
         const lightTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        const darkTiles = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+        const darkTiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}';
 
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
@@ -197,10 +199,10 @@
         
         const tileLayer = L.tileLayer(currentModeTiles, {
             maxZoom: 19,
-            attribution: '© OpenStreetMap & CARTO'
+            attribution: '© OpenStreetMap | © Esri &mdash; Esri, DeLorme, NAVTEQ'
         }).addTo(map);
 
-        // 3. Dark Mode Toggle Logic (Now swaps the tiles automatically!)
+        // 3. Dark Mode Toggle Logic (Swaps tiles seamlessly without API keys!)
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
@@ -208,11 +210,11 @@
             if (isDark) {
                 localStorage.setItem('darkMode', 'enabled');
                 toggleBtn.textContent = '☀️';
-                tileLayer.setUrl(darkTiles); // Swap to dark map!
+                tileLayer.setUrl(darkTiles); // Swap to Esri Dark Map
             } else {
                 localStorage.setItem('darkMode', 'disabled');
                 toggleBtn.textContent = '🌙';
-                tileLayer.setUrl(lightTiles); // Swap to light map!
+                tileLayer.setUrl(lightTiles); // Swap to Light OSM
             }
         });
 
