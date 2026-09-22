@@ -261,57 +261,45 @@
             }
         });
 
-        // Curated, Highly-Verified Local Database
-        const localDatabase = [
-            { name: "The Green Rocket", type: "Restaurant", city: "Bath" }, 
-            { name: "Land Restaurant", type: "Restaurant", city: "Birmingham" }, 
-            { name: "BA-HA Vegan", type: "Restaurant", city: "Birmingham" },
-            { name: "The Roundhill", type: "Restaurant", city: "Brighton" },
-            { name: "What The Pitta", type: "Takeaway", city: "Brighton" }, 
-            { name: "Oowee Vegan", type: "Takeaway", city: "Bristol" },
-            { name: "Koocha Mezze Bar", type: "Restaurant", city: "Bristol" }, 
-            { name: "Stem & Glory", type: "Restaurant", city: "Cambridge" },
-            { name: "Shrub", type: "Restaurant", city: "Chester" }, 
-            { name: "Sacred Grounds", type: "Restaurant", city: "Exeter" }, 
-            { name: "Cantina Leeds", type: "Restaurant", city: "Leeds" },
-            { name: "Döner Summer", type: "Takeaway", city: "Leeds" }, 
-            { name: "Bundobust", type: "Restaurant", city: "Leeds" },
-            { name: "Down the Hatch", type: "Restaurant", city: "Liverpool" },
-            { name: "The Vibe", type: "Restaurant", city: "Liverpool" }, 
-            { name: "Purezza Camden", type: "Restaurant", city: "London" },
-            { name: "Unity Diner", type: "Restaurant", city: "London" }, 
-            { name: "Tofu Vegan", type: "Restaurant", city: "London" },
-            { name: "Wholesome Junkies", type: "Takeaway", city: "Manchester" }, 
-            { name: "Vegan Shack", type: "Takeaway", city: "Manchester" },
-            { name: "The Allotment", type: "Restaurant", city: "Manchester" }, 
-            { name: "Vegano", type: "Restaurant", city: "Newcastle" }, 
-            { name: "The Tipsy Vegan", type: "Restaurant", city: "Norwich" }, 
-            { name: "No. Twelve", type: "Restaurant", city: "Nottingham" }, 
-            { name: "Green Routes", type: "Restaurant", city: "Oxford" }, 
-            { name: "Church - Temple of Fun", type: "Restaurant", city: "Sheffield" }, 
-            { name: "Make No Bones", type: "Restaurant", city: "Sheffield" },
-            { name: "Cafe Thrive", type: "Restaurant", city: "Southampton" }, 
-            { name: "Corarima", type: "Restaurant", city: "Wakefield" }, 
-            { name: "Mildreds", type: "Restaurant", city: "Westminster" }, 
-            { name: "The Orchid Vegan", type: "Restaurant", city: "York" }, 
-            { name: "Döner Summer", type: "Takeaway", city: "York" },
-            { name: "Sora Lella", type: "Restaurant", city: "Edinburgh" }, 
-            { name: "Holy Cow", type: "Restaurant", city: "Edinburgh" },
-            { name: "Suissi Vegan Kitchen", type: "Restaurant", city: "Glasgow" },
-            { name: "Mono", type: "Restaurant", city: "Glasgow" }, 
-            { name: "The 78", type: "Restaurant", city: "Glasgow" },
-            { name: "Herbivore", type: "Restaurant", city: "Cardiff" }, 
-            { name: "Anna Loka", type: "Restaurant", city: "Cardiff" },
-            { name: "Jumamonkey", type: "Takeaway", city: "Belfast" }, 
-            { name: "Cornucopia Wholefoods", type: "Restaurant", city: "Dublin" },
-            { name: "The Saucy Cow", type: "Takeaway", city: "Dublin" }, 
-            { name: "Glas Restaurant", type: "Restaurant", city: "Dublin" }
-        ];
-
+        // The dynamic, empty array that fills up instantly when the page loads!
+        let localDatabase = [];
         let displayedNames = new Set();
         const grid = document.getElementById('directoryGrid');
         const noResults = document.getElementById('noResults');
         const loading = document.getElementById('loading');
+
+        // Fetch and parse the CSV file as soon as the user opens the page
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('uk_large_vegan_restaurants_directory.csv');
+                if (!response.ok) throw new Error("CSV File not found");
+                
+                const csvData = await response.text();
+                const rows = csvData.split('\\n');
+                
+                // Start at index 1 to skip the column headers row
+                for(let i = 1; i < rows.length; i++) {
+                    if(!rows[i].trim()) continue;
+                    
+                    const cols = rows[i].split(',');
+                    if(cols.length >= 4) {
+                        const name = cols[1].trim();
+                        const category = cols[2].trim();
+                        const city = cols[3].trim();
+                        
+                        let type = "Restaurant / Cafe";
+                        if (category.toLowerCase().includes("fast food") || category.toLowerCase().includes("street food")) {
+                            type = "Takeaway";
+                        }
+                        
+                        localDatabase.push({ name, type, city });
+                    }
+                }
+                console.log(`Successfully loaded ${localDatabase.length} venues from the CSV database.`);
+            } catch (err) {
+                console.error("Database load error:", err);
+            }
+        });
 
         function createCard(venueName, venueType, locationName) {
             const card = document.createElement('div');
@@ -341,8 +329,8 @@
             if (!input) return;
 
             // Auto-fix squashed postcodes
-            const cleanInput = input.replace(/\s+/g, ''); 
-            if (/^[a-zA-Z]{1,2}\d[a-zA-Z\d]?\d[a-zA-Z]{2}$/.test(cleanInput)) {
+            const cleanInput = input.replace(/\\s+/g, ''); 
+            if (/^[a-zA-Z]{1,2}\\d[a-zA-Z\\d]?\\d[a-zA-Z]{2}$/.test(cleanInput)) {
                 input = cleanInput.slice(0, -3) + ' ' + cleanInput.slice(-3);
                 document.getElementById('searchInput').value = input; 
             }
@@ -356,7 +344,7 @@
             const queryLower = input.toLowerCase();
             let locationName = input; 
 
-            // PHASE 1: INSTANT LOCAL SEARCH
+            // PHASE 1: INSTANT LOCAL SEARCH (Using the newly loaded CSV data!)
             const instantResults = localDatabase.filter(v => 
                 v.city.toLowerCase().includes(queryLower) || v.name.toLowerCase().includes(queryLower)
             );
