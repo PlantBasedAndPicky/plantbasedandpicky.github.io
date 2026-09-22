@@ -85,7 +85,9 @@
         body.dark-mode .rating-orange .ratings-box { background-color: #7c2d12; border-color: #9a3412; color: #fed7aa; }
         body.dark-mode .rating-red .ratings-box { background-color: #7f1d1d; border-color: #991b1b; color: #fecaca; }
         body.dark-mode .site-footer { background-color: #0f172a; }
-        body.dark-mode .leaflet-tile-pane { filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%); }
+        
+        /* Sets the dark map background when tiles are loading so there's no white flashes */
+        body.dark-mode .leaflet-container { background: #1e293b; }
     </style>
 </head>
 <body id="top">
@@ -177,22 +179,44 @@
     </footer>
 
     <script>
+        // 1. Setup Variables & Initial States
         const toggleBtn = document.getElementById('darkModeToggle');
+        
+        // Define the two different Map Styles
+        const lightTiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const darkTiles = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             toggleBtn.textContent = '☀️';
         }
+
+        // 2. Initialize the Map with the correct tiles based on Dark Mode
+        const map = L.map('map').setView([53.4, -2.1], 8);
+        const currentModeTiles = document.body.classList.contains('dark-mode') ? darkTiles : lightTiles;
+        
+        const tileLayer = L.tileLayer(currentModeTiles, {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap & CARTO'
+        }).addTo(map);
+
+        // 3. Dark Mode Toggle Logic (Now swaps the tiles automatically!)
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
+            const isDark = document.body.classList.contains('dark-mode');
+            
+            if (isDark) {
                 localStorage.setItem('darkMode', 'enabled');
                 toggleBtn.textContent = '☀️';
+                tileLayer.setUrl(darkTiles); // Swap to dark map!
             } else {
                 localStorage.setItem('darkMode', 'disabled');
                 toggleBtn.textContent = '🌙';
+                tileLayer.setUrl(lightTiles); // Swap to light map!
             }
         });
 
+        // 4. Filters Logic
         const filterBtns = document.querySelectorAll('.filter-btn');
         const reviewCards = document.querySelectorAll('.review-card');
         filterBtns.forEach(btn => {
@@ -206,12 +230,7 @@
             });
         });
 
-        const map = L.map('map').setView([53.4, -2.1], 8);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-
+        // 5. Map Markers Logic
         const greenIcon = new L.Icon({
           iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
           shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
