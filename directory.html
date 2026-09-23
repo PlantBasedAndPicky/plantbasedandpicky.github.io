@@ -3,210 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Vegan Discover | Plant-Based & Picky</title>
-    <meta property="og:title" content="Live Vegan Discover | Plant-Based & Picky">
+    <title>Live Discover | Plant-Based & Picky</title>
+    <meta property="og:title" content="Live Discover | Plant-Based & Picky">
     <meta property="og:description" content="Search the live map for 100% vegan restaurants and takeaways anywhere in the UK and Ireland.">
     <meta property="og:image" content="file_00000000ec7c81f4b150ae6bb6b3f761.png">
     <link rel="icon" href="favicon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #fafafa; color: #2c3e50; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
-        .navbar { position: sticky; top: 0; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 1000; padding: 1rem 0; transition: background-color 0.3s; }
-        .nav-content { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand { font-weight: 600; font-size: 1.2rem; color: #2e7d32; text-decoration: none; white-space: nowrap; }
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #2c3e50; font-weight: 600; transition: color 0.3s; }
-        .nav-links a:hover { color: #2e7d32; }
-        .dark-mode-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0; margin-left: 1.5rem; transition: transform 0.3s; }
-        @media (max-width: 600px) {
-            .nav-content { flex-direction: column; gap: 12px; padding: 0.5rem 1rem; }
-            .nav-links { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; width: 100%; align-items: center; }
-            .nav-links a { margin-left: 0; font-size: 0.9rem; }
-            .dark-mode-toggle { margin-left: 0; }
+        :root {
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-elevated: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --brand-primary: #059669;
+            --brand-hover: #047857;
+            --brand-surface: #ecfdf5;
+            --status-green: #10b981;
+            --status-orange: #f59e0b;
+            --border-subtle: #e2e8f0;
+            --border-highlight: #cbd5e1;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+            --shadow-hover: 0 20px 30px -10px rgba(15, 23, 42, 0.08), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            --nav-blur-bg: rgba(255, 255, 255, 0.82);
         }
-        .banner-container { width: 100%; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .banner-image { width: 100%; height: auto; display: block; }
-        .container { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; min-height: 50vh; }
+
+        body.dark-mode {
+            --bg-base: #090d16;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --brand-primary: #10b981;
+            --brand-hover: #34d399;
+            --brand-surface: rgba(16, 185, 129, 0.12);
+            --border-subtle: #1e293b;
+            --border-highlight: #334155;
+            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+            --shadow-hover: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
+            --nav-blur-bg: rgba(17, 24, 39, 0.85);
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-base); color: var(--text-primary); margin: 0; padding: 0; line-height: 1.5; transition: background-color 0.3s, color 0.3s; }
+
+        /* Navbar */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--nav-blur-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); transition: all 0.3s ease; }
+        .nav-content { max-width: 1140px; margin: 0 auto; padding: 0.85rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .brand-lockup { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .brand-logo-icon { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+        .brand-text { font-family: 'Poppins', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--brand-primary); letter-spacing: -0.02em; }
+        .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; padding: 0; margin: 0; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.925rem; font-weight: 600; transition: color 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-primary); }
+        .theme-switch-btn { background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); color: var(--text-primary); width: 38px; height: 38px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; box-shadow: var(--shadow-sm); }
+        .theme-switch-btn:hover { border-color: var(--brand-primary); transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .nav-content { flex-direction: column; gap: 0.75rem; padding: 0.75rem 1rem; }
+            .nav-right { width: 100%; justify-content: space-between; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+
+        .banner-wrapper { max-width: 1140px; margin: 1.5rem auto 0; padding: 0 1.5rem; }
+        .hero-banner-card { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); background: var(--bg-surface); }
+        .banner-image { width: 100%; height: auto; max-height: 240px; object-fit: cover; display: block; }
+
+        .container { max-width: 1140px; margin: 2.5rem auto 5rem; padding: 0 1.5rem; min-height: 50vh; }
         
         .directory-header { text-align: center; margin-bottom: 2.5rem; }
-        .directory-header h1 { font-size: 2.2rem; color: #2e7d32; margin-bottom: 0.5rem; }
-        .directory-header p { color: #64748b; font-size: 1.05rem; margin-top: 0; }
+        .directory-header h1 { font-family: 'Poppins', sans-serif; font-size: 2.25rem; color: var(--brand-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .directory-header p { color: var(--text-secondary); font-size: 1.05rem; margin-top: 0; }
 
-        .controls-panel {
-            background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 2.5rem;
-            border-top: 4px solid #2e7d32;
-            transition: background-color 0.3s;
-        }
-        
-        .search-layout {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .search-bar {
-            flex-grow: 1;
-            padding: 14px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1.05rem;
-            font-family: 'Poppins', sans-serif;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .search-bar:focus { border-color: #2e7d32; }
-        
-        .search-btn {
-            padding: 0 24px;
-            background-color: #2e7d32;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.3s;
-        }
-        .search-btn:hover { background-color: #1b5e20; }
+        /* Modern Search Panel */
+        .controls-panel { background: var(--bg-surface); padding: 1.75rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); border: 1px solid var(--border-subtle); margin-bottom: 2.5rem; transition: background-color 0.3s; }
+        .search-layout { display: flex; gap: 1rem; }
+        .search-bar { flex-grow: 1; padding: 14px 18px; background: var(--bg-base); border: 2px solid var(--border-subtle); color: var(--text-primary); border-radius: var(--radius-md); font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; outline: none; transition: border-color 0.3s; }
+        .search-bar:focus { border-color: var(--brand-primary); }
+        .search-btn { padding: 0 28px; background-color: var(--brand-primary); color: white; border: none; border-radius: var(--radius-md); font-weight: 700; font-size: 1.05rem; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2); }
+        .search-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3); }
         
         @media (max-width: 600px) {
             .search-layout { flex-direction: column; }
             .search-btn { padding: 14px 24px; }
         }
 
-        .status-text {
-            text-align: center;
-            grid-column: 1 / -1;
-            padding: 2rem 0 1rem 0;
-            color: #64748b;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        #loading { display: none; }
-        #noResults { display: none; }
+        .status-text { text-align: center; grid-column: 1 / -1; padding: 2rem 0 1rem 0; color: var(--text-secondary); font-size: 1.1rem; font-weight: 600; }
+        #loading, #noResults { display: none; }
 
-        .directory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            padding-bottom: 2rem;
-        }
-        .venue-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid #2e7d32; 
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        .venue-card.options-card { border-top-color: #f57c00; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Discovery Grid */
+        .directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; padding-bottom: 2rem; }
         
-        .venue-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
+        .review-card { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; animation: fadeIn 0.4s ease-in-out; }
+        .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border-highlight); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .venue-type-badge {
-            align-self: flex-start;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
-        .badge-green { background: #e8f5e9; color: #1b5e20; }
-        .badge-orange { background: #fff7ed; color: #9a3412; }
+        .card-body { padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-location { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 4px; }
+        .card-title { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 1.5rem 0; color: var(--text-primary); }
 
-        .venue-name { margin: 0 0 0.4rem 0; font-size: 1.3rem; }
-        .venue-location { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .disclaimer-text { background-color: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 12px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; }
 
-        .disclaimer-text {
-            background-color: #f8fafc;
-            border-left: 3px solid #f57c00;
-            padding: 10px 12px;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.85rem;
-            color: #475569;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
+        .venue-links { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .card-btn { text-align: center; padding: 10px 6px; font-size: 0.85rem; font-weight: 700; border-radius: var(--radius-md); text-decoration: none; transition: transform 0.2s, opacity 0.2s; color: #ffffff !important; display: flex; align-items: center; justify-content: center; }
+        .card-btn:hover { transform: translateY(-2px); opacity: 0.95; }
 
-        .venue-links {
-            margin-top: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-        }
-        .venue-btn {
-            text-align: center;
-            padding: 10px 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: opacity 0.2s;
-            color: #ffffff !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-google { background-color: #ea4335; }
-        .btn-tripadvisor { background-color: #00aa6c; }
-        .btn-mvt { background-color: #2e7d32; grid-column: 1 / -1; }
-        .venue-btn:hover { opacity: 0.9; }
-
-        .site-footer { background-color: #2c3e50; color: #ffffff; padding: 3rem 1.5rem; margin-top: 4rem; text-align: center; }
-        .site-footer p { margin: 0.5rem 0; color: #cbd5e1; }
-        .site-footer a { color: #bbf7d0; text-decoration: none; font-weight: 600; }
-        .back-to-top { display: inline-block; margin-top: 1.5rem; padding: 8px 16px; background-color: rgba(255,255,255,0.1); border-radius: 20px; color: white !important; text-decoration: none; }
-
-        /* Dark Mode Updates */
-        body.dark-mode { background-color: #121212; color: #e2e8f0; }
-        body.dark-mode .navbar, body.dark-mode .banner-container, body.dark-mode .controls-panel, body.dark-mode .venue-card { background-color: #1e293b; color: #f8fafc; border-color: #334155; }
-        body.dark-mode .directory-header h1, body.dark-mode .nav-brand, body.dark-mode .venue-name { color: #4ade80; }
-        body.dark-mode .directory-header p, body.dark-mode .venue-location, body.dark-mode .status-text { color: #94a3b8; }
-        body.dark-mode .nav-links a { color: #cbd5e1; }
-        body.dark-mode .nav-links a:hover { color: #4ade80; }
-        body.dark-mode .search-bar { background-color: #0f172a; border-color: #334155; color: #f8fafc; }
-        body.dark-mode .search-btn { background-color: #4ade80; color: #0f172a; }
-        body.dark-mode .search-btn:hover { background-color: #22c55e; }
-        body.dark-mode .venue-card { border-top-color: #4ade80; }
-        body.dark-mode .options-card { border-top-color: #f97316; }
-        body.dark-mode .badge-green { background-color: #064e3b; color: #a7f3d0; }
-        body.dark-mode .badge-orange { background-color: #7c2d12; color: #fed7aa; }
-        body.dark-mode .disclaimer-text { background-color: #0f172a; color: #cbd5e1; border-left-color: #f97316; }
-        body.dark-mode .site-footer { background-color: #0f172a; }
+        /* Footer */
+        .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding: 4rem 1.5rem 2.5rem; margin-top: 6rem; text-align: center; }
+        .footer-brand { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem; }
+        .footer-copy { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 1.5rem 0; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .footer-links a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--brand-primary); }
+        .back-top-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: var(--radius-full); background: var(--bg-base); border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .back-top-pill:hover { color: var(--text-primary); border-color: var(--border-highlight); }
     </style>
 </head>
 <body id="top">
     
     <nav class="navbar">
         <div class="nav-content">
-            <a href="index.html#latest-reviews" class="nav-brand">Latest Reviews</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="restaurants.html">Restaurants</a>
-                <a href="takeaways.html">Takeaways</a>
-                <a href="directory.html" style="color: #2e7d32;">Discover</a>
-                <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+            <a href="index.html" class="brand-lockup">
+                <img src="favicon.png" alt="Leaf Logo" class="brand-logo-icon">
+                <span class="brand-text">Plant-Based & Picky</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="restaurants.html">Restaurants</a>
+                    <a href="takeaways.html">Takeaways</a>
+                    <a href="directory.html" class="active">Discover</a>
+                </div>
+                <button id="themeToggleBtn" class="theme-switch-btn" aria-label="Toggle theme">
+                    <span id="themeIcon">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <div class="banner-container">
-        <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
+    <div class="banner-wrapper">
+        <div class="hero-banner-card">
+            <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
+        </div>
     </div>
 
     <div class="container">
@@ -229,27 +179,33 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Plant-Based & Picky.</p>
-        <p><a href="https://www.instagram.com/plantbasedandpicky" target="_blank">Follow us on Instagram</a></p>
-        <a href="#top" class="back-to-top">↑ Back to Top</a>
+        <div class="footer-brand">Plant-Based & Picky</div>
+        <p class="footer-copy">&copy; 2026 Plant-Based & Picky. Independent reviews by plant-based food lovers.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="takeaways.html">Takeaways</a>
+            <a href="directory.html">Discover Map</a>
+            <a href="https://www.instagram.com/plantbasedandpicky" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div><a href="#top" class="back-top-pill">↑ Back to Top</a></div>
     </footer>
 
     <script>
         // Dark Mode Logic
-        const toggleBtn = document.getElementById('darkModeToggle');
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
-            toggleBtn.textContent = '☀️';
+            themeIcon.textContent = '☀️';
         }
-        toggleBtn.addEventListener('click', () => {
+
+        themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                toggleBtn.textContent = '☀️';
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                toggleBtn.textContent = '🌙';
-            }
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+            themeIcon.textContent = isDark ? '☀️' : '🌙';
         });
 
         let localDatabase = [];
@@ -258,22 +214,18 @@
         const noResults = document.getElementById('noResults');
         const loading = document.getElementById('loading');
 
-        // Instantly load the new CSV file when the user visits the page
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                // Fetch the NEW CSV file you uploaded to GitHub
                 const response = await fetch('uk_large_vegan_restaurants_directory_download.csv');
                 if (!response.ok) throw new Error("CSV File not found");
                 
                 const csvData = await response.text();
                 const rows = csvData.split(/\r?\n/);
                 
-                // Start at index 1 to skip the column headers row
                 for(let i = 1; i < rows.length; i++) {
                     if(!rows[i].trim()) continue;
                     
                     const cols = rows[i].split(',');
-                    // Make sure the row has enough columns (Venue is col 1, Category is col 2, City is col 3)
                     if(cols.length >= 4) {
                         const name = cols[1].trim();
                         const category = cols[2].trim();
@@ -287,15 +239,15 @@
                         localDatabase.push({ name, type, city });
                     }
                 }
-                console.log(`Successfully loaded ${localDatabase.length} venues from the new CSV database.`);
             } catch (err) {
                 console.error("Database load error:", err);
             }
         });
 
         function createCard(venueName, venueType, locationName) {
-            const card = document.createElement('div');
-            card.className = 'venue-card';
+            const card = document.createElement('article');
+            card.className = 'review-card';
+            card.style.borderTop = '5px solid var(--status-green)';
             
             const query = encodeURIComponent(venueName + ' ' + locationName);
             const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
@@ -303,13 +255,18 @@
             const mvtSearchUrl = `https://www.myvegantown.org.uk/en/businessdirectory/?directory=1&view=search&searchword=${encodeURIComponent(venueName)}`;
             
             card.innerHTML = `
-                <span class="venue-type-badge badge-green">100% Vegan</span>
-                <h3 class="venue-name">${venueName}</h3>
-                <div class="venue-location">📍 ${venueType} near ${locationName}</div>
-                <div class="venue-links">
-                    <a href="${googleSearchUrl}" target="_blank" class="venue-btn btn-google">Google Reviews</a>
-                    <a href="${tripAdvisorUrl}" target="_blank" class="venue-btn btn-tripadvisor">TripAdvisor</a>
-                    <a href="${mvtSearchUrl}" target="_blank" class="venue-btn btn-mvt">Search My Vegan Town</a>
+                <div class="card-body">
+                    <div style="margin-bottom: 14px;">
+                        <span style="background: rgba(16, 185, 129, 0.15); color: var(--status-green); padding: 5px 12px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">100% Vegan</span>
+                    </div>
+                    <div class="card-location">📍 ${venueType} near ${locationName}</div>
+                    <h3 class="card-title">${venueName}</h3>
+                    
+                    <div class="venue-links">
+                        <a href="${googleSearchUrl}" target="_blank" class="card-btn" style="background: #ea4335;">Google</a>
+                        <a href="${tripAdvisorUrl}" target="_blank" class="card-btn" style="background: #00aa6c;">TripAdvisor</a>
+                        <a href="${mvtSearchUrl}" target="_blank" class="card-btn" style="grid-column: 1 / -1; background: var(--brand-primary);">Search My Vegan Town</a>
+                    </div>
                 </div>
             `;
             return card;
@@ -319,14 +276,12 @@
             let input = document.getElementById('searchInput').value.trim();
             if (!input) return;
 
-            // Auto-fix squashed postcodes
             const cleanInput = input.replace(/\s+/g, ''); 
             if (/^[a-zA-Z]{1,2}\d[a-zA-Z\d]?\d[a-zA-Z]{2}$/.test(cleanInput)) {
                 input = cleanInput.slice(0, -3) + ' ' + cleanInput.slice(-3);
                 document.getElementById('searchInput').value = input; 
             }
 
-            // Reset UI
             grid.innerHTML = '';
             noResults.style.display = 'none';
             loading.style.display = 'block';
@@ -335,7 +290,7 @@
             const queryLower = input.toLowerCase();
             let locationName = input; 
 
-            // PHASE 1: INSTANT CSV DATABASE SEARCH
+            // PHASE 1
             const instantResults = localDatabase.filter(v => 
                 v.city.toLowerCase().includes(queryLower) || v.name.toLowerCase().includes(queryLower)
             );
@@ -350,7 +305,7 @@
                 loading.textContent = `🌍 Searching the live map for ${input}...`;
             }
 
-            // PHASE 2: LIVE MAP FETCH
+            // PHASE 2
             try {
                 const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&limit=1&countrycodes=gb,ie`);
                 const geoData = await geoRes.json();
@@ -361,7 +316,6 @@
                     locationName = geoData[0].display_name.split(',')[0]; 
                     if (locationName.length > 20) locationName = input;
 
-                    // Fetch live map for strictly 100% vegan venues
                     const overpassQuery = `[out:json][timeout:8];(node["diet:vegan"="only"](around:8000,${lat},${lon});way["diet:vegan"="only"](around:8000,${lat},${lon}););out center;`;
                     const overpassRes = await fetch(`https://overpass-api.de/api/interpreter`, {
                         method: 'POST',
@@ -393,25 +347,30 @@
 
             loading.style.display = 'none';
 
-            // PHASE 3: THE TRUSTED FALLBACK
+            // PHASE 3 (FALLBACK)
             if (grid.children.length === 0) {
-                const fallbackCard = document.createElement('div');
-                fallbackCard.className = 'venue-card options-card';
+                const fallbackCard = document.createElement('article');
+                fallbackCard.className = 'review-card';
+                fallbackCard.style.borderTop = '5px solid var(--status-orange)';
                 
                 const fallbackSearchUrl = `https://www.myvegantown.org.uk/en/businessdirectory/?directory=1&view=search&searchword=${encodeURIComponent(locationName)}`;
                 
                 fallbackCard.innerHTML = `
-                    <span class="venue-type-badge badge-orange">Explore Trusted Directory</span>
-                    <h3 class="venue-name">Vegan Places in ${locationName}</h3>
-                    <div class="venue-location">📍 Search the wider area on My Vegan Town</div>
-                    
-                    <div class="disclaimer-text">
-                        <span style="font-size: 1.1rem;">ℹ️</span>
-                        <span><strong>Trusted Results:</strong> Since we couldn't find an exact match on our live map, try searching <strong>My Vegan Town</strong>—a trusted, 100% vegan directory run by the charity Viva!.</span>
-                    </div>
+                    <div class="card-body">
+                        <div style="margin-bottom: 14px;">
+                            <span style="background: rgba(245, 158, 11, 0.15); color: var(--status-orange); padding: 5px 12px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">Explore Trusted Directory</span>
+                        </div>
+                        <div class="card-location">📍 Search wider area</div>
+                        <h3 class="card-title">Vegan Places in ${locationName}</h3>
+                        
+                        <div class="disclaimer-text">
+                            <span style="font-size: 1.1rem;">ℹ️</span>
+                            <span>Since we couldn't find an exact match on our live map, try searching <strong>My Vegan Town</strong>—a trusted, 100% vegan directory.</span>
+                        </div>
 
-                    <div class="venue-links" style="display: flex;">
-                        <a href="${fallbackSearchUrl}" target="_blank" class="venue-btn btn-mvt" style="flex: 1;">Search My Vegan Town ➔</a>
+                        <div class="venue-links" style="display: flex;">
+                            <a href="${fallbackSearchUrl}" target="_blank" class="card-btn" style="flex: 1; background: var(--brand-primary);">Search My Vegan Town ➔</a>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(fallbackCard);
