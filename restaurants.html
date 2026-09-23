@@ -56,6 +56,15 @@
         
         .ratings-box { padding: 15px; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid transparent; }
         .ratings-box p { margin: 4px 0; font-size: 0.95rem; }
+        
+        /* Custom Star Styling */
+        .custom-star {
+            width: 1.15em;
+            height: 1.15em;
+            vertical-align: middle;
+            margin-top: -3px;
+        }
+
         .rating-green .ratings-box { background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; }
         .rating-orange .ratings-box { background-color: #fff7ed; border-color: #fed7aa; color: #9a3412; }
         .rating-red .ratings-box { background-color: #fef2f2; border-color: #fecaca; color: #991b1b; }
@@ -134,7 +143,7 @@
                 <div class="card-content">
                     <h3 style="color: #ef4444;">Pizza Hut</h3>
                     <div class="pills-container"><span class="tag-pill">📍 Manchester</span></div>
-                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐</p></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> <img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"></p></div>
                     <a href="pizza-hut.html" class="read-more-btn">Read Review ➔</a>
                 </div>
             </div>
@@ -146,7 +155,7 @@
                 <div class="card-content">
                     <h3>Down the Hatch</h3>
                     <div class="pills-container"><span class="tag-pill">📍 Liverpool</span></div>
-                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐⭐⭐⭐</p></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> <img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"></p></div>
                     <a href="down-the-hatch.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
             </div>
@@ -158,7 +167,7 @@
                 <div class="card-content">
                     <h3>Chatterley Whitfield</h3>
                     <div class="pills-container"><span class="tag-pill">📍 Stoke-on-Trent</span></div>
-                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐⭐⭐</p></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> <img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"></p></div>
                     <a href="chatterley.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
             </div>
@@ -170,7 +179,7 @@
                 <div class="card-content">
                     <h3>Church - Temple of Fun</h3>
                     <div class="pills-container"><span class="tag-pill">📍 Sheffield</span></div>
-                    <div class="ratings-box"><p><strong>Veggie Options:</strong> ⭐⭐⭐⭐⭐</p></div>
+                    <div class="ratings-box"><p><strong>Veggie Options:</strong> <img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"><img src="1000038958.png" alt="Vegan Star" class="custom-star"></p></div>
                     <a href="church.html" class="read-more-btn">Read Review & Gallery ➔</a>
                 </div>
             </div>
@@ -191,6 +200,8 @@
             toggleBtn.textContent = '☀️';
         }
 
+        // We completely rely on the stable, 100% free OpenStreetMap. 
+        // The CSS filter in the <style> block handles the Dark Mode perfectly!
         const map = L.map('map').setView([53.4, -2.1], 8);
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
