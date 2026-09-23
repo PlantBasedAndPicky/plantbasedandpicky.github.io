@@ -544,7 +544,8 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
             margin-bottom: 2rem;
         }
         .footer-links a {
@@ -553,6 +554,7 @@
             font-weight: 600;
             text-decoration: none;
             transition: color 0.2s;
+            white-space: nowrap;
         }
         .footer-links a:hover {
             color: var(--brand-primary);
@@ -579,7 +581,6 @@
 </head>
 <body id="top">
 
-    <!-- Frosted Glass Navbar -->
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="brand-lockup">
@@ -600,7 +601,6 @@
         </div>
     </nav>
 
-    <!-- Top Hero Banner Card -->
     <div class="banner-wrapper">
         <div class="hero-banner-card">
             <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
@@ -608,7 +608,6 @@
     </div>
 
     <div class="container">
-        <!-- Modern Hero Section -->
         <section class="hero-section">
             <div class="hero-badge">🌱 Discerning Food Critic</div>
             <h1 class="hero-title">Because Veggies Deserve The Spotlight.</h1>
@@ -644,7 +643,6 @@
             </details>
         </section>
 
-        <!-- Latest Reviews Row -->
         <div class="section-header-row" id="latest-reviews">
             <div class="section-heading-group">
                 <h2>Latest Reviews</h2>
@@ -652,7 +650,6 @@
             </div>
         </div>
 
-        <!-- Segmented Filter Bar -->
         <div class="filter-scroll-wrapper">
             <div class="filter-group">
                 <button class="filter-pill active" data-filter="all">All Reviews</button>
@@ -662,10 +659,8 @@
             </div>
         </div>
 
-        <!-- Editorial Review Cards Grid -->
         <div class="reviews-grid">
             
-            <!-- Pizza Hut -->
             <article class="review-card" data-filter="limited">
                 <div class="card-thumbnail-container">
                     <img src="pizza-hut-front.png" alt="Pizza Hut Manchester" class="card-img" loading="lazy">
@@ -693,7 +688,6 @@
                 </div>
             </article>
 
-            <!-- Down the Hatch -->
             <article class="review-card" data-filter="fully-vegan">
                 <div class="card-thumbnail-container">
                     <img src="down-the-hatch-front.png" alt="Down the Hatch Liverpool" class="card-img" loading="lazy">
@@ -724,7 +718,6 @@
                 </div>
             </article>
 
-            <!-- Chatterley Whitfield -->
             <article class="review-card" data-filter="ok-options">
                 <div class="card-thumbnail-container">
                     <img src="chatterley-front.jpg" alt="Chatterley Whitfield Stoke" class="card-img" loading="lazy">
@@ -754,7 +747,6 @@
                 </div>
             </article>
 
-            <!-- Church - Temple of Fun -->
             <article class="review-card" data-filter="fully-vegan">
                 <div class="card-thumbnail-container">
                     <img src="church-front.png" alt="Church Temple of Fun Sheffield" class="card-img" loading="lazy">
@@ -804,7 +796,6 @@
     </footer>
 
     <script>
-        // Dark Mode Logic
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
         
@@ -820,7 +811,6 @@
             themeIcon.textContent = isDark ? '☀️' : '🌙';
         });
 
-        // Filter Functionality
         const filterPills = document.querySelectorAll('.filter-pill');
         const reviewCards = document.querySelectorAll('.review-card');
 
