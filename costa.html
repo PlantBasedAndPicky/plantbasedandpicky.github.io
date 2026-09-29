@@ -6,7 +6,7 @@
     <title>Costa Coffee - Manchester Arndale | Plant-Based & Picky</title>
     <meta property="og:title" content="Costa Coffee | Plant-Based & Picky">
     <meta property="og:description" content="Read our review of Costa Coffee in Manchester Arndale Centre. Great plant-based milks and breakfast options!">
-    <meta property="og:image" content="file_00000000ec7c81f4b150ae6bb6b3f761.png">
+    <meta property="og:image" content="costa-front.jpg">
     <link rel="icon" href="favicon.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,7 +108,10 @@
         .review-content p, .review-content li { color: var(--text-secondary); }
 
         /* Gallery */
-        .gallery-placeholder { background: var(--bg-base); border: 2px dashed var(--border-highlight); border-radius: var(--radius-md); padding: 3rem 1.5rem; text-align: center; color: var(--text-muted); font-weight: 600; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .gallery-item { margin: 0; background: var(--bg-surface-elevated); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); }
+        .gallery-img { width: 100%; height: auto; display: block; border-bottom: 1px solid var(--border-subtle); }
+        .gallery-caption { padding: 1rem; font-size: 0.9rem; color: var(--text-muted); text-align: center; font-style: italic; }
 
         /* Socials */
         .share-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); text-align: center; }
@@ -199,6 +202,7 @@
             <h2>Our Thoughts</h2>
             <p><strong>We were thrilled to see plant-based meat on the menu!</strong></p>
             <p>My husband and I both prefer soya milk over cow's milk, and we love that you can order almost any drink here with a choice of soya, oat, or coconut milk. My absolute go-to is a Soya Iced Chai Latte.</p>
+            <p>Vegans are not overwhelmed with choice, but you will certainly find something available here, both toasties and pastries. Veggies fare slightly better with some cheese-based options.</p>
             
             <h3>Today's Order</h3>
             <ul>
@@ -224,8 +228,11 @@
 
         <div class="content-card review-content">
             <h2>Gallery</h2>
-            <div class="gallery-placeholder">
-                ☕ Food photos coming soon!
+            <div class="gallery">
+                <figure class="gallery-item">
+                    <img src="costa-front.jpg" alt="Costa Coffee Food" class="gallery-img">
+                    <figcaption class="gallery-caption">Costa Coffee, Manchester Arndale Centre.</figcaption>
+                </figure>
             </div>
         </div>
     </div>
