@@ -29,11 +29,8 @@
             --brand-surface: #ecfdf5;
             
             --status-green: #10b981;
-            --status-green-bg: #ecfdf5;
             --status-orange: #f59e0b;
-            --status-orange-bg: #fffbeb;
             --status-red: #ef4444;
-            --status-red-bg: #fef2f2;
             
             --border-subtle: #e2e8f0;
             --border-highlight: #cbd5e1;
@@ -62,11 +59,8 @@
             --brand-surface: rgba(16, 185, 129, 0.12);
             
             --status-green: #34d399;
-            --status-green-bg: rgba(16, 185, 129, 0.15);
             --status-orange: #fbbf24;
-            --status-orange-bg: rgba(245, 158, 11, 0.15);
             --status-red: #f87171;
-            --status-red-bg: rgba(239, 68, 68, 0.15);
             
             --border-subtle: #1e293b;
             --border-highlight: #334155;
@@ -189,7 +183,6 @@
             }
         }
 
-        /* Banner Container */
         .banner-wrapper {
             max-width: 1140px;
             margin: 1.5rem auto 0;
@@ -210,7 +203,6 @@
             display: block;
         }
 
-        /* Editorial Hero & Mission */
         .container {
             max-width: 1140px;
             margin: 2.5rem auto 5rem;
@@ -280,7 +272,6 @@
             font-weight: 500;
         }
 
-        /* Collapsible Story Details */
         details.story-accordion summary {
             cursor: pointer;
             font-weight: 600;
@@ -305,7 +296,6 @@
         .story-content p:last-child { margin-bottom: 0; }
         .story-content strong { color: var(--text-primary); }
 
-        /* Section Heading & Filter Chips */
         .section-header-row {
             display: flex;
             justify-content: space-between;
@@ -367,7 +357,6 @@
             box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
         }
 
-        /* Cards Grid */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -408,7 +397,18 @@
             transform: scale(1.05);
         }
 
-        /* Floating Overlaid Badges */
+        .card-placeholder-thumb {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: var(--bg-surface-elevated);
+        }
+
         .chip-badge {
             position: absolute;
             top: 14px;
@@ -462,7 +462,6 @@
             color: var(--text-primary);
         }
 
-        /* Rating Rows */
         .rating-metrics {
             background: var(--bg-base);
             border: 1px solid var(--border-subtle);
@@ -521,7 +520,6 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
         .site-footer {
             background: var(--bg-surface);
             border-top: 1px solid var(--border-subtle);
@@ -660,6 +658,35 @@
         </div>
 
         <div class="reviews-grid">
+
+            <!-- Maharaja -->
+            <article class="review-card" data-filter="ok-options">
+                <div class="card-thumbnail-container">
+                    <div class="card-placeholder-thumb">🍛 Maharaja</div>
+                    <span class="chip-badge chip-orange">Mixed Menu</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-location">📍 Talke, Stoke-on-Trent</div>
+                    <h3 class="card-title">Maharaja</h3>
+                    
+                    <div class="rating-metrics">
+                        <div class="rating-row">
+                            <span class="rating-label">Veggie Options</span>
+                            <span class="rating-stars">
+                                <img src="1000038958.png" alt="Leaf Star" class="custom-star">
+                                <img src="1000038958.png" alt="Leaf Star" class="custom-star">
+                                <img src="1000038958.png" alt="Leaf Star" class="custom-star">
+                            </span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">Overall Experience</span>
+                            <span class="rating-stars">⭐⭐⭐</span>
+                        </div>
+                    </div>
+
+                    <a href="maharaja.html" class="card-btn">Read Critique ➔</a>
+                </div>
+            </article>
             
             <!-- Costa Coffee -->
             <article class="review-card" data-filter="ok-options">
