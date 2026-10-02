@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharaja - Talke | Plant-Based & Picky</title>
+    <meta property="og:title" content="Maharaja | Plant-Based & Picky">
+    <meta property="og:description" content="Read our review of Maharaja in Talke, Stoke-on-Trent. Standard Curry House with veggie/vegan options.">
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-elevated: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --brand-primary: #059669;
+            --brand-hover: #047857;
+            --status-orange: #f59e0b;
+            --border-subtle: #e2e8f0;
+            --border-highlight: #cbd5e1;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            --nav-blur-bg: rgba(255, 255, 255, 0.82);
+        }
+
+        body.dark-mode {
+            --bg-base: #090d16;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --brand-primary: #10b981;
+            --brand-hover: #34d399;
+            --status-orange: #fbbf24;
+            --border-subtle: #1e293b;
+            --border-highlight: #334155;
+            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+            --nav-blur-bg: rgba(17, 24, 39, 0.85);
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-base); color: var(--text-primary); margin: 0; padding: 0; line-height: 1.6; transition: background-color 0.3s, color 0.3s; }
+        
+        /* Navbar */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--nav-blur-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); transition: all 0.3s ease; }
+        .nav-content { max-width: 1140px; margin: 0 auto; padding: 0.85rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .brand-lockup { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .brand-logo-icon { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+        .brand-text { font-family: 'Poppins', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--brand-primary); letter-spacing: -0.02em; }
+        .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; padding: 0; margin: 0; }
+        .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.925rem; font-weight: 600; transition: color 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--brand-primary); }
+        .theme-switch-btn { background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); color: var(--text-primary); width: 38px; height: 38px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; box-shadow: var(--shadow-sm); }
+        .theme-switch-btn:hover { border-color: var(--brand-primary); transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .nav-content { flex-direction: column; gap: 0.75rem; padding: 0.75rem 1rem; }
+            .nav-right { width: 100%; justify-content: space-between; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; }
+        }
+
+        .banner-wrapper { max-width: 1140px; margin: 1.5rem auto 0; padding: 0 1.5rem; }
+        .hero-banner-card { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); background: var(--bg-surface); }
+        .banner-image { width: 100%; height: auto; max-height: 240px; object-fit: cover; display: block; }
+
+        .container { max-width: 800px; margin: 2.5rem auto 5rem; padding: 0 1.5rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 2rem; color: var(--brand-primary); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--brand-hover); }
+
+        .content-card { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); padding: 2.5rem; margin-bottom: 2rem; transition: background-color 0.3s, border-color 0.3s; }
+        .header-card { border-top: 5px solid var(--status-orange); }
+        
+        .hero-title { font-family: 'Poppins', sans-serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 1rem 0; color: var(--status-orange); letter-spacing: -0.02em; }
+        .pills-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .tag-pill { display: inline-block; padding: 6px 14px; background: var(--bg-base); border: 1px solid var(--border-subtle); color: var(--text-secondary); border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .tag-pill:hover { border-color: var(--border-highlight); color: var(--text-primary); }
+
+        .rating-metrics { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 12px; }
+        .rating-row { display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
+        .rating-label { color: var(--text-secondary); font-weight: 600; }
+        .rating-stars { display: inline-flex; align-items: center; gap: 2px; }
+        .custom-star { width: 1.2em; height: 1.2em; vertical-align: middle; }
+
+        .at-a-glance { background: rgba(245, 158, 11, 0.05); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem; }
+        .at-a-glance h3 { margin-top: 0; color: var(--status-orange); font-size: 1.2rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.8rem; margin-bottom: 1rem; }
+        .at-a-glance ul { list-style: none; padding: 0; margin: 0; }
+        .at-a-glance li { margin-bottom: 0.8rem; font-size: 1.05rem; color: var(--text-secondary); }
+
+        .review-content h2, .review-content h3 { color: var(--status-orange); font-family: 'Poppins', sans-serif; }
+        .review-content p, .review-content li { color: var(--text-secondary); }
+
+        .gallery-placeholder { background: var(--bg-base); border: 2px dashed var(--border-highlight); border-radius: var(--radius-md); padding: 3rem 1.5rem; text-align: center; color: var(--text-muted); font-weight: 600; }
+
+        .share-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); text-align: center; }
+        .share-section h3 { color: var(--status-orange); margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif; }
+        .share-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .share-btn { padding: 10px 20px; border-radius: var(--radius-md); font-weight: 600; text-decoration: none; color: white !important; cursor: pointer; border: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; transition: transform 0.2s, opacity 0.2s; }
+        .share-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .share-btn.whatsapp { background-color: #25D366; }
+        .share-btn.facebook { background-color: #1877F2; }
+        .share-btn.copy-link { background-color: #475569; }
+
+        .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding: 4rem 1.5rem 2.5rem; margin-top: 4rem; text-align: center; }
+        .footer-brand { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem; }
+        .footer-copy { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 1.5rem 0; }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem 1.5rem; margin-bottom: 2rem; }
+        .footer-links a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+        .footer-links a:hover { color: var(--brand-primary); }
+        .back-top-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: var(--radius-full); background: var(--bg-base); border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .back-top-pill:hover { color: var(--text-primary); border-color: var(--border-highlight); }
+    </style>
+</head>
+<body id="top">
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="brand-lockup">
+                <img src="favicon.png" alt="Leaf Logo" class="brand-logo-icon">
+                <span class="brand-text">Plant-Based & Picky</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="restaurants.html">Restaurants</a>
+                    <a href="takeaways.html">Takeaways</a>
+                    <a href="directory.html">Discover</a>
+                </div>
+                <button id="themeToggleBtn" class="theme-switch-btn" aria-label="Toggle theme">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner-wrapper">
+        <div class="hero-banner-card">
+            <img src="file_00000000ec7c81f4b150ae6bb6b3f761.png" alt="Plant-Based & Picky Banner" class="banner-image">
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Homepage</a>
+        
+        <div class="content-card header-card">
+            <h1 class="hero-title">Maharaja</h1>
+            <div class="pills-container">
+                <a href="https://www.google.com/maps/search/?api=1&query=Maharaja+Talke+Stoke-on-Trent" target="_blank" class="tag-pill">📍 Talke, Stoke-on-Trent</a>
+            </div>
+            
+            <div class="rating-metrics">
+                <div class="rating-row">
+                    <span class="rating-label">Veggie / Vegan Options</span>
+                    <span class="rating-stars">
+                        <img src="1000038958.png" alt="Leaf Star" class="custom-star">
+                        <img src="1000038958.png" alt="Leaf Star" class="custom-star">
+                        <img src="1000038958.png" alt="Leaf Star" class="custom-star">
+                    </span>
+                </div>
+                <div class="rating-row">
+                    <span class="rating-label">Overall Experience</span>
+                    <span class="rating-stars">⭐⭐⭐</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card review-content">
+            <div class="at-a-glance">
+                <h3>At a Glance</h3>
+                <ul>
+                    <li><strong>✨ Standout Pick:</strong> Vegetable Balti</li>
+                    <li><strong>🛋️ Vibe:</strong> Low lighting with stylish purple accents</li>
+                    <li><strong>⚠️ Heads-Up:</strong> No clear vegan markers on the menu; paneer unavailable as a standalone option</li>
+                </ul>
+            </div>
+
+            <h2>Our Thoughts</h2>
+            <p><strong>Standard Curry House with veggie/vegan options.</strong></p>
+            <p>As longtime curry lovers who transitioned to a vegetarian diet six years ago, my husband and I have tried our fair share of Indian restaurants.</p>
+            <p>The restaurant has a lovely vibe, featuring atmospheric low lighting with stylish purple accents. The staff were friendly, welcoming, and seated us promptly.</p>
+            <p>The menu features standard curry house fare, but strangely lacks clear markers for vegetarian or vegan dishes, you will definitely need to ask the staff before ordering. On the plus side, allergens are clearly labelled, so you know exactly what is going into your food.</p>
+            <p>A quick heads-up for fellow vegetarians: paneer was not available as a standalone veggie option and oddly could only be ordered alongside meat dishes.</p>
+            
+            <h3>What we ordered:</h3>
+            <ul>
+                <li style="margin-bottom: 0.9rem;">
+                    <strong>Poppadoms and chutneys (Starters):</strong> We skipped traditional starters and went straight for poppadoms. We always like to see what dips a restaurant provides, and we were served mango chutney, lime pickle, and an onion salad. While the quality of the dips was excellent, I was a bit disappointed that mint yoghurt wasn't an option. The portion sizes for the chutneys were also quite small, just enough for two poppadoms each, so I highly recommend ordering extra if you like plenty of dip.
+                </li>
+                <li style="margin-bottom: 0.9rem;">
+                    <strong>Vegetable Korma & Vegetable Balti (Mains):</strong> The Vegetable Balti was the absolute standout of the evening. It was packed with flavor and loaded with veggies, and most importantly, absolutely zero mushrooms! A quick warning on the heat: you get to choose your spice level, but even the "mild" option packs a serious punch, so order carefully. The Vegetable Korma was pleasant, though pretty standard for what you’d expect at any curry house.
+                </li>
+                <li style="margin-bottom: 0.9rem;">
+                    <strong>Garlic Cheese Naan & Pilau Rice (Sides):</strong> Unfortunately, the naan was a bit of a letdown. It arrived uncut, meaning we had to tear it apart ourselves, and disappointingly, we could barely taste the garlic or the cheese. The pilau rice served as a fine standard accompaniment.
+                </li>
+            </ul>
+
+            <div class="share-section">
+                <h3>Share this review</h3>
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp" onclick="shareWhatsApp()">📱 WhatsApp</button>
+                    <button class="share-btn facebook" onclick="shareFacebook()">📘 Facebook</button>
+                    <button class="share-btn copy-link" onclick="copyLink()">🔗 Copy Link</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card review-content">
+            <h2>Gallery</h2>
+            <div class="gallery-placeholder">
+                📸 Photos coming soon!
+            </div>
+        </div>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-brand">Plant-Based & Picky</div>
+        <p class="footer-copy">&copy; 2026 Plant-Based & Picky. Independent reviews by plant-based food lovers.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="takeaways.html">Takeaways</a>
+            <a href="directory.html">Discover Map</a>
+            <a href="https://www.instagram.com/plantbasedandpicky" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div><a href="#top" class="back-top-pill">↑ Back to Top</a></div>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            themeIcon.textContent = '☀️';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+            themeIcon.textContent = isDark ? '☀️' : '🌙';
+        });
+
+        function shareWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this review on Plant-Based & Picky! ");
+            window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, '_blank');
+        }
+        function shareFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert("Link copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+</html>
