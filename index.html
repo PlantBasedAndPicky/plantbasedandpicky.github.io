@@ -408,6 +408,18 @@
             transform: scale(1.05);
         }
 
+        .card-placeholder-thumb {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: var(--bg-surface-elevated);
+        }
+
         /* Floating Overlaid Badges */
         .chip-badge {
             position: absolute;
@@ -560,12 +572,27 @@
             color: var(--brand-primary);
         }
         .back-top-pill {
-            display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: var(--radius-full); background: var(--bg-base); border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
-        .back-top-pill:hover { color: var(--text-primary); border-color: var(--border-highlight); }
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            background: var(--bg-base);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .back-top-pill:hover {
+            color: var(--text-primary);
+            border-color: var(--border-highlight);
+        }
     </style>
 </head>
 <body id="top">
-    
+
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="brand-lockup">
