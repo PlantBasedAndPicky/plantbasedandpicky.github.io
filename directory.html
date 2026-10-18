@@ -250,13 +250,12 @@
             }
         });
 
-        function buildDirectTripAdvisorUrl(venueName, locationName, explicitUrl = null) {
+        function buildTripAdvisorUrl(venueName, locationName, explicitUrl = null) {
             if (explicitUrl && explicitUrl.startsWith('http')) {
                 return explicitUrl;
             }
-            // Uses DuckDuckGo's backslash redirect locked strictly to UK/IE TripAdvisor Restaurant_Review pages
-            const exactQuery = `site:tripadvisor.co.uk/Restaurant_Review "${venueName}" "${locationName}"`;
-            return `https://duckduckgo.com/?q=%5C${encodeURIComponent(exactQuery)}`;
+            const cleanQuery = `${venueName} ${locationName}`.trim();
+            return `https://www.tripadvisor.co.uk/Search?q=${encodeURIComponent(cleanQuery)}`;
         }
 
         function createCard(venueName, venueType, locationName, explicitTaUrl = null) {
@@ -266,7 +265,7 @@
             
             const query = encodeURIComponent(venueName + ' ' + locationName);
             const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
-            const tripAdvisorUrl = buildDirectTripAdvisorUrl(venueName, locationName, explicitTaUrl);
+            const tripAdvisorUrl = buildTripAdvisorUrl(venueName, locationName, explicitTaUrl);
             const mvtSearchUrl = `https://www.myvegantown.org.uk/en/businessdirectory/?directory=1&view=search&searchword=${encodeURIComponent(venueName)}`;
             
             card.innerHTML = `
