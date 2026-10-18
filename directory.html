@@ -230,13 +230,19 @@
                         const name = cols[1].trim();
                         const category = cols[2].trim();
                         const city = cols[3].trim();
+                        const directTaCol = cols.find(c => c && c.toLowerCase().includes('tripadvisor.'));
                         
                         let type = "Restaurant / Cafe";
                         if (category.toLowerCase().includes("fast food") || category.toLowerCase().includes("street food")) {
                             type = "Takeaway";
                         }
                         
-                        localDatabase.push({ name, type, city });
+                        localDatabase.push({
+                            name,
+                            type,
+                            city,
+                            taUrl: directTaCol ? directTaCol.trim() : null
+                        });
                     }
                 }
             } catch (err) {
@@ -244,14 +250,23 @@
             }
         });
 
-        function createCard(venueName, venueType, locationName) {
+        function buildDirectTripAdvisorUrl(venueName, locationName, explicitUrl = null) {
+            if (explicitUrl && explicitUrl.startsWith('http')) {
+                return explicitUrl;
+            }
+            // Uses DuckDuckGo's backslash redirect locked strictly to UK/IE TripAdvisor Restaurant_Review pages
+            const exactQuery = `site:tripadvisor.co.uk/Restaurant_Review "${venueName}" "${locationName}"`;
+            return `https://duckduckgo.com/?q=%5C${encodeURIComponent(exactQuery)}`;
+        }
+
+        function createCard(venueName, venueType, locationName, explicitTaUrl = null) {
             const card = document.createElement('article');
             card.className = 'review-card';
             card.style.borderTop = '5px solid var(--status-green)';
             
             const query = encodeURIComponent(venueName + ' ' + locationName);
             const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
-            const tripAdvisorUrl = `https://www.tripadvisor.com/Search?q=${query}`;
+            const tripAdvisorUrl = buildDirectTripAdvisorUrl(venueName, locationName, explicitTaUrl);
             const mvtSearchUrl = `https://www.myvegantown.org.uk/en/businessdirectory/?directory=1&view=search&searchword=${encodeURIComponent(venueName)}`;
             
             card.innerHTML = `
@@ -263,9 +278,9 @@
                     <h3 class="card-title">${venueName}</h3>
                     
                     <div class="venue-links">
-                        <a href="${googleSearchUrl}" target="_blank" class="card-btn" style="background: #ea4335;">Google</a>
-                        <a href="${tripAdvisorUrl}" target="_blank" class="card-btn" style="background: #00aa6c;">TripAdvisor</a>
-                        <a href="${mvtSearchUrl}" target="_blank" class="card-btn" style="grid-column: 1 / -1; background: var(--brand-primary);">Search My Vegan Town</a>
+                        <a href="${googleSearchUrl}" target="_blank" rel="noopener" class="card-btn" style="background: #ea4335;">Google</a>
+                        <a href="${tripAdvisorUrl}" target="_blank" rel="noopener" class="card-btn" style="background: #00aa6c;">TripAdvisor</a>
+                        <a href="${mvtSearchUrl}" target="_blank" rel="noopener" class="card-btn" style="grid-column: 1 / -1; background: var(--brand-primary);">Search My Vegan Town</a>
                     </div>
                 </div>
             `;
@@ -290,7 +305,7 @@
             const queryLower = input.toLowerCase();
             let locationName = input; 
 
-            // PHASE 1
+            // PHASE 1: Instant CSV Database Lookup
             const instantResults = localDatabase.filter(v => 
                 v.city.toLowerCase().includes(queryLower) || v.name.toLowerCase().includes(queryLower)
             );
@@ -298,23 +313,26 @@
             if (instantResults.length > 0) {
                 instantResults.forEach(v => {
                     displayedNames.add(v.name.toLowerCase());
-                    grid.appendChild(createCard(v.name, v.type, v.city));
+                    grid.appendChild(createCard(v.name, v.type, v.city, v.taUrl));
                 });
                 loading.textContent = `⚡ Found ${instantResults.length} instant results. Checking the live map for more...`;
             } else {
                 loading.textContent = `🌍 Searching the live map for ${input}...`;
             }
 
-            // PHASE 2
+            // PHASE 2: Live OpenStreetMap Lookup with City Resolution
             try {
-                const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&limit=1&countrycodes=gb,ie`);
+                const geoRes = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(input)}&format=json&addressdetails=1&limit=1&countrycodes=gb,ie`);
                 const geoData = await geoRes.json();
 
                 if (geoData.length > 0) {
                     const lat = geoData[0].lat;
                     const lon = geoData[0].lon;
-                    locationName = geoData[0].display_name.split(',')[0]; 
-                    if (locationName.length > 20) locationName = input;
+                    const addr = geoData[0].address || {};
+                    
+                    // Resolve postcodes to actual town/city names for accurate TripAdvisor matching
+                    locationName = addr.city || addr.town || addr.village || addr.suburb || addr.county || geoData[0].display_name.split(',')[0];
+                    if (locationName.length > 25) locationName = input;
 
                     const overpassQuery = `[out:json][timeout:8];(node["diet:vegan"="only"](around:8000,${lat},${lon});way["diet:vegan"="only"](around:8000,${lat},${lon}););out center;`;
                     const overpassRes = await fetch(`https://overpass-api.de/api/interpreter`, {
@@ -335,7 +353,10 @@
                                     let type = "Restaurant / Cafe";
                                     if (tags.amenity === "fast_food") type = "Takeaway";
                                     if (tags.amenity === "pub" || tags.amenity === "bar") type = "Pub / Bar";
-                                    grid.appendChild(createCard(tags.name, type, locationName));
+                                    
+                                    const venueCity = tags['addr:city'] || tags['addr:town'] || locationName;
+                                    const osmTaUrl = tags['contact:tripadvisor'] || tags['tripadvisor'] || null;
+                                    grid.appendChild(createCard(tags.name, type, venueCity, osmTaUrl));
                                 }
                             });
                         }
@@ -347,7 +368,7 @@
 
             loading.style.display = 'none';
 
-            // PHASE 3 (FALLBACK)
+            // PHASE 3: Fallback
             if (grid.children.length === 0) {
                 const fallbackCard = document.createElement('article');
                 fallbackCard.className = 'review-card';
@@ -369,7 +390,7 @@
                         </div>
 
                         <div class="venue-links" style="display: flex;">
-                            <a href="${fallbackSearchUrl}" target="_blank" class="card-btn" style="flex: 1; background: var(--brand-primary);">Search My Vegan Town ➔</a>
+                            <a href="${fallbackSearchUrl}" target="_blank" rel="noopener" class="card-btn" style="flex: 1; background: var(--brand-primary);">Search My Vegan Town ➔</a>
                         </div>
                     </div>
                 `;
